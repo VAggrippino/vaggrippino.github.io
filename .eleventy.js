@@ -7,8 +7,8 @@ module.exports = (Config) => {
         dir: {
             input: '_input',
             output: '_output',
-            includes: '../_include',
-            layouts: '../_include/layout'
+            includes: '../_includes',
+            layouts: '../_includes/layouts'
         }
     }
 }
