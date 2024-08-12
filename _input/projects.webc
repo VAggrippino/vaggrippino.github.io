@@ -1,0 +1,10 @@
+---
+title: Projects
+page_class: projects
+eleventyNavigation:
+    key: Projects
+    order: 3
+    icon: "fa-solid fa-sitemap"
+    caption: "DO NOT OPEN THIS! Contained within are all manner of misery and evil."
+---
+

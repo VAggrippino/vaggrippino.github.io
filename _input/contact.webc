@@ -1,0 +1,20 @@
+---
+title: Contact Vince
+page_class: contact
+eleventyNavigation:
+    key: Contact
+    order: 6
+    icon: "fa-solid fa-comment"
+---
+
+<div class="intro">
+    <blockquote class="intro__poem">In solitude, I find a sacred space,
+    A timeless pause, a gentle, warm embrace.
+    The silence speaks in volumes, loud and clear,
+    A symphony of stillness that I hold dear.</blockquote>
+    <div class="intro__attribution">
+        "Embracing The Silence", attributed as "Unknown", found on
+        <a href="https://www.momjunction.com/articles/poems-about-loneliness_00761791/"
+        >some website</a>.
+    </div>
+</div>

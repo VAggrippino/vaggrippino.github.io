@@ -1,0 +1,21 @@
+---
+title: Blog
+page_class: blog
+eleventyNavigation:
+    key: Blog
+    order: 2
+    icon: "fa-solid fa-newspaper"
+    caption: "Hearken! and observe how healthily — how calmly I can tell you the whole story."
+---
+
+<div class="intro">
+    <blockquote class="intro__quote">
+        I heard all things in the heaven and in the earth. I heard many things
+        in hell. How, then, am I mad? Hearken! and observe how healthily — how
+        calmly I can tell you the whole story.
+    </blockquote>
+    <div class="intro__attribution">
+        - From <a href="https://poemuseum.org/the-tell-tale-heart/">The Tell-Tale Heart</a>
+        by Edgar Allan Poe.
+    </div>
+</div>

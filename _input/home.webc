@@ -1,0 +1,14 @@
+---
+permalink: /
+page_class: home
+eleventyNavigation:
+    key: Home
+    order: 1
+    icon: "fa-solid fa-house"
+    caption: "Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."
+---
+
+<div class="intro" @text="$data.eleventyNavigation.caption"></div>
+
+<h2>Recent Posts: </h2>
+
