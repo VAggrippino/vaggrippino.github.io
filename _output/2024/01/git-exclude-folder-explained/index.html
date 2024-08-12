@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Exclude Folder: Explained | Vince's Website</title>
+</head>
+<body>
+    <header class="header">
+    </header>
+
+    <main class="main-content"><h2 class="post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h2><figure class="post__image">
+        <a href="/2024/01/git-exclude-folder-explained/"><img src="/images/Octo-Cat_Explaining-min.jpg" alt="Octo-Cat explaining how Git works" title="Octo-Cat explaining how Git works"></a>
+    </figure><p class="post__date">1o January 2024 - Monday</p>
+<p>To exclude a directory from <code>git diff</code>, use the following command:</p>
+<pre><code class="language-bash">git diff -- . ':!directory_name'
+</code></pre>
+<p>You can find this exceptionally terse answer at at least a dozen search results, but not a single one offers an explanation. Well, that's not enough info for me...</p>
+<p>The "pathspec" is documented under <code>git help gitglossary</code> and is used for many git commands even if their syntax statement shows <code>&lt;path&gt;</code> instead of <code>&lt;pathspec&gt;</code> :</p>
+<p>https://git-scm.com/docs/gitglossary#def_pathspec</p>
+<p>Here are the important points:</p>
+<ul>
+<li>The double dashes (<code>--</code>) followed by a space means <em>end of command line flags</em>. Without this, git may try to interpret your <em>pathspec</em> as a command line flag.</li>
+<li>The dot (<code>.</code>) means the current directory. I don't think this is really necessary.</li>
+<li>The colon (<code>:</code>) indicates that the characters which follow it are a "magic signature".</li>
+<li>The exclamation mark means "exclude".</li>
+<li>The "magic signature" should be terminated by another colon, but that's optional if the pattern begins with a less magical symbol.</li>
+</ul>
+<p>I wanted to see what had changed in an <a href="https://www.11ty.dev/">Eleventy</a> site, excluding the generated output files. So, here's the command I used:</p>
+<pre><code class="language-bash">git status -- ':!:_output'
+</code></pre>
+<p>Note that I needed to terminate the magic signature with another colon because the path I wanted to exclude started with an underscore (<code>_</code>). Without that second colon, I got an error message:</p>
+<blockquote>
+<p>fatal: Unimplemented pathspec magic '_' in ':!_output'`</p>
+</blockquote>
+</main>
+    <footer class="footer"></footer>
+
+</body>
+</html>

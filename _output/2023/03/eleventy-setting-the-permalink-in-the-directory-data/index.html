@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleventy: Setting the permalink in the directory data | Vince's Website</title>
+</head>
+<body>
+    <header class="header">
+    </header>
+
+    <main class="main-content"><h2 class="post__title"><a href="/2023/03/eleventy-setting-the-permalink-in-the-directory-data/">Eleventy: Setting the permalink in the directory data</a></h2>
+<p class="post__date">29o March 2023 - Wednesday</p>
+<p>The permalink for all templates in a directory can be set in a template directory data file. This can be used along with data variables to generate the ideal URLs.</p>
+<p>For example, if you have pages in a <code>posts</code> subdirectory, but you want those pages to be at the root of the generated site, you might use something like this:</p>
+<p>File: <code>posts/posts.json</code></p>
+<pre><code class="language-json">{
+  "permalink": "/.html"
+}
+</code></pre>
+<p>Source: <a href="https://github.com/11ty/eleventy/issues/1783#issuecomment-842669102">GitHub thread</a></p>
+</main>
+    <footer class="footer"></footer>
+
+</body>
+</html>
