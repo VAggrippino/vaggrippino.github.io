@@ -1,0 +1,25 @@
+:root {
+    --text-color: black;
+}
+
+.main-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.main-nav__item {
+    border-bottom: 2px solid transparent;
+    &.active {
+        border-bottom-color: var(--text-color);
+    }
+
+    & a {
+        display: flex;
+        gap: 0.25em;
+        padding: 0.5em;
+        color: var(--text-color);
+        text-decoration: none;
+    }
+}

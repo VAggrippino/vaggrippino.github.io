@@ -11,7 +11,8 @@ eleventyNavigation:
 ---
 
 <div class="intro">
-    <blockquote class="intro__poem">To each his suff'rings: all are men,
+    <blockquote class="intro__poem">
+        To each his suff'rings: all are men,
         Condemn'd alike to groan,
         The tender for another's pain;
         Th' unfeeling for his own.

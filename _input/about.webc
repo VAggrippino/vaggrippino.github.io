@@ -12,7 +12,8 @@ eleventyNavigation:
 ---
 
 <div class="intro">
-    <blockquote class="intro__poem">The world is a vampire
+    <blockquote class="intro__poem">
+        The world is a vampire
         Sent to drain
         Secret destroyers
         Hold you up to the flames

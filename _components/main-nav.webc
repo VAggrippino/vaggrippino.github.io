@@ -1,0 +1,10 @@
+<nav class="main-nav">
+    <ul class="main-nav__list">
+        <li webc:for="entry of eleventyNavigation($data.collections.main)"
+            :class="'main-nav__item' + (entry.url === $data.page.url ? ' active' : '')"
+        >
+            <a :href="entry.url" :title="entry?.caption ?? ''"
+            ><i :class="entry.icon"></i><span @text="entry.title"></span></a>
+        </li>
+    </ul>
+</nav>
