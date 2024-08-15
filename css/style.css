@@ -2,6 +2,11 @@
     --text-color: black;
 }
 
+header {
+    padding-block: 0.25rem;
+    border-bottom: 1px solid var(--text-color);
+}
+
 .main-nav__list {
     margin: 0;
     padding: 0;
@@ -22,4 +27,25 @@
         color: var(--text-color);
         text-decoration: none;
     }
+}
+
+.intro {
+    max-width: 30em;
+    margin: auto;
+    padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & .preformatted {
+        white-space: pre;
+    }
+}
+
+.intro__poem {
+    white-space: pre-line;
+}
+
+.intro__attribution {
+    align-self: flex-end;
 }
