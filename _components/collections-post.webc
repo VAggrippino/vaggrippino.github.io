@@ -1,0 +1,15 @@
+<script webc:setup>
+    // Return the last n posts in reverse order
+    const recent_posts = (n) => {
+        const posts = collections.post
+        const sorted = posts.sort((a, b) => a.page.date - b.page.date)
+        const top = sorted.slice(0 - n)
+        return top.reverse()
+    }
+</script>
+
+<article class="collections-post" webc:for="post of recent_posts(numposts)">
+    <h3 class="collections-post__title"><a :href="post.data.page.url" @text="post.data.title"></a></h3>
+    <div class="collections-post__date" @text="formatted_date(post.data.page.date)"></div>
+    <div class="collections-post__content" @html="post.content"></div>
+</article>

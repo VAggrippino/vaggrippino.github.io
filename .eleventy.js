@@ -3,6 +3,7 @@ const navigation = require('@11ty/eleventy-navigation')
 
 const dayjs = require('dayjs')
 const advancedFormat = require('dayjs/plugin/advancedFormat')
+dayjs.extend(advancedFormat)
 
 module.exports = (Config) => {
     Config.addPlugin(webc)

@@ -19,3 +19,7 @@ eleventyNavigation:
         by Edgar Allan Poe.
     </div>
 </div>
+
+<h2>Latest Posts:</h2>
+
+<collections-post @numposts="3"></collections-post>

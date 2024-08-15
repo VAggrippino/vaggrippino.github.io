@@ -45,6 +45,107 @@
         by Edgar Allan Poe.
     </div>
 </div>
+
+<h2>Latest Posts:</h2>
+
+
+
+<article class="collections-post">
+    <h3 class="collections-post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h3>
+    <div class="collections-post__date">1st January 2024 - Monday</div>
+    <div class="collections-post__content"><h2 class="post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h2><figure class="post__image">
+        <a href="/2024/01/git-exclude-folder-explained/"><img src="/images/Octo-Cat_Explaining-min.jpg" alt="Octo-Cat explaining how Git works" title="Octo-Cat explaining how Git works"></a>
+    </figure><p class="post__date">1st January 2024 - Monday</p>
+<p>To exclude a directory from <code>git diff</code>, use the following command:</p>
+<pre><code class="language-bash">git diff -- . ':!directory_name'
+</code></pre>
+<p>You can find this exceptionally terse answer at at least a dozen search results, but not a single one offers an explanation. Well, that's not enough info for me...</p>
+<p>The "pathspec" is documented under <code>git help gitglossary</code> and is used for many git commands even if their syntax statement shows <code>&lt;path&gt;</code> instead of <code>&lt;pathspec&gt;</code> :</p>
+<p>https://git-scm.com/docs/gitglossary#def_pathspec</p>
+<p>Here are the important points:</p>
+<ul>
+<li>The double dashes (<code>--</code>) followed by a space means <em>end of command line flags</em>. Without this, git may try to interpret your <em>pathspec</em> as a command line flag.</li>
+<li>The dot (<code>.</code>) means the current directory. I don't think this is really necessary.</li>
+<li>The colon (<code>:</code>) indicates that the characters which follow it are a "magic signature".</li>
+<li>The exclamation mark means "exclude".</li>
+<li>The "magic signature" should be terminated by another colon, but that's optional if the pattern begins with a less magical symbol.</li>
+</ul>
+<p>I wanted to see what had changed in an <a href="https://www.11ty.dev/">Eleventy</a> site, excluding the generated output files. So, here's the command I used:</p>
+<pre><code class="language-bash">git status -- ':!:_output'
+</code></pre>
+<p>Note that I needed to terminate the magic signature with another colon because the path I wanted to exclude started with an underscore (<code>_</code>). Without that second colon, I got an error message:</p>
+<blockquote>
+<p>fatal: Unimplemented pathspec magic '_' in ':!_output'`</p>
+</blockquote>
+</div>
+</article>
+<article class="collections-post">
+    <h3 class="collections-post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h3>
+    <div class="collections-post__date">21st December 2023 - Thursday</div>
+    <div class="collections-post__content"><p></p><figure class="post__image">
+<img src="/images/VSCodeVim_Smashing_VSCode-min.jpg" alt="VSCodeVim Cartoon Character Breaking VSCode">
+</figure><p></p>
+<h2 class="post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
+<p class="post__date">21st December 2023 - Thursday</p>
+<p>VSCodeVim broke VSCode's file <em>Quick Open</em> keybinding. Now, <em>CTRL-P</em> just moves the cursor up a line instead of opening the file finder as expected.</p>
+<p>Based on the GitHub issue linked in <a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">the commit</a>, it was meant to enable MacOS's default cursor movement keys.</p>
+<p><a href="https://github.com/VSCodeVim/Vim/issues/8574">Issue #8574</a> shows some easy fixes. I chose to disable the plugin's handling of the keybinding:</p>
+<pre><code class="language-json">"vim.handleKeys": {
+    "&lt;C-p&gt;": false
+}
+</code></pre>
+<p>This is in <code>settings.json</code> and I got there by opening Settings, entering "handlekeys" into the search box, and clicking on the "Edit in settings.json" link.</p>
+<h3>References</h3>
+<ul>
+<li><a href="https://github.com/VSCodeVim/Vim/issues/8574">VSCodeVim #8574: CTRL+P not working properly</a></li>
+<li><a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">VSCodeVim commit cd9ebd5</a></li>
+<li><a href="https://github.com/VSCodeVim/Vim/issues/6363">VSCodeVim #6363: Visual mode + &lt;C-n&gt;/&lt;C-p&gt;/&lt;C-f&gt;/&lt;C-b&gt; doesn't work as expected</a></li>
+</ul>
+</div>
+</article>
+<article class="collections-post">
+    <h3 class="collections-post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h3>
+    <div class="collections-post__date">22nd April 2023 - Saturday</div>
+    <div class="collections-post__content"><h2 class="post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h2>
+<p class="post__date">22nd April 2023 - Saturday</p>
+<p>I wanted to be able to scroll a <code>man</code> page in the terminal with my mouse wheel. While looking for a setting to change I learned that Vim can be used as a pager allowing mouse support and much more.
+Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix">this entry at the Vim Tips Wiki</a>, I decided to set it up for myself, but with a few minor changes. I did all this in WSL with Ubuntu 20.04.6 and Zsh on Windows 11, but it should work as well with any Unix or Linux variant:</p>
+<p><code>~/.zshrc</code>:</p>
+<pre><code class="language-bash">export PAGER="/bin/sh -c \"unset PAGER;col -b -x | vim -R \
+    -c 'set ft=man mouse=a nonumber t_te=' \
+    -c 'highlight Normal ctermbg=NONE guibg=NONE' \
+    -c 'map q :q&lt;CR&gt;' \
+    -c 'map &lt;SPACE&gt; &lt;C-D&gt;' \
+    -c 'map b &lt;C-U&gt;' \
+    -c 'nmap K :Man &lt;C-R&gt;=expand(\\\"&lt;cword&gt;\\\")&lt;CR&gt;&lt;CR&gt;' -\""
+</code></pre>
+<p>This is very similar to what was documented in the Vim Tips Wiki, but I've made a few changes to suit my needs...</p>
+<ul>
+<li><code>/bin/sh -c</code> executes a command with the most basic shell on the system (Bash on most modern systems)</li>
+<li><code>col -b -x</code> filters out reverse line feeds used by <code>man</code> to show underlined text when outputting directly to the console.</li>
+<li><code>vim -R</code> starts Vim in read-only mode
+<ul>
+<li>I initially replaced this with <code>nvim</code>, but the key mapping for the <code>q</code> key doesn't work with Neovim.</li>
+</ul>
+</li>
+<li><code>-c 'set ft=man mouse=a nonumber t_te='</code>
+<ul>
+<li><code>-c</code>: executes a command in Vim. This line <code>set</code>s a few options</li>
+<li><code>ft=man</code> (a.k.a. <code>filetype=man</code>) enables proper syntax highlighting for <code>man</code> pages</li>
+<li><code>mouse=a</code>: enables mouse support for all editor modes</li>
+<li><code>nonumber</code>: turns off the line numbers I usually have enabled for editing code</li>
+<li><code>t_te=</code>: disables clearing the screen when Vim exits
+<ul>
+<li>From this answer on the Vi and Vim Stack Exchange: <a href="https://vi.stackexchange.com/a/435/6330">vi.stackexchange.com/a/435/6330</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>-c 'highlight Normal ctermbg=NONE guibg=NONE'</code>: This disables the background color that I use in the editor when editing code so that my terminal transparency is still in effect.</li>
+<li>The rest of the lines change some key mappings so that it works in a familiar way if you're used to <code>less</code> (the default pager for <code>man</code> pages)</li>
+</ul>
+</div>
+</article>
 </main>
     <footer class="footer"></footer>
 
