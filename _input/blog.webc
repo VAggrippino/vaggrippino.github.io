@@ -7,7 +7,6 @@ eleventyNavigation:
     icon: "fa-solid fa-newspaper"
     caption: "Hearken! and observe how healthily — how calmly I can tell you the whole story."
 ---
-
 <div class="intro">
     <blockquote class="intro__quote">
         I heard all things in the heaven and in the earth. I heard many things
@@ -23,3 +22,5 @@ eleventyNavigation:
 <h2>Latest Posts:</h2>
 
 <collections-post @numposts="3"></collections-post>
+
+<a :href="`history/${collections.post.length / 3}`">Older Posts</a>

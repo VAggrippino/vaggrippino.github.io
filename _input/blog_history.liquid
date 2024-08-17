@@ -1,0 +1,49 @@
+---
+title: Blog History
+page_class: history
+tags: blog
+
+pagination:
+    data: collections.post
+    size: 3
+    alias: posts
+
+permalink: "/blog/history/{{ pagination.pageNumber | plus: 1 }}/index.html"
+---
+{%- for post in posts -%}
+    <article class="post">
+        <h2 class="post__title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <div class="post__date">{%- formatted_date post.data.date -%}</div>
+        
+        {%- if post.data.excerpt -%}
+            <div class="post__excerpt">{{ post.data.excerpt }}</div>
+        {%- else -%}
+            <div class="post__content">{{ post.content }}</div>
+        {%- endif -%}
+    </article>
+{%- endfor %}
+
+<nav aria-labelledby="blog-history-nav" class="blog-history-nav">
+    <h4 id="blog-history-nav" class="blog-history-nav__label">Blog History Pages</h4>
+    {% if pagination.href.previous -%}
+        <div class="blog-history-nav__previous">
+            <a href="{{ pagination.href.previous }}"><i class="fa-solid fa-caret-left"></i></a>
+        </div>
+    {%- endif %}
+    <ol class="blog-history-nav__list">
+        {%- for entry in pagination.pages -%}
+            {% assign url = pagination.hrefs[forloop.index0] %}
+            {% assign pagenum = forloop.index -%}
+            <li class="blog-history-nav__item">
+                <a href="{{ url }}"
+                    {%- if page.url == url %} aria-current="page"{% endif %}
+                >{{ pagenum }}</a>
+            </li>
+        {%- endfor %}
+    </ol>
+    {% if pagination.href.next -%}
+        <div class="blog-history-nav__next">
+            <a href="{{ pagination.href.next }}"><i class="fa-solid fa-caret-right"></i></a>
+        </div>
+    {%- endif %}
+</nav>

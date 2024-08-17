@@ -49,3 +49,39 @@ header {
 .intro__attribution {
     align-self: flex-end;
 }
+
+.blog-history-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.blog-history-nav__label {
+    flex: 100%;
+    text-align: center;
+}
+
+.blog-history-nav__list {
+    display: inline-flex;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blog-history-nav a {
+    width: 1.8em;
+    height: 1.8em;
+    text-decoration: none;
+    display: grid;
+    place-items: center;
+    border-radius: 0.25rem;
+    color: black;
+    background-color: silver;
+
+    :is([class$=__next], [class$=__previous], :has(> a[aria-current])) & {
+        background-color: black;
+        color: white;
+    }
+}
