@@ -13,7 +13,9 @@
         <main-nav></main-nav>
     </header>
 
-    <main class="main-content" @html="content"></main>
+    <main class="main" @html="content"></main>
     <footer class="footer"></footer>
+
+    <script webc:keep src="/js/main.js"></script>
 </body>
 </html>

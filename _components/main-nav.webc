@@ -1,4 +1,8 @@
 <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li webc:for="entry of eleventyNavigation($data.collections.main)"
             :class="'main-nav__item' + (entry.url === $data.page.url ? ' active' : '')"
