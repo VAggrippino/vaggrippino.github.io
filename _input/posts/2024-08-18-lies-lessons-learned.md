@@ -7,24 +7,22 @@ published: false
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
 <div class="post__date">{% formatted_date post.data.date %}</div>
 
-{%- if image -%}
-    <figure class="post__image">
-        <a href="{{ page.url }}"
-        ><img
-            src="{{ image }}"
-            alt="{{ image_alt }}"
-            title="{{ image_alt }}"
-        ></a>
-        <figcaption>
-            <p>
-                This image was inspired by <a href="https://youtu.be/xNx_gU57gQ4?si=HgjnVIXUI9rOjuqX">an old SNL skit</a> and created using DALL-E. The skit, which mocked "Daily Affirmations", was performed by a comedian who went on to become a best-selling author and a US Senator.
-            </p>
-            <p>
-                <em>I</em> feel like "self affirmation" is nonsense and telling myself blatant lies makes me feel worse about myself, not better. However, scientific research has shown in many cases that it has a generally positive effect.
-            </p>
-        </figcaption>
-    </figure>
-{%- endif %}
+<figure class="post__image">
+    <a href="{{ page.url }}"
+    ><img
+        src="{{ image }}"
+        alt="{{ image_alt }}"
+        title="{{ image_alt }}"
+    ></a>
+    <figcaption>
+        <p>
+            This image was inspired by <a href="https://youtu.be/xNx_gU57gQ4?si=HgjnVIXUI9rOjuqX">an old SNL skit</a> and created using DALL-E. The skit, which mocked "Daily Affirmations", was performed by a comedian who went on to become a best-selling author and a US Senator.
+        </p>
+        <p>
+            <em>I</em> feel like "self affirmation" is nonsense and telling myself blatant lies makes me feel worse about myself, not better. However, scientific research has shown in many cases that it has a generally positive effect.
+        </p>
+    </figcaption>
+</figure>
 
 ### Lesson 1
 

@@ -9,7 +9,7 @@ eleventyNavigation:
         No more; where ignorance is bliss,
         'Tis folly to be wise."
 ---
-
+<h1>Wiki</h1>
 <div class="intro">
     <blockquote class="intro__poem preformatted">To each his suff'rings: all are men,
          Condemn'd alike to groan,

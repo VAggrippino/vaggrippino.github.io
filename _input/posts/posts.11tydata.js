@@ -10,6 +10,7 @@ const date_path = (data)  => {
 module.exports = () => ({
     layout: 'base.webc',
     tags: 'post',
+    page_class: 'post',
 
     permalink: date_path,
 

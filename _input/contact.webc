@@ -6,7 +6,7 @@ eleventyNavigation:
     order: 6
     icon: "fa-solid fa-comment"
 ---
-
+<h1>Contact Vince</h1>
 <div class="intro">
     <blockquote class="intro__poem">
         In solitude, I find a sacred space,

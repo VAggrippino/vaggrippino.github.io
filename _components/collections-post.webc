@@ -9,7 +9,12 @@
 </script>
 
 <article class="collections-post" webc:for="post of recent_posts(numposts)">
-    <h3 class="collections-post__title"><a :href="post.data.page.url" @text="post.data.title"></a></h3>
+    <h3 class="collections-post__title">
+        <a :href="post.data.page.url">
+            <i class="fa-solid fa-bookmark"></i>
+            <span @text="post.data.title"></span>
+        </a>
+    </h3>
     <div class="collections-post__date" @text="formatted_date(post.data.page.date)"></div>
     <div class="collections-post__content" @html="post.content"></div>
 </article>
