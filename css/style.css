@@ -90,3 +90,28 @@ body { margin: 0; }
         text-decoration: none;
     }
 }
+
+.intro {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    & > * { margin: 0; }
+}
+
+.intro__poem {
+    white-space: pre-line;
+
+    &.preformatted { white-space: pre; }
+}
+
+.intro__attribution {
+    text-align: end;
+    padding-inline: 1rem;
+    box-sizing: border-box;
+
+    & > :is(cite, .byline) {
+        white-space: nowrap;
+    }
+}

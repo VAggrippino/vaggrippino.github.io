@@ -12,8 +12,7 @@ eleventyNavigation:
 ---
 
 <div class="intro">
-    <blockquote class="intro__poem">
-        The world is a vampire
+    <blockquote class="intro__poem">The world is a vampire
         Sent to drain
         Secret destroyers
         Hold you up to the flames
@@ -29,6 +28,6 @@ eleventyNavigation:
     <div class="intro__attribution">
         - From
         <cite><a href="https://youtu.be/8-r-V0uK4u0?si=F1yQlXtLXq1APnz8">Bullet With Butterfly Wings</a></cite>
-        by Smashing Pumpkins
+        <span class="byline">by Smashing Pumpkins</span>.
     </div>
 </div>
