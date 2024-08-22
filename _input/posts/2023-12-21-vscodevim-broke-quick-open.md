@@ -7,15 +7,12 @@ image: /images/VSCodeVim_Smashing_VSCode-min.jpg
 image_alt: VSCodeVim Cartoon Character Breaking VSCode
 published: true
 ---
-{% if image %}
-    <figure class="post__image">
-        <img src="{{ image }}" alt="{{ image_alt }}">
-    </figure>
-{% endif %}
-
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
+<div class="post__date">{% formatted_date page.date %}</div>
 
-<p class="post__date">{% formatted_date page.date %}</p>
+<figure class="post__image">
+    <img src="{{ image }}" alt="{{ image_alt }}" title="{{ image_alt }}">
+</figure>
 
 VSCodeVim broke VSCode's file _Quick Open_ keybinding. Now, _CTRL-P_ just moves the cursor up a line instead of opening the file finder as expected.
 

@@ -21,8 +21,7 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 <figure class="alignleft">
 

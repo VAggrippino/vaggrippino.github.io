@@ -24,8 +24,7 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
  Online courses all seem to share one flaw… To put it bluntly, they piss me off… Inconsistent information, outdated materials, poor explanation of key concepts, and, sometimes, patently incorrect information. But if I stop to think about it for a moment, it’s actually a feature.
 

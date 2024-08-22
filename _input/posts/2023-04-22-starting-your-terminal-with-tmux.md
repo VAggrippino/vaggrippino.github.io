@@ -11,8 +11,7 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 I am getting more comfortable with [`tmux`](https://github.com/tmux/tmux/wiki) and I want to make sure I don't forget to use it when I'm at the command prompt. So, I made a simple Bash script to automatically connect to an existing session or start a new session when I start my terminal:
 

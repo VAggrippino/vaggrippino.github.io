@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,13 +38,13 @@
 </nav>
     </header>
 
-    <main class="main-content"><p>{% if image %}
+    <main class="main"><p>{% if image %}
 </p><figure class="post__image">
 <img src="{{ image }}" alt="{{ image_alt }}">
 </figure>
 {% endif %}<p></p>
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 <p><a href="https://mozilla.github.io/nunjucks/">Nunjucks</a> templating with
 <a href="https://www.11ty.dev/">Eleventy</a> is a powerful combination for content
 creation but I've noticed an oddity with
@@ -139,6 +143,8 @@ the documentation...</p>
 <p>I thought the <code>for</code>/<code>endfor</code> lines didn't count. I thought that, like a JavaScript <code>for</code> loop, all that mattered was what was inside the block. In a Nunjucks template everything that's outside of the <code>{% %}</code> is rendered. And the documentation says that. So, a dash at the beginning of the tag eliminates the whitespace before the tag and a dash at the end of the tag eliminates the whitespace after the tag. Now that I understand it, I think the only thing I could do to improve the documentation is add some more examples.</p>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

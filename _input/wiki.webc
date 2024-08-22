@@ -11,18 +11,17 @@ eleventyNavigation:
 ---
 
 <div class="intro">
-    <blockquote class="intro__poem">
-        To each his suff'rings: all are men,
-        Condemn'd alike to groan,
-        The tender for another's pain;
-        Th' unfeeling for his own.
-        Yet ah! why should they know their fate?
-        Since sorrow never comes too late,
-        And happiness too swiftly flies.
-        Thought would destroy their paradise.
-        No more; where ignorance is bliss,
-        'Tis folly to be wise.</blockquote>
+    <blockquote class="intro__poem preformatted">To each his suff'rings: all are men,
+         Condemn'd alike to groan,
+The tender for another's pain;
+         Th' unfeeling for his own.
+Yet ah! why should they know their fate?
+Since sorrow never comes too late,
+         And happiness too swiftly flies.
+Thought would destroy their paradise.
+No more; where ignorance is bliss,
+       'Tis folly to be wise.</blockquote>
     <div class="intro__attribution">
-        - Ode on a Distant Prospect of Eton College by Thomas Gray
+        - From <cite><a href="https://www.poetryfoundation.org/poems/44301/ode-on-a-distant-prospect-of-eton-college">Ode on a Distant Prospect of Eton College</a></cite> by Thomas Gray
     </div>
 </div>

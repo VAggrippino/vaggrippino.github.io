@@ -26,8 +26,7 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 Most of the time, when you need to update a plugin, a theme, or even WordPress core, you just click an update button and the rest is handled *automagically*. This works because web hosts usually set the web server to use the same user as the one that owns the files. This has some inherent security problems.
 

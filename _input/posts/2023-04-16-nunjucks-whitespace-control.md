@@ -19,8 +19,7 @@ excerpt: "
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 [Nunjucks](https://mozilla.github.io/nunjucks/) templating with
 [Eleventy](https://www.11ty.dev/) is a powerful combination for content

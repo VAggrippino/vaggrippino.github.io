@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,11 +38,11 @@
 </nav>
     </header>
 
-    <main class="main-content"><p></p><figure class="post__image">
+    <main class="main"><p></p><figure class="post__image">
 <img src="/wp-content/uploads/2018/04/20180424_041449_transitionend_Promise_demo.gif" alt="transitionend Promise">
 </figure><p></p>
 <h2 class="post__title"><a href="/transitionend-promise/">transitionend Promise</a></h2>
-<p class="post__date">24th April 2018 - Tuesday</p>
+<div class="post__date">24th April 2018 - Tuesday</div>
 <p>I’m working on a page that displays thumbnail images. When I click on a thumbnail I want it to show an <g data-gr-id="27" id="27" class="gr_ gr_27 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del">info box</g> containing more image details. I’m using a CSS transition on the <g data-gr-id="28" id="28" class="gr_ gr_28 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del">info box</g> and I want to populate the image details while the <g data-gr-id="29" id="29" class="gr_ gr_29 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del">info box</g> is hidden. If the <g data-gr-id="30" id="30" class="gr_ gr_30 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del">info box</g> is already visible from clicking on a different thumbnail, I need to hide it first and populate the image details after the transition completes.</p>
 <p>Here’s some pseudocode that shows what I want to happen…</p>
 <pre><code class="language-js">thumbnail.addEventListener('click', e =&gt; {
@@ -65,6 +69,8 @@
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

@@ -23,8 +23,7 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 <figure class="wp-block-image size-full">![](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2019/12/error-loading-min-e1629184314699.jpg?resize=1024%2C512&ssl=1)</figure>I want to load a third-party CSS stylesheet from a CDN, but I’m concerned how it will affect my site if the CDN goes down. *How do I use JavaScript to check if a CSS file has loaded* so I can load a local fallback instead?
 

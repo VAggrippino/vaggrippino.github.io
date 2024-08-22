@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,11 +38,11 @@
 </nav>
     </header>
 
-    <main class="main-content"><p></p><figure class="post__image">
+    <main class="main"><p></p><figure class="post__image">
 <img src="/wp-content/uploads/2019/05/WordPress_Security_header-min.jpg" alt="Should WordPress update itself at all?">
 </figure><p></p>
 <h2 class="post__title"><a href="/should-wordpress-update-itself-at-all/">Should WordPress update itself at all?</a></h2>
-<p class="post__date">26th May 2019 - Sunday</p>
+<div class="post__date">26th May 2019 - Sunday</div>
 <p>Most of the time, when you need to update a plugin, a theme, or even WordPress core, you just click an update button and the rest is handled <em>automagically</em>. This works because web hosts usually set the web server to use the same user as the one that owns the files. This has some inherent security problems.</p>
 <p><a href="https://www.nearlyfreespeech.net/">My current hosting provider</a> takes an <em>opinionated</em> approach to security which, among other things, breaks WordPress’ automated updates by default. They even discourage the use of FTP, calling it “<a href="https://members.nearlyfreespeech.net/forums/viewtopic.php?t=10232&amp;highlight=wordpress+ftp#50031">an obsolete protocol that should never be used</a>“.</p>
 <h2>Direct file modification or FTP?</h2>
@@ -49,6 +53,8 @@
 <p>I thought that if automated updates are a basic WordPress feature, there must be way to get it to work without compromising security. But I’ve done a lot of reading and performed a lot of trial and error. I’ve even read carefully through code to understand the process more fully. After all that, I’m beginning to agree with the idea that WordPress shouldn’t update itself. Yes, you can get it to work but there’s always a trade-off between security and convenience. It would only take one bad experience to make you regret avoiding a few manually typed SSH commands.</p>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

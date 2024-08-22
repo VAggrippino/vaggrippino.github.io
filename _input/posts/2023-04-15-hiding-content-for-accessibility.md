@@ -11,8 +11,7 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 Sometimes a website that seems clear and easy to use for sighted users can cause
 some confusion for those who rely on a screen reader for navigation.

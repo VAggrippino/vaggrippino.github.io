@@ -23,8 +23,7 @@ published: false
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 I’ve been putting some effort into bringing my blog back to life. I’d like it to be a source of income, so I started looking into Google AdSense.
 

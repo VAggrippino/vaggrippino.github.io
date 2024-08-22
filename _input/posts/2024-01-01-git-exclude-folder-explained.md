@@ -1,17 +1,15 @@
 ---
 title: "Git Exclude Folder: Explained"
 image: "/images/Octo-Cat_Explaining-min.jpg"
-image_alt: "Octo-Cat explaining how Git works"
+image_alt: "A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform."
 published: true
 ---
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-{%- if image -%}
-    <figure class="post__image">
-        <a href="{{ page.url }}"><img src="{{ image }}" alt="{{ image_alt }}" title="{{ image_alt }}"></a>
-    </figure>
-{%- endif -%}
+<div class="post__date">{% formatted_date page.date %}</div>
 
-<p class="post__date">{% formatted_date page.date %}</p>
+<figure class="post__image">
+    <a href="{{ page.url }}"><img src="{{ image }}" alt="{{ image_alt }}" title="{{ image_alt }}"></a>
+</figure>
 
 To exclude a directory from `git diff`, use the following command:
 

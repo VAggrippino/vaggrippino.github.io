@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,11 +38,11 @@
 </nav>
     </header>
 
-    <main class="main-content"><p></p><figure class="post__image">
+    <main class="main"><p></p><figure class="post__image">
 <img src="/wp-content/uploads/2019/05/20190522_101438_WordPress_Update_failed-min.png" alt="WordPress Update Failed">
 </figure><p></p>
 <h2 class="post__title"><a href="/wordpress-update-failed/">WordPress Update Failed</a></h2>
-<p class="post__date">22nd May 2019 - Wednesday</p>
+<div class="post__date">22nd May 2019 - Wednesday</div>
 <div class="wp-block-image"><figure class="aligncenter">![WordPress update error message](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2019/05/20190522_101438_WordPress_Update_failed-min.png?resize=661%2C300&amp;ssl=1)</figure></div><div style="background-color: beige; padding: 0 1rem 1rem 1rem; margin: 1rem; box-shadow: 0 0.25rem 0.25rem 1px rgba(0, 0, 0, 0.3)">## tl;dr
 <p>When WordPress fails to do something automatically, it’s almost always a permissions problem. This is no exception.</p>
 <p>I haven’t found an easy and secure way to enable automatic WordPress updates. The only way I have found is to make all WordPress files and folders writable by the web server process…</p>
@@ -87,6 +91,8 @@ if ( $check_is_writable &amp;&amp; 'direct' === $wp_filesystem-&gt;method ) {
 A WordPress update might need to overwrite any of the files that are part of the installation. It might need to add new files, too. As far as I can tell, the only way is to make all of these files and directories writable by the (UNIX / Linux) user that runs the website. That’s not a solution.</code></pre>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

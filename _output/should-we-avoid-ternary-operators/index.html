@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,11 +38,11 @@
 </nav>
     </header>
 
-    <main class="main-content"><p></p><figure class="post__image">
+    <main class="main"><p></p><figure class="post__image">
 <img src="/wp-content/uploads/2021/08/ternary_operator_carbon.jpg" alt="Should We Avoid Ternary Operators?">
 </figure><p></p>
 <h2 class="post__title"><a href="/should-we-avoid-ternary-operators/">Should We Avoid Ternary Operators?</a></h2>
-<p class="post__date">19th November 2019 - Tuesday</p>
+<div class="post__date">19th November 2019 - Tuesday</div>
 <figure class="wp-block-image size-large">![](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2021/08/ternary_operator_carbon.jpg?resize=1024%2C512&amp;ssl=1)</figure>I recently read a Facebook post which suggested it was better to use a ternary operator instead of an if…else statement whenever the result would be a single line of code. That doesn’t seem right.
 <p>I’ve noticed this trend toward shorter, smaller code, and I understand the appeal. If I can do in one line of code what used to take six lines, it feels more efficient. However, when it comes to executing the code, there’s no performance difference between an if…else statement and a ternary operator.</p>
 <h2>Code Quality Perspective</h2>
@@ -67,6 +71,8 @@ Sometimes compressing a complex concept into a single line makes code easier to 
 <p>Of course we shouldn’t stop using ternary operators! On either side of the debate, there’s an argument for improving readability of code. So, use it when it’ll improve readability. But there are more reasons to use if…else syntax. We <em>should</em> avoid ternary operators, but it’s a guideline, not a rule. And even when considering rules, we must remember that “<a href="http://slashslash.info/2018/02/a-foolish-consistency/">A foolish consistency is the hobgoblin of little minds</a>“.</p>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

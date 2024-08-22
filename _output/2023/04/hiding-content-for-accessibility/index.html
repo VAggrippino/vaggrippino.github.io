@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,8 +38,8 @@
 </nav>
     </header>
 
-    <main class="main-content"><h2 class="post__title"><a href="/2023/04/hiding-content-for-accessibility/">Hiding Content for Accessibility</a></h2>
-<p class="post__date">15th April 2023 - Saturday</p>
+    <main class="main"><h2 class="post__title"><a href="/2023/04/hiding-content-for-accessibility/">Hiding Content for Accessibility</a></h2>
+<div class="post__date">15th April 2023 - Saturday</div>
 <p>Sometimes a website that seems clear and easy to use for sighted users can cause
 some confusion for those who rely on a screen reader for navigation.</p>
 <p>In addition to <a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html">semantic elements</a>,
@@ -57,6 +61,8 @@ styles are recommended by WebAIM for hiding content off-screen:</p>
 WebAIM covers this and several other techniques for visually hiding content.</p>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

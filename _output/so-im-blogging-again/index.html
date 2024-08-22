@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,21 +38,23 @@
 </nav>
     </header>
 
-    <main class="main-content"><p></p><figure class="post__image">
-<img src="/wp-content/uploads/2018/04/alphabet-arts-and-crafts-blog-459688_1200x628-min.jpg" alt="So, I'm Blogging Again">
-</figure><p></p>
-<h2 class="post__title"><a href="/so-im-blogging-again/">So, I'm Blogging Again</a></h2>
-<p class="post__date">21st April 2018 - Saturday</p>
-<figure class="wp-block-pullquote is-style-default">
-<blockquote>
-<p>I'm back in the saddle again<br>
-Out where a friend is a friend</p>
-<p><cite>Gene Autry &amp; Ray Whitley, 1939</cite></p>
-</blockquote>
-<figcaption>*Am I the cowboy or the horse?*</figcaption>
+    <main class="main"><h2 class="post__title"><a href="/so-im-blogging-again/">So, I'm Blogging Again</a></h2>
+<div class="post__date">21st April 2018 - Saturday</div>
+<figure class="post__image">
+    <img src="/wp-content/uploads/2018/04/alphabet-arts-and-crafts-blog-459688_1200x628-min.jpg" alt="Square wooden Scrabble tiles scattered on a flat surface. Most of the tiles are face-down so that their letters cannot be seen, but four tiles are on top and face-up spelling the word &quot;BLOG&quot;" title="Square wooden Scrabble tiles scattered on a flat surface. Most of the tiles are face-down so that their letters cannot be seen, but four tiles are on top and face-up spelling the word &quot;BLOG&quot;">
 </figure>
-<div class="wp-block-jetpack-markdown">Inspired by the consistent efforts of [some](https://steemit.com/@webgrrrl) [friends](https://steemit.com/@danieldoughty) and [an article](https://www.freecodecamp.org/news/every-developer-should-have-a-blog-heres-why-and-how-to-stick-with-it-5fd55a247fbf) at freeCodeCamp’s blog, I decided to start blogging again.
-</div><div class="wp-block-jetpack-markdown">I’ve been using GitHub to organize most of my recent efforts and I figured that blogging with [Jekyll](https://jekyllrb.com/) and hosting for free with [GitHub Pages](https://pages.github.com/) would be an ideal solution. All I need to do is create a new project named *blog*, enable GitHub Pages, and start writing [Markdown](https://github.github.com/gfm/) files. No PHP, no server, no database, no security or plugin updates… perfect, right?
+<div class="intro">
+    <blockquote class="intro__poem">
+        I'm back in the saddle again   
+        Out where a friend is a friend
+    </blockquote>
+    <div class="intro__attribution">
+        - From <cite><a href="https://youtu.be/E5F-O_19lSI?si=kt7dLvl77cOYGgsz">Back in the Saddle Again</a> by Gene Autry &amp; Ray Whitley, 1939
+    </cite></div>
+    <em>*Am I the cowboy or the horse?*</em>
+</div>
+<p>Inspired by the consistent efforts of <a href="https://steemit.com/@webgrrrl">some</a> <a href="https://steemit.com/@danieldoughty">friends</a> and <a href="https://www.freecodecamp.org/news/every-developer-should-have-a-blog-heres-why-and-how-to-stick-with-it-5fd55a247fbf">an article</a> at freeCodeCamp’s blog, I decided to start blogging again.</p>
+<p>I’ve been using GitHub to organize most of my recent efforts and I figured that blogging with <a href="https://jekyllrb.com/">Jekyll</a> and hosting for free with <a href="https://pages.github.com/">GitHub Pages</a> would be an ideal solution. All I need to do is create a new project named <em>blog</em>, enable GitHub Pages, and start writing <a href="https://github.github.com/gfm/">Markdown</a> files. No PHP, no server, no database, no security or plugin updates… perfect, right?</p>
 <p>It’s not that easy…</p>
 <blockquote>
 <p>We highly recommend installing Jekyll to preview your site and help troubleshoot failed Jekyll builds.</p>
@@ -62,9 +68,11 @@ Out where a friend is a friend</p>
 <p>Enough is enough! Damn GitHub Pages and Damn Jekyll! What happened to just writing my thoughts in markdown?! I’m busy learning more important things right now. I’m just about ready to throw in the towel and become dependent on WordPress again. One last try… I’ll look for a tutorial.</p>
 <p>I found what I needed; An excellent article at Smashing Magazine entitled “<a href="https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/">Build A Blog With Jekyll And GitHub Pages</a>” promises to tell me exactly how to set up my own blog with Jekyll and host it with GitHub Pages. That sounds perfect! It is just a little bit misleading, though. The article doesn’t actually tell me how to set up my own blog. It tells me how to fork the author’s blog boilerplate and change some variables to show my information instead of his.</p>
 <p>You know what… I don’t care. It got the job done and now I have a Jekyll-driven blog. For now, I can post my thoughts and share them however I want to. When I decide to <em>upgrade</em>, either by learning and building Jekyll locally or by diving back into the WordPress ecosystem, I’ll have very little difficulty. My markdown files can very easily be copied over or imported into any system I choose.</p>
-</div>
+
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

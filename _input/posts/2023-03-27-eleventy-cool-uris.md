@@ -14,8 +14,7 @@ tags:
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 While getting started with 11ty, I saw in the output folder that an `index.md`
 file would become `index.html`, as expected, but `README.md` became

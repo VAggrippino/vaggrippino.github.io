@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,9 +38,11 @@
 </nav>
     </header>
 
-    <main class="main-content"><h2 class="post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h2><figure class="post__image">
-        <a href="/2024/01/git-exclude-folder-explained/"><img src="/images/Octo-Cat_Explaining-min.jpg" alt="Octo-Cat explaining how Git works" title="Octo-Cat explaining how Git works"></a>
-    </figure><p class="post__date">1st January 2024 - Monday</p>
+    <main class="main"><h2 class="post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h2>
+<div class="post__date">1st January 2024 - Monday</div>
+<figure class="post__image">
+    <a href="/2024/01/git-exclude-folder-explained/"><img src="/images/Octo-Cat_Explaining-min.jpg" alt="A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform." title="A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform."></a>
+</figure>
 <p>To exclude a directory from <code>git diff</code>, use the following command:</p>
 <pre><code class="language-bash">git diff -- . ':!directory_name'
 </code></pre>
@@ -60,6 +66,8 @@
 </blockquote>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

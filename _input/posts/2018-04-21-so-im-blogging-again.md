@@ -9,35 +9,34 @@ permalink: /so-im-blogging-again/
 inline_featured_image:
     - '0'
 image: /wp-content/uploads/2018/04/alphabet-arts-and-crafts-blog-459688_1200x628-min.jpg
+image_alt: "Square wooden Scrabble tiles scattered on a flat surface. Most of the tiles are face-down so that their letters cannot be seen, but four tiles are on top and face-up spelling the word &quot;BLOG&quot;"
 categories:
     - Blogging
 tags:
     - blogging
 published: false
 ---
-{% if image %}
-    <figure class="post__image">
-        <img src="{{ image }}" alt="{{ image_alt }}">
-    </figure>
-{% endif %}
-
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
+<div class="post__date">{% formatted_date page.date %}</div>
 
-<p class="post__date">{% formatted_date page.date %}</p>
-
-<figure class="wp-block-pullquote is-style-default">
-
-> I'm back in the saddle again   
-> Out where a friend is a friend
-> 
-> <cite>Gene Autry &amp; Ray Whitley, 1939</cite>
-
-<figcaption>*Am I the cowboy or the horse?*</figcaption>
+<figure class="post__image">
+    <img src="{{ image }}" alt="{{ image_alt }}" title="{{ image_alt }}">
 </figure>
 
-<div class="wp-block-jetpack-markdown">Inspired by the consistent efforts of [some](https://steemit.com/@webgrrrl) [friends](https://steemit.com/@danieldoughty) and [an article](https://www.freecodecamp.org/news/every-developer-should-have-a-blog-heres-why-and-how-to-stick-with-it-5fd55a247fbf) at freeCodeCamp’s blog, I decided to start blogging again.
+<div class="intro">
+    <blockquote class="intro__poem">
+        I'm back in the saddle again   
+        Out where a friend is a friend
+    </blockquote>
+    <div class="intro__attribution">
+        - From <cite><a href="https://youtu.be/E5F-O_19lSI?si=kt7dLvl77cOYGgsz">Back in the Saddle Again</a> by Gene Autry &amp; Ray Whitley, 1939
+    </div>
+    <em>*Am I the cowboy or the horse?*</em>
+</div>
 
-</div><div class="wp-block-jetpack-markdown">I’ve been using GitHub to organize most of my recent efforts and I figured that blogging with [Jekyll](https://jekyllrb.com/) and hosting for free with [GitHub Pages](https://pages.github.com/) would be an ideal solution. All I need to do is create a new project named *blog*, enable GitHub Pages, and start writing [Markdown](https://github.github.com/gfm/) files. No PHP, no server, no database, no security or plugin updates… perfect, right?
+Inspired by the consistent efforts of [some](https://steemit.com/@webgrrrl) [friends](https://steemit.com/@danieldoughty) and [an article](https://www.freecodecamp.org/news/every-developer-should-have-a-blog-heres-why-and-how-to-stick-with-it-5fd55a247fbf) at freeCodeCamp’s blog, I decided to start blogging again.
+
+I’ve been using GitHub to organize most of my recent efforts and I figured that blogging with [Jekyll](https://jekyllrb.com/) and hosting for free with [GitHub Pages](https://pages.github.com/) would be an ideal solution. All I need to do is create a new project named *blog*, enable GitHub Pages, and start writing [Markdown](https://github.github.com/gfm/) files. No PHP, no server, no database, no security or plugin updates… perfect, right?
 
 It’s not that easy…
 

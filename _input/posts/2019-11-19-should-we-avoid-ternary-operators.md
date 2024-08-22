@@ -26,8 +26,7 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 <figure class="wp-block-image size-large">![](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2021/08/ternary_operator_carbon.jpg?resize=1024%2C512&ssl=1)</figure>I recently read a Facebook post which suggested it was better to use a ternary operator instead of an if…else statement whenever the result would be a single line of code. That doesn’t seem right.
 

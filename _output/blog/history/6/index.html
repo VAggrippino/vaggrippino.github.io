@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="history">
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,10 +38,10 @@
 </nav>
     </header>
 
-    <main class="main-content"><article class="post">
-        <h2 class="post__title"><a href="/2023/04/hiding-content-for-accessibility/">Hiding Content for Accessibility</a></h2>
-        <div class="post__date">15th April 2023 - Saturday</div><div class="post__content"><h2 class="post__title"><a href="/2023/04/hiding-content-for-accessibility/">Hiding Content for Accessibility</a></h2>
-<p class="post__date">15th April 2023 - Saturday</p>
+    <main class="main"><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/2023/04/hiding-content-for-accessibility/">Hiding Content for Accessibility</a></h2>
+        <div class="collections-post__date">15th April 2023 - Saturday</div><div class="collections-post__content"><h2 class="post__title"><a href="/2023/04/hiding-content-for-accessibility/">Hiding Content for Accessibility</a></h2>
+<div class="post__date">15th April 2023 - Saturday</div>
 <p>Sometimes a website that seems clear and easy to use for sighted users can cause
 some confusion for those who rely on a screen reader for navigation.</p>
 <p>In addition to <a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html">semantic elements</a>,
@@ -57,12 +61,12 @@ styles are recommended by WebAIM for hiding content off-screen:</p>
 </code></pre>
 <p>In <a href="https://webaim.org/techniques/css/invisiblecontent/">CSS in Action</a>
 WebAIM covers this and several other techniques for visually hiding content.</p>
-</div></article><article class="post">
-        <h2 class="post__title"><a href="/2023/04/nunjucks-whitespace-control/">Nunjucks Whitespace Control</a></h2>
-        <div class="post__date">16th April 2023 - Sunday</div><div class="post__excerpt"> <p> Nunjucks' <a href="https://mozilla.github.io/nunjucks/templating.html#whitespace-control">Whitespace Control</a> doesn't work the way I expected it to. So, I tried every variation of the syntax I could think of to see how it would render. </p> </div></article><article class="post">
-        <h2 class="post__title"><a href="/2023/04/starting-your-terminal-with-tmux/">Starting Your Terminal with tmux</a></h2>
-        <div class="post__date">22nd April 2023 - Saturday</div><div class="post__content"><h2 class="post__title"><a href="/2023/04/starting-your-terminal-with-tmux/">Starting Your Terminal with tmux</a></h2>
-<p class="post__date">22nd April 2023 - Saturday</p>
+</div></article><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/2023/04/nunjucks-whitespace-control/">Nunjucks Whitespace Control</a></h2>
+        <div class="collections-post__date">16th April 2023 - Sunday</div><div class="collections-post__excerpt"> <p> Nunjucks' <a href="https://mozilla.github.io/nunjucks/templating.html#whitespace-control">Whitespace Control</a> doesn't work the way I expected it to. So, I tried every variation of the syntax I could think of to see how it would render. </p> </div></article><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/2023/04/starting-your-terminal-with-tmux/">Starting Your Terminal with tmux</a></h2>
+        <div class="collections-post__date">22nd April 2023 - Saturday</div><div class="collections-post__content"><h2 class="post__title"><a href="/2023/04/starting-your-terminal-with-tmux/">Starting Your Terminal with tmux</a></h2>
+<div class="post__date">22nd April 2023 - Saturday</div>
 <p>I am getting more comfortable with <a href="https://github.com/tmux/tmux/wiki"><code>tmux</code></a> and I want to make sure I don't forget to use it when I'm at the command prompt. So, I made a simple Bash script to automatically connect to an existing session or start a new session when I start my terminal:</p>
 <p><code>tmux-start.sh</code>:</p>
 <pre><code class="language-bash">#!/bin/bash
@@ -108,6 +112,8 @@ tmux ls &gt; /dev/null ; [ $? == 0 ] &amp;&amp; tmux attach || tmux
         </div>
 </nav></main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

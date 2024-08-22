@@ -23,8 +23,7 @@ published: false
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
  I’m losing my momentum. That *new project* enthusiasm is gone and I’m faced with distraction and doubt. What do I do? Choose an easier alternative? Prepare more before continuing? Or push forward at a unique and considerable risk?
 

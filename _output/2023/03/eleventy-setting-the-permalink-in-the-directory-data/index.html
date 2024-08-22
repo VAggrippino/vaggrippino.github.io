@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,8 +38,8 @@
 </nav>
     </header>
 
-    <main class="main-content"><h2 class="post__title"><a href="/2023/03/eleventy-setting-the-permalink-in-the-directory-data/">Eleventy: Setting the permalink in the directory data</a></h2>
-<p class="post__date">29th March 2023 - Wednesday</p>
+    <main class="main"><h2 class="post__title"><a href="/2023/03/eleventy-setting-the-permalink-in-the-directory-data/">Eleventy: Setting the permalink in the directory data</a></h2>
+<div class="post__date">29th March 2023 - Wednesday</div>
 <p>The permalink for all templates in a directory can be set in a template directory data file. This can be used along with data variables to generate the ideal URLs.</p>
 <p>For example, if you have pages in a <code>posts</code> subdirectory, but you want those pages to be at the root of the generated site, you might use something like this:</p>
 <p>File: <code>posts/posts.json</code></p>
@@ -46,6 +50,8 @@
 <p>Source: <a href="https://github.com/11ty/eleventy/issues/1783#issuecomment-842669102">GitHub thread</a></p>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

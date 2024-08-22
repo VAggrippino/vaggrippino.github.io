@@ -9,6 +9,6 @@ eleventyNavigation:
 ---
 <div class="intro" @text="$data.eleventyNavigation.caption"></div>
 
-<h2>Latest Posts: </h2>
+<h2>Newest blog post: </h2>
 
-<collections-post @numposts="2"></collections-post>
+<collections-post @numposts="1"></collections-post>

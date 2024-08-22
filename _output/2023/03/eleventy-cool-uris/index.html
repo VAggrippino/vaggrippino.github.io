@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,8 +38,8 @@
 </nav>
     </header>
 
-    <main class="main-content"><h2 class="post__title"><a href="/2023/03/eleventy-cool-uris/">Eleventy's Cool URIs</a></h2>
-<p class="post__date">27th March 2023 - Monday</p>
+    <main class="main"><h2 class="post__title"><a href="/2023/03/eleventy-cool-uris/">Eleventy's Cool URIs</a></h2>
+<div class="post__date">27th March 2023 - Monday</div>
 <p>While getting started with 11ty, I saw in the output folder that an <code>index.md</code>
 file would become <code>index.html</code>, as expected, but <code>README.md</code> became
 <code>README/index.html</code>. I didn't understand why there was a special case for the
@@ -48,6 +52,8 @@ tool's, but it makes sense and I agree. But what do I do if I really want to
 have a named output file. There's gotta be a way. Well, scroll down. The <code>permalink</code> <em>front matter</em> value allows me to specify the relative URL of the file that will be generated.</p>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

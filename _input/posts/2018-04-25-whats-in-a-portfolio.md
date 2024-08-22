@@ -23,8 +23,7 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 What am I supposed to put in my portfolio? Ideally, I’d have several projects that I built while learning as well as links to past employers’ websites that I contributed to. I should also have some testimonials from people I’ve worked with in the past, but I don’t have any of this.
 

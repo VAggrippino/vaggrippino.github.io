@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="history">
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,13 +38,13 @@
 </nav>
     </header>
 
-    <main class="main-content"><article class="post">
-        <h2 class="post__title"><a href="/whats-your-stack/">What's Your Stack?</a></h2>
-        <div class="post__date">22nd April 2018 - Sunday</div><div class="post__content"><p></p><figure class="post__image">
+    <main class="main"><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/whats-your-stack/">What's Your Stack?</a></h2>
+        <div class="collections-post__date">22nd April 2018 - Sunday</div><div class="collections-post__content"><p></p><figure class="post__image">
 <img src="/wp-content/uploads/2018/04/asphalt-balance-blur-268018_1200x628-min.jpg" alt="What's Your Stack?">
 </figure><p></p>
 <h2 class="post__title"><a href="/whats-your-stack/">What's Your Stack?</a></h2>
-<p class="post__date">22nd April 2018 - Sunday</p>
+<div class="post__date">22nd April 2018 - Sunday</div>
 <p>Years ago, I proudly applied the <abbr title="Linux, Apache, MySQL, PHP">LAMP</abbr> stack to all of my web development efforts. Never mind that it was smack dab in the middle of the time when PHP deserved its bad reputation and most, if not all, of the code that I <g data-gr-id="53" id="53" class="gr_ gr_53 gr-alert gr_gramm gr_inline_cards gr_run_anim Punctuation only-ins replaceWithoutSep">wrote</g> was as bad as the worst out there. I was making money. I was confident, working steadily, and proud of my work.</p>
 <p>Times have changed. I took some time off from working and quite literally forgot everything I knew about Web Development. It was time to do some retraining.</p>
 <p>One logical perspective suggests that it would’ve been best to jump back into the PHP ecosystem. If I read some tutorials I might <em>*revive*</em> some of the connections that made me enjoy being a PHP developer. There are many employment opportunities for PHP Developers and PHP has come a long way since the bad old days. It’s much easier to write good code in PHP and there are powerful frameworks like Symfony and Laravel that put Web Development with PHP on par with other contemporary methodologies. But I didn’t take this route. I felt like I needed something new to spark my imagination again.</p>
@@ -55,13 +59,13 @@
 <p>This isn’t to say that I’ve completely abandoned the LAMP stack. On the contrary, I’m looking forward to jumping back in. I definitely plan to present both LAMP and MERN skills among my service offerings.</p>
 <p>I have to give credit for my current Web Development focus <g data-gr-id="9" id="9" class="gr_ gr_9 gr-alert gr_gramm gr_inline_cards gr_run_anim Grammar multiReplace">to</g> my past experience with jQuery. Ironically, I don’t have much use for jQuery these days. Anything I ever did with jQuery can be done using a combination of plain JavaScript and CSS, without the overhead of external libraries.</p>
 <p>So… What’s your stack? And why?</p>
-</div></article><article class="post">
-        <h2 class="post__title"><a href="/transitionend-promise/">transitionend Promise</a></h2>
-        <div class="post__date">24th April 2018 - Tuesday</div><div class="post__content"><p></p><figure class="post__image">
+</div></article><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/transitionend-promise/">transitionend Promise</a></h2>
+        <div class="collections-post__date">24th April 2018 - Tuesday</div><div class="collections-post__content"><p></p><figure class="post__image">
 <img src="/wp-content/uploads/2018/04/20180424_041449_transitionend_Promise_demo.gif" alt="transitionend Promise">
 </figure><p></p>
 <h2 class="post__title"><a href="/transitionend-promise/">transitionend Promise</a></h2>
-<p class="post__date">24th April 2018 - Tuesday</p>
+<div class="post__date">24th April 2018 - Tuesday</div>
 <p>I’m working on a page that displays thumbnail images. When I click on a thumbnail I want it to show an <g data-gr-id="27" id="27" class="gr_ gr_27 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del">info box</g> containing more image details. I’m using a CSS transition on the <g data-gr-id="28" id="28" class="gr_ gr_28 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del">info box</g> and I want to populate the image details while the <g data-gr-id="29" id="29" class="gr_ gr_29 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del">info box</g> is hidden. If the <g data-gr-id="30" id="30" class="gr_ gr_30 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del">info box</g> is already visible from clicking on a different thumbnail, I need to hide it first and populate the image details after the transition completes.</p>
 <p>Here’s some pseudocode that shows what I want to happen…</p>
 <pre><code class="language-js">thumbnail.addEventListener('click', e =&gt; {
@@ -86,13 +90,13 @@
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-</div></article><article class="post">
-        <h2 class="post__title"><a href="/whats-in-a-portfolio/">What's in a Portfolio?</a></h2>
-        <div class="post__date">25th April 2018 - Wednesday</div><div class="post__content"><p></p><figure class="post__image">
+</div></article><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/whats-in-a-portfolio/">What's in a Portfolio?</a></h2>
+        <div class="collections-post__date">25th April 2018 - Wednesday</div><div class="collections-post__content"><p></p><figure class="post__image">
 <img src="/wp-content/uploads/2018/04/Portfolio.jpg" alt="What's in a Portfolio?">
 </figure><p></p>
 <h2 class="post__title"><a href="/whats-in-a-portfolio/">What's in a Portfolio?</a></h2>
-<p class="post__date">25th April 2018 - Wednesday</p>
+<div class="post__date">25th April 2018 - Wednesday</div>
 <p>What am I supposed to put in my portfolio? Ideally, I’d have several projects that I built while learning as well as links to past employers’ websites that I contributed to. I should also have some testimonials from people I’ve worked with in the past, but I don’t have any of this.</p>
 <div class="wp-block-jetpack-markdown">My professional history is too far in the past. My previous employers have either been bought / merged / closed or have moved far past my contributions.
 <p>What I do have is over 175 <em>pens</em> <a href="https://codepen.io/VAggrippino/">at CodePen.io</a>, 27 repositories <a href="https://github.com/VAggrippino">at GitHub</a>, and 17 "projects" I completed for freeCodeCamp. None of this is professional-quality code worthy of a portfolio.</p>
@@ -133,6 +137,8 @@
         </div>
 </nav></main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

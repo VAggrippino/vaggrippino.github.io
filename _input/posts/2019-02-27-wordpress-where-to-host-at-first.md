@@ -24,8 +24,7 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 I recently spent some time researching and testing free WordPress hosting services. My goal was to find information for people who have never had a website before. I’ve used [000webhost](https://www.000webhost.com/) before, but I hadn’t checked out any other options in many years. I figured it was time to do a little comparison shopping. From this experience, I drew some interesting conclusions.
 

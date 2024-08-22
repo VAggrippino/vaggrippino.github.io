@@ -24,8 +24,7 @@ published: false
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 You’re watching YouTube when you see a strange video entitled “No matter what, the work stays on!” …
 

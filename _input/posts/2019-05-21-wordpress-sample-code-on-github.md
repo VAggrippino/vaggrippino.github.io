@@ -26,7 +26,6 @@ published: true
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 Considering #WordPress Plugin Development? Do a [search on GitHub for “*WordPress plugin*“](https://github.com/search?q=wordpress+plugin&type=Repositories) and find all the sample code you ever wanted.

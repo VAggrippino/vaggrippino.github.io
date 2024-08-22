@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="history">
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,13 +38,13 @@
 </nav>
     </header>
 
-    <main class="main-content"><article class="post">
-        <h2 class="post__title"><a href="/how-to-really-check-with-javascript-if-css-failed-to-load-from-a-cdn/">How to really check with JavaScript if CSS failed to load from a CDN</a></h2>
-        <div class="post__date">4th December 2019 - Wednesday</div><div class="post__content"><p></p><figure class="post__image">
+    <main class="main"><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/how-to-really-check-with-javascript-if-css-failed-to-load-from-a-cdn/">How to really check with JavaScript if CSS failed to load from a CDN</a></h2>
+        <div class="collections-post__date">4th December 2019 - Wednesday</div><div class="collections-post__content"><p></p><figure class="post__image">
 <img src="/wp-content/uploads/2019/12/error-loading-min-e1629184314699.jpg" alt="How to really check with JavaScript if CSS failed to load from a CDN">
 </figure><p></p>
 <h2 class="post__title"><a href="/how-to-really-check-with-javascript-if-css-failed-to-load-from-a-cdn/">How to really check with JavaScript if CSS failed to load from a CDN</a></h2>
-<p class="post__date">4th December 2019 - Wednesday</p>
+<div class="post__date">4th December 2019 - Wednesday</div>
 <figure class="wp-block-image size-full">![](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2019/12/error-loading-min-e1629184314699.jpg?resize=1024%2C512&amp;ssl=1)</figure>I want to load a third-party CSS stylesheet from a CDN, but I’m concerned how it will affect my site if the CDN goes down. *How do I use JavaScript to check if a CSS file has loaded* so I can load a local fallback instead?
 <p>This can’t be a new idea. I can get the answer from a web search, can’t I? …</p>
 <h2>Incorrect Solution #1</h2>
@@ -115,10 +119,10 @@ if ( !loaded ) {
 }
 </code></pre>
 <p>If the <code>cssRules</code> is an empty array, the CDN stylesheet failed to load in Mozilla Firefox. If there’s an Exception when we try to access the <code>cssRules</code>, the CDN stylesheet failed to load in Google Chrome.</p>
-</pre></div></article><article class="post">
-        <h2 class="post__title"><a href="/2023/03/eleventy-cool-uris/">Eleventy's Cool URIs</a></h2>
-        <div class="post__date">27th March 2023 - Monday</div><div class="post__content"><h2 class="post__title"><a href="/2023/03/eleventy-cool-uris/">Eleventy's Cool URIs</a></h2>
-<p class="post__date">27th March 2023 - Monday</p>
+</pre></div></article><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/2023/03/eleventy-cool-uris/">Eleventy's Cool URIs</a></h2>
+        <div class="collections-post__date">27th March 2023 - Monday</div><div class="collections-post__content"><h2 class="post__title"><a href="/2023/03/eleventy-cool-uris/">Eleventy's Cool URIs</a></h2>
+<div class="post__date">27th March 2023 - Monday</div>
 <p>While getting started with 11ty, I saw in the output folder that an <code>index.md</code>
 file would become <code>index.html</code>, as expected, but <code>README.md</code> became
 <code>README/index.html</code>. I didn't understand why there was a special case for the
@@ -129,10 +133,10 @@ URIs don't have file extensions.</p>
 <p>Okay. I get it. I would've expected something like that to be my job, not the
 tool's, but it makes sense and I agree. But what do I do if I really want to
 have a named output file. There's gotta be a way. Well, scroll down. The <code>permalink</code> <em>front matter</em> value allows me to specify the relative URL of the file that will be generated.</p>
-</div></article><article class="post">
-        <h2 class="post__title"><a href="/2023/03/eleventy-setting-the-permalink-in-the-directory-data/">Eleventy: Setting the permalink in the directory data</a></h2>
-        <div class="post__date">29th March 2023 - Wednesday</div><div class="post__content"><h2 class="post__title"><a href="/2023/03/eleventy-setting-the-permalink-in-the-directory-data/">Eleventy: Setting the permalink in the directory data</a></h2>
-<p class="post__date">29th March 2023 - Wednesday</p>
+</div></article><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/2023/03/eleventy-setting-the-permalink-in-the-directory-data/">Eleventy: Setting the permalink in the directory data</a></h2>
+        <div class="collections-post__date">29th March 2023 - Wednesday</div><div class="collections-post__content"><h2 class="post__title"><a href="/2023/03/eleventy-setting-the-permalink-in-the-directory-data/">Eleventy: Setting the permalink in the directory data</a></h2>
+<div class="post__date">29th March 2023 - Wednesday</div>
 <p>The permalink for all templates in a directory can be set in a template directory data file. This can be used along with data variables to generate the ideal URLs.</p>
 <p>For example, if you have pages in a <code>posts</code> subdirectory, but you want those pages to be at the root of the generated site, you might use something like this:</p>
 <p>File: <code>posts/posts.json</code></p>
@@ -176,6 +180,8 @@ have a named output file. There's gotta be a way. Well, scroll down. The <code>p
         </div>
 </nav></main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

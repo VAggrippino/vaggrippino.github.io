@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="history">
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,10 +38,10 @@
 </nav>
     </header>
 
-    <main class="main-content"><article class="post">
-        <h2 class="post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h2>
-        <div class="post__date">22nd April 2023 - Saturday</div><div class="post__content"><h2 class="post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h2>
-<p class="post__date">22nd April 2023 - Saturday</p>
+    <main class="main"><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h2>
+        <div class="collections-post__date">22nd April 2023 - Saturday</div><div class="collections-post__content"><h2 class="post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h2>
+<div class="post__date">22nd April 2023 - Saturday</div>
 <p>I wanted to be able to scroll a <code>man</code> page in the terminal with my mouse wheel. While looking for a setting to change I learned that Vim can be used as a pager allowing mouse support and much more.
 Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix">this entry at the Vim Tips Wiki</a>, I decided to set it up for myself, but with a few minor changes. I did all this in WSL with Ubuntu 20.04.6 and Zsh on Windows 11, but it should work as well with any Unix or Linux variant:</p>
 <p><code>~/.zshrc</code>:</p>
@@ -74,13 +78,13 @@ Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_
 <li><code>-c 'highlight Normal ctermbg=NONE guibg=NONE'</code>: This disables the background color that I use in the editor when editing code so that my terminal transparency is still in effect.</li>
 <li>The rest of the lines change some key mappings so that it works in a familiar way if you're used to <code>less</code> (the default pager for <code>man</code> pages)</li>
 </ul>
-</div></article><article class="post">
-        <h2 class="post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
-        <div class="post__date">21st December 2023 - Thursday</div><div class="post__content"><p></p><figure class="post__image">
-<img src="/images/VSCodeVim_Smashing_VSCode-min.jpg" alt="VSCodeVim Cartoon Character Breaking VSCode">
-</figure><p></p>
-<h2 class="post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
-<p class="post__date">21st December 2023 - Thursday</p>
+</div></article><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
+        <div class="collections-post__date">21st December 2023 - Thursday</div><div class="collections-post__content"><h2 class="post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
+<div class="post__date">21st December 2023 - Thursday</div>
+<figure class="post__image">
+    <img src="/images/VSCodeVim_Smashing_VSCode-min.jpg" alt="VSCodeVim Cartoon Character Breaking VSCode" title="VSCodeVim Cartoon Character Breaking VSCode">
+</figure>
 <p>VSCodeVim broke VSCode's file <em>Quick Open</em> keybinding. Now, <em>CTRL-P</em> just moves the cursor up a line instead of opening the file finder as expected.</p>
 <p>Based on the GitHub issue linked in <a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">the commit</a>, it was meant to enable MacOS's default cursor movement keys.</p>
 <p><a href="https://github.com/VSCodeVim/Vim/issues/8574">Issue #8574</a> shows some easy fixes. I chose to disable the plugin's handling of the keybinding:</p>
@@ -95,11 +99,13 @@ Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_
 <li><a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">VSCodeVim commit cd9ebd5</a></li>
 <li><a href="https://github.com/VSCodeVim/Vim/issues/6363">VSCodeVim #6363: Visual mode + &lt;C-n&gt;/&lt;C-p&gt;/&lt;C-f&gt;/&lt;C-b&gt; doesn't work as expected</a></li>
 </ul>
-</div></article><article class="post">
-        <h2 class="post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h2>
-        <div class="post__date">1st January 2024 - Monday</div><div class="post__content"><h2 class="post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h2><figure class="post__image">
-        <a href="/2024/01/git-exclude-folder-explained/"><img src="/images/Octo-Cat_Explaining-min.jpg" alt="Octo-Cat explaining how Git works" title="Octo-Cat explaining how Git works"></a>
-    </figure><p class="post__date">1st January 2024 - Monday</p>
+</div></article><article class="collections-post">
+        <h2 class="collections-post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h2>
+        <div class="collections-post__date">1st January 2024 - Monday</div><div class="collections-post__content"><h2 class="post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h2>
+<div class="post__date">1st January 2024 - Monday</div>
+<figure class="post__image">
+    <a href="/2024/01/git-exclude-folder-explained/"><img src="/images/Octo-Cat_Explaining-min.jpg" alt="A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform." title="A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform."></a>
+</figure>
 <p>To exclude a directory from <code>git diff</code>, use the following command:</p>
 <pre><code class="language-bash">git diff -- . ':!directory_name'
 </code></pre>
@@ -154,6 +160,8 @@ Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_
     
 </nav></main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

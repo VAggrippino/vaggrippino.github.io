@@ -25,8 +25,7 @@ published: false
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 <figure class="wp-block-image size-large is-style-default">![](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2021/08/one-armed-programming.jpg?resize=1024%2C512&ssl=1)<figcaption>Slot machines are also known as one-armed bandits.</figcaption></figure>For years, I’ve been saying that *\*knock on wood\* …* I’ve never had any kind of <abbr title="Repetitive Strain Injury">RSI</abbr>. That’s no longer true. I have Cubital Tunnel Syndrome.
 

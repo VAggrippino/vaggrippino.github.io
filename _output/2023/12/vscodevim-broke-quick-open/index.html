@@ -11,6 +11,10 @@
 <body>
     <header class="header">
         <nav class="main-nav">
+    <label class="main-nav__handle"><input type="checkbox">
+        <i class="fa-solid fa-burger"></i>
+        <span class="main-nav__handle__title">Main Menu</span>
+    </label>
     <ul class="main-nav__list">
         <li class="main-nav__item">
             <a href="/" title="Tread not ye intrepid explorers, for what lies ahead is fraught with madness and monsters..."><i class="fa-solid fa-house"></i><span>Home</span></a>
@@ -34,11 +38,11 @@
 </nav>
     </header>
 
-    <main class="main-content"><p></p><figure class="post__image">
-<img src="/images/VSCodeVim_Smashing_VSCode-min.jpg" alt="VSCodeVim Cartoon Character Breaking VSCode">
-</figure><p></p>
-<h2 class="post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
-<p class="post__date">21st December 2023 - Thursday</p>
+    <main class="main"><h2 class="post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
+<div class="post__date">21st December 2023 - Thursday</div>
+<figure class="post__image">
+    <img src="/images/VSCodeVim_Smashing_VSCode-min.jpg" alt="VSCodeVim Cartoon Character Breaking VSCode" title="VSCodeVim Cartoon Character Breaking VSCode">
+</figure>
 <p>VSCodeVim broke VSCode's file <em>Quick Open</em> keybinding. Now, <em>CTRL-P</em> just moves the cursor up a line instead of opening the file finder as expected.</p>
 <p>Based on the GitHub issue linked in <a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">the commit</a>, it was meant to enable MacOS's default cursor movement keys.</p>
 <p><a href="https://github.com/VSCodeVim/Vim/issues/8574">Issue #8574</a> shows some easy fixes. I chose to disable the plugin's handling of the keybinding:</p>
@@ -55,6 +59,8 @@
 </ul>
 </main>
     <footer class="footer"></footer>
+
+    <script src="/js/main.js"></script>
 
 </body>
 </html>

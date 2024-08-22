@@ -13,8 +13,7 @@ tags:
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 The permalink for all templates in a directory can be set in a template directory data file. This can be used along with data variables to generate the ideal URLs.
 

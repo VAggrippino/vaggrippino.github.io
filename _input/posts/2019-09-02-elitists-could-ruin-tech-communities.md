@@ -20,8 +20,7 @@ published: false
 {% endif %}
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-
-<p class="post__date">{% formatted_date page.date %}</p>
+<div class="post__date">{% formatted_date page.date %}</div>
 
 Online tech groups are filled with people who have similar interests and knowledge to share. They should be good places to find inspiration, learn, make friends, and even start a career, but there’s a disturbing undercurrent of disdain for members with less experience. Elitist jerks with bad attitudes leaving rude comments could ruin it for everyone.
 
