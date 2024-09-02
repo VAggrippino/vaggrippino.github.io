@@ -11,7 +11,7 @@
 <article class="collections-post" webc:for="post of recent_posts(numposts)">
     <h3 class="collections-post__title">
         <a :href="post.data.page.url">
-            <i class="fa-solid fa-bookmark"></i>
+            <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
             <span @text="post.data.title"></span>
         </a>
     </h3>

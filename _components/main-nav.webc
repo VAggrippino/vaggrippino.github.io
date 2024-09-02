@@ -1,14 +1,14 @@
 <nav class="main-nav">
-    <label class="main-nav__handle"><input type="checkbox">
-        <i class="fa-solid fa-burger"></i>
-        <span class="main-nav__handle__title">Main Menu</span>
-    </label>
-    <ul class="main-nav__list">
-        <li webc:for="entry of eleventyNavigation($data.collections.main)"
-            :class="'main-nav__item' + (entry.url === $data.page.url ? ' active' : '')"
-        >
-            <a :href="entry.url" :title="entry?.caption ?? ''"
-            ><i :class="entry.icon"></i><span @text="entry.title"></span></a>
+    <button class="main-nav__control" type="button" aria-expanded="false" aria-controls="main-nav__list">
+        <i class="fa-solid fa-burger" aria-hidden="true"></i>
+        <span class="main-nav__title">Main Menu</span>
+    </button>
+    <ul class="main-nav__list" id="main-nav__list" role="list">
+        <li webc:for="entry of eleventyNavigation($data.collections.main)" class="main-nav__item">
+            <a :href="entry.url" :aria-current="entry.url === $data.page.url ? 'page' : false">
+                <i :class="entry.icon" aria-hidden="true"></i>
+                <span @text="entry.title"></span>
+            </a>
         </li>
     </ul>
 </nav>
