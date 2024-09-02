@@ -21,7 +21,7 @@ module.exports = (Config) => {
     return {
         dir: {
             input: '_input',
-            output: '_output',
+            output: 'docs',
             includes: '../_includes',
             layouts: '../_includes/layouts',
             components: '_components',
