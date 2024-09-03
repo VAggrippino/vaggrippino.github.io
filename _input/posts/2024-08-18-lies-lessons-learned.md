@@ -5,7 +5,8 @@ image_alt: "A comic style image of a nervous-looking young blonde man looking at
 published: false
 ---
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
-<div class="post__date">{% formatted_date post.data.date %}</div>
+<div class="post__date">{% formatted_date page.date %}</div>
+
 
 <figure class="post__image">
     <a href="{{ page.url }}"
