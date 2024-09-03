@@ -28,27 +28,55 @@ permalink: "/blog/history/{{ pagination.pageNumber | plus: 1 }}/index.html"
     </article>
 {%- endfor %}
 
-<nav aria-labelledby="blog-history-nav" class="blog-history-nav">
-    <h4 id="blog-history-nav" class="blog-history-nav__label">Blog History Pages</h4>
-    {% if pagination.href.previous -%}
-        <div class="blog-history-nav__previous">
-            <a href="{{ pagination.href.previous }}"><i class="fa-solid fa-caret-left"></i></a>
-        </div>
+{%- for entry in pagination.pages -%}
+    {%- assign page_index = forloop.index -%}
+
+    {% # Identify the indexes of the current page and adjacent pages for the pagination %}
+    {%- if pagination.hrefs[forloop.index0] == page.url %}
+        {%- assign before = page_index | minus: 1 -%}
+        {%- assign after = page_index | plus: 1 -%}
+        {%- assign current_page_index = page_index -%}
     {%- endif %}
-    <ol class="blog-history-nav__list">
+
+{%- endfor -%}
+
+<nav class="blog-history-nav">
+    <h4 class="blog-history-nav__title">Blog History Pages</h4>
+    <div class="blog-history-nav__caption">On page {{ current_page_index }} of {{ pagination.pages.length }}</div>
+
+    {% # Only show links for the current page, pages adjacent to the current page, the first page, and the last page %}
+    <ol class="blog-history-nav__list" role="list">
+        {%- if before > 1 -%}
+            <li class="blog-history-nav__item">
+                <a href="{{ pagination.href.first }}">1</a>
+            </li>
+
+            {% # Show an ellipsis to indicate when we've skipped some pages near the beginning of the navigation. %}
+            {%- if before > 2 -%}
+                <li class="blog-history-nav__ellipsis">...</li>
+            {%- endif -%}
+        {%- endif -%}
+
+        {% # Show links for the current page and its two adjacent pages %}
         {%- for entry in pagination.pages -%}
             {% assign url = pagination.hrefs[forloop.index0] %}
             {% assign pagenum = forloop.index -%}
-            <li class="blog-history-nav__item">
-                <a href="{{ url }}"
-                    {%- if page.url == url %} aria-current="page"{% endif %}
-                >{{ pagenum }}</a>
-            </li>
+            {%- if forloop.index >= before and forloop.index <= after -%}
+                <li class="blog-history-nav__item {% if page.url == url %}current{% endif %}">
+                    <a href="{{ url }}" {% if page.url == url %} aria-current="page"{% endif %}>{{ pagenum }}</a>
+                </li>
+            {%- endif -%}
         {%- endfor %}
+
+        {%- if after < pagination.pages.size -%}
+            {% # Show an ellipsis to indicate when we've skipped some pages near the end of the navigation %}
+            {%- assign penultimate = pagination.pages.size | minus: 1 -%}
+            {%- if after < penultimate -%}
+                <li class="blog-history-nav__ellipsis">...</li>
+            {%- endif -%}
+            <li class="blog-history-nav__item">
+                <a href="{{ pagination.href.last }}">{{ pagination.pages.size }}</a>
+            </li>
+        {%- endif -%}
     </ol>
-    {% if pagination.href.next -%}
-        <div class="blog-history-nav__next">
-            <a href="{{ pagination.href.next }}"><i class="fa-solid fa-caret-right"></i></a>
-        </div>
-    {%- endif %}
 </nav>

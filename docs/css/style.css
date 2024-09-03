@@ -1,6 +1,8 @@
 :root {
     --color: black;
     --color-bg: white;
+    --color-link: blue;
+    --color-visited: purple;
     --color-accent: silver;
 
     --finger-size: 64px;
@@ -228,4 +230,71 @@ body { margin: 0; }
 .post__date {
     text-align: end;
     margin-block: 0.5em;
+}
+
+.blog-history-nav {
+    --item-spacing: 0.5em;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.blog-history-nav__title, .blog-history-nav__caption {
+    margin: 0;
+    flex: 100%;
+    text-align: center;
+}
+
+.blog-history-nav__list {
+    display: flex;
+
+    margin: 0;
+    padding: 0;
+    list-style-type: "";
+}
+
+.blog-history-nav__previous, .blog-history-nav__next, .blog-history-nav__item {
+    width: var(--finger-size);
+    height: var(--finger-size);
+    flex: 0 0 var(--finger-size);
+
+    display: grid;
+    place-items: center;
+
+    position: relative;
+
+    &:not(:has(a)) {
+        color: gray;
+    }
+}
+
+.blog-history-nav a {
+    text-decoration: none;
+
+    color: var(--color-link);
+    background-color: var(--color-accent);
+    background-clip: content-box;
+
+    display: inline-grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 0.75em;
+
+    padding: var(--item-spacing);
+    box-sizing: border-box;
+
+    &[aria-current="page"] {
+        color: var(--color-bg);
+        background-color: var(--color-visited);
+    }
+}
+
+.blog-history-nav__ellipsis {
+    display: flex;
+    align-items: end;
+    padding-block: var(--item-spacing);
+    margin: 0 var(--item-spacing);
 }
