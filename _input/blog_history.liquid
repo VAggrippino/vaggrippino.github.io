@@ -10,6 +10,8 @@ pagination:
 
 permalink: "/blog/history/{{ pagination.pageNumber | plus: 1 }}/index.html"
 ---
+<h1>Blog History Page {{ pagination.pageNumber }}</h1>
+
 {%- for post in posts -%}
     <article class="collections-post">
         <h2 class="collections-post__title">
@@ -41,7 +43,7 @@ permalink: "/blog/history/{{ pagination.pageNumber | plus: 1 }}/index.html"
 {%- endfor -%}
 
 <nav class="blog-history-nav">
-    <h4 class="blog-history-nav__title">Blog History Pages</h4>
+    <h3 class="blog-history-nav__title">Blog History Pages</h3>
     <div class="blog-history-nav__caption">On page {{ current_page_index }} of {{ pagination.pages.length }}</div>
 
     {% # Only show links for the current page, pages adjacent to the current page, the first page, and the last page %}
@@ -79,4 +81,15 @@ permalink: "/blog/history/{{ pagination.pageNumber | plus: 1 }}/index.html"
             </li>
         {%- endif -%}
     </ol>
+
+    <div class="blog-history-nav__jump">
+        <label for="blog-history-nav__jump__page">Jump to </label>
+        <select name="page" class="blog-history-nav__jump__page" id="blog-history-nav__jump__page">
+            <option value="">Choose a Page</option>
+            {%- for entry in pagination.pages -%}
+                <option value="{{ forloop.index }}">Page {{ forloop.index }}</option>
+            {%- endfor -%}
+        </select>
+        <a class="blog-history-nav__jump__go" href="/blog/history/{{ current_page_index }}">Go</a>
+    </div>
 </nav>

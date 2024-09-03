@@ -47,4 +47,15 @@ window.addEventListener('load', () => {
         //nav, or isn't in a nav at all; collapse the focusout control
         out_control.ariaExpanded = 'false'
     })
+
+    const jump_page = document.querySelector('.blog-history-nav__jump__page')
+    if (jump_page !== null) {
+        jump_page.addEventListener('change', (event) => {
+            const url = `/blog/history/${event.currentTarget.value}`
+            const go_link = document.querySelector('.blog-history-nav__jump__go')
+            console.log(go_link)
+            console.log(url)
+            go_link.setAttribute('href', url);
+        })
+    }
 })
