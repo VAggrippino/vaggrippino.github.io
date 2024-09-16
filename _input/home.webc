@@ -13,7 +13,7 @@ eleventyNavigation:
     <div class="intro__social-links">
         <ul>
             <li>
-                <a href="https://techhub.social/@VinceAggrippino" class="intro__social-links__mastodon">
+                <a rel="me" href="https://techhub.social/@VinceAggrippino" class="intro__social-links__mastodon">
                     <i class="intro__social-links__icon fa-brands fa-mastodon" aria-hidden="true"></i>
                     <span class="intro__social-links__service">Mastodon</span>
                 </a>

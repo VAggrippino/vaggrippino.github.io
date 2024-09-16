@@ -57,7 +57,7 @@ body { margin: 0; }
 
     & .intro__social-links a {
         text-decoration: none;
-        color: var(--color);
+        color: currentColor;
         font-size: 0.75rem;
 
         width: 100%;
