@@ -10,8 +10,8 @@ eleventyNavigation:
         'Tis folly to be wise."
 ---
 <h1>Wiki</h1>
-<div class="intro">
-    <blockquote class="intro__poem preformatted">To each his suff'rings: all are men,
+<div class="accent-text">
+    <blockquote class="accent-text__poem preformatted">To each his suff'rings: all are men,
          Condemn'd alike to groan,
 The tender for another's pain;
          Th' unfeeling for his own.
@@ -21,7 +21,7 @@ Since sorrow never comes too late,
 Thought would destroy their paradise.
 No more; where ignorance is bliss,
        'Tis folly to be wise.</blockquote>
-    <div class="intro__attribution">
+    <div class="accent-text__attribution">
         - From
         <cite><a href="https://www.poetryfoundation.org/poems/44301/ode-on-a-distant-prospect-of-eton-college">Ode on a Distant Prospect of Eton College</a></cite>
         <span class="byline">by Thomas Gray</span>.

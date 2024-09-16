@@ -11,8 +11,8 @@ eleventyNavigation:
         Like ol' Job"
 ---
 <h1>About Vince</h1>
-<div class="intro">
-    <blockquote class="intro__poem">The world is a vampire
+<div class="accent-text">
+    <blockquote class="accent-text__poem">The world is a vampire
         Sent to drain
         Secret destroyers
         Hold you up to the flames
@@ -25,7 +25,7 @@ eleventyNavigation:
         I suppose I'll show
         All my cool and cold
         Like ol' Job</blockquote>
-    <div class="intro__attribution">
+    <div class="accent-text__attribution">
         - From
         <cite><a href="https://youtu.be/8-r-V0uK4u0?si=F1yQlXtLXq1APnz8">Bullet With Butterfly Wings</a></cite>
         <span class="byline">by Smashing Pumpkins</span>.
