@@ -44,8 +44,6 @@ eleventyNavigation:
     </div>
 </div>
 
-<div class="accent-text" @text="$data.eleventyNavigation.caption"></div>
-
 <h2>Newest blog post: </h2>
 
 <collections-post @numposts="1"></collections-post>
