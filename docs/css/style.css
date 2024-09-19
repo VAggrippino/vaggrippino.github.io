@@ -18,7 +18,13 @@
     --focus-box-shadow: inset 0 0 2px 1px blue;
 }
 
-body { margin: 0; }
+body {
+    margin: 0;
+}
+
+select, textarea, input, button {
+    font: inherit;
+}
 
 .visually-hidden:not(:focus):not(:active) {
     position: absolute;
@@ -254,35 +260,6 @@ body { margin: 0; }
         border: none;
         padding-top: 0;
     }
-}
-
-.collections-post__content :is(.post__title, .post__date) {
-    display: none;
-}
-
-.collections-post__title {
-    margin-bottom: 0;
-
-    & a {
-        --spacing: 0.25em;
-
-        min-height: var(--finger-size);
-        display: flex;
-        align-items: center;
-        padding: 0 0 0 var(--spacing);
-        gap: var(--spacing);
-
-        text-decoration: none;
-        & span {
-            text-decoration: underline;
-            text-wrap: balance;
-        }
-    }
-}
-
-.collections-post__date {
-    margin-block: 0.5em;
-    text-align: end;
 }
 
 .related-links {
