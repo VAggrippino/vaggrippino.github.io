@@ -14,16 +14,13 @@ permalink: "/blog/history/{{ pagination.pageNumber | plus: 1 }}/index.html"
 
 {%- for post in posts -%}
     <article class="collections-post">
-        <h2 class="collections-post__title">
-            <a href="{{ post.url }}">
-                <i class="fa-solid fa-bookmark"></i>
-                <span>{{ post.data.title }}</span>
-            </a>
-        </h2>
-        <div class="collections-post__date">{%- formatted_date post.data.page.date -%}</div>
-        
         {%- if post.data.excerpt -%}
+            <h2 class="collections-post__title">
+                <a href="{{ post.url }}"><span>{{ post.data.title }}</span></a>
+            </h2>
+            <div class="collections-post__date">{%- formatted_date post.data.page.date -%}</div>
             <div class="collections-post__excerpt">{{ post.data.excerpt }}</div>
+            <a class="collections-post__readmore" href="{{ post.url }}">Read more...</a>
         {%- else -%}
             <div class="collections-post__content">{{ post.content }}</div>
         {%- endif -%}
