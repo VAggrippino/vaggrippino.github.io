@@ -10,7 +10,7 @@ pagination:
 
 permalink: "/blog/history/{{ pagination.pageNumber | plus: 1 }}/index.html"
 ---
-<h1>Blog History Page {{ pagination.pageNumber }}</h1>
+<h1>Blog History Page {{ pagination.pageNumber | plus: 1 }}</h1>
 
 {%- for post in posts -%}
     <article class="collections-post">
