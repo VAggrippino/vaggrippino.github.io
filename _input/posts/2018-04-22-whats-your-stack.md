@@ -16,11 +16,9 @@ tags:
     - Web Development
 published: true
 ---
-{% if image %}
-    <figure class="post__image">
-        <img src="{{ image }}" alt="{{ image_alt }}">
-    </figure>
-{% endif %}
+<figure class="post__image">
+    <img src="{{ image }}" alt="{{ image_alt }}">
+</figure>
 
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
 <div class="post__date">{% formatted_date page.date %}</div>
