@@ -21,7 +21,6 @@ published: false
 
 <figure class="post__image">
     <img src="{{ image }}" alt="{{ image_alt }}">
-    <figcaption>{{ image_alt }}</figcaption>
 </figure>
 
 <figure class="song">

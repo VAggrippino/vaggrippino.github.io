@@ -10,6 +10,7 @@ inline_featured_image:
     - '0'
 image: /wp-content/uploads/2018/04/asphalt-balance-blur-268018_1200x628-min.jpg
 image_alt: "A short stack of three stones"
+image_caption: "Find just the right balance"
 categories:
     - 'Full Stack'
     - 'Web Development'
@@ -22,7 +23,7 @@ published: true
 
 <figure class="post__image">
     <img src="{{ image }}" alt="{{ image_alt }}">
-    <figcaption>{{ image_alt }}</figcaption>
+    <figcaption>{{ image_caption }}</figcaption>
 </figure>
 
 

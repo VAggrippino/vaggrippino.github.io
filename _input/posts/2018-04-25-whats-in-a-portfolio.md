@@ -10,6 +10,7 @@ inline_featured_image:
     - '0'
 image: /wp-content/uploads/2018/04/Portfolio.jpg
 image_alt: "Cartoon man gesturing toward a presentation showing boxes with question marks in them"
+image_caption: "What do I need to show?"
 categories:
     - Career
 tags:
@@ -22,7 +23,7 @@ published: true
 
 <figure class="post__image">
     <img src="{{ image }}" alt="{{ image_alt }}">
-    <figcaption>{{ image_alt }}</figcaption>
+    <figcaption>{{ image_caption }}</figcaption>
 </figure>
 
 What am I supposed to put in my portfolio? Ideally, I’d have several projects that I built while learning as well as links to past employers’ websites that I contributed to. I should also have some testimonials from people I’ve worked with in the past, but I don’t have any of this.
