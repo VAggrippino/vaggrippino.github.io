@@ -12,7 +12,7 @@ categories:
     - 'Social Media'
 published: false
 ---
-<h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
+<h1 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h1>
 <div class="post__date">{% formatted_date page.date %}</div>
 
 I subscribe / follow / participate in a lot of technology focused forums and groups throughout the World Wide Web. It is my feeling that they should be good places to make friends and ask questions of people who have similar interests and knowledge to share.
