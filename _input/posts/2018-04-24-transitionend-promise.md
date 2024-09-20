@@ -19,16 +19,14 @@ tags:
     - webd
 published: true
 ---
-{% if image %}
-    <figure class="post__image">
-        <img src="{{ image }}" alt="{{ image_alt }}">
-    </figure>
-{% endif %}
-
-<h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
+<h1 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h1>
 <div class="post__date">{% formatted_date page.date %}</div>
 
-I’m working on a page that displays thumbnail images. When I click on a thumbnail I want it to show an <g class="gr_ gr_27 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del" data-gr-id="27" id="27">info box</g> containing more image details. I’m using a CSS transition on the <g class="gr_ gr_28 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del" data-gr-id="28" id="28">info box</g> and I want to populate the image details while the <g class="gr_ gr_29 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del" data-gr-id="29" id="29">info box</g> is hidden. If the <g class="gr_ gr_30 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del" data-gr-id="30" id="30">info box</g> is already visible from clicking on a different thumbnail, I need to hide it first and populate the image details after the transition completes.
+<figure class="post__image">
+    <img src="{{ image }}" alt="{{ image_alt }}">
+</figure>
+
+I’m working on a page that displays thumbnail images. When I click on a thumbnail I want it to show an info box containing more image details. I’m using a CSS transition on the info box and I want to populate the image details while the info box is hidden. If the info box is already visible from clicking on a different thumbnail, I need to hide it first and populate the image details after the transition completes.
 
 Here’s some pseudocode that shows what I want to happen…
 
@@ -51,7 +49,7 @@ I can’t just return a Promise from the event handler for `transitionend` becau
 
 I searched for *promises for CSS transition events*, but the higher ranking search result has a **fatal flaw**. In a *pen*1 entitled “CSS Transition End with a Promise”, a Promise *is* resolved when the transition completes, but **the event handler is never removed from the element**. The code attempts to remove the handler, but [`removeEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener) is passed a function that wasn’t attached as the event handler. **The actual event handler is an anonymous function** that calls the function which the author tries to remove. If you use this code it could eventually cause a problem (What kind of problem? How soon? … this needs testing) as new event handlers are infinitely attached to the element.
 
-I found a good solution on my second attempt at [this *Gist*](https://gist.github.com/davej/44e3bbec414ed4665220)). The trick is a function that returns a Promise and makes a CSS (or CSS class) change that causes a transition, then immediately attaches an event handler for the `transitionend` event in which it removes itself and resolves the promise.
+I found a good solution on my second attempt at [this *Gist*](https://gist.github.com/davej/44e3bbec414ed4665220). The trick is a function that returns a Promise and makes a CSS (or CSS class) change that causes a transition, then immediately attaches an event handler for the `transitionend` event in which it removes itself and resolves the promise.
 
 Here’s my demo inspired by the Gist:
 
