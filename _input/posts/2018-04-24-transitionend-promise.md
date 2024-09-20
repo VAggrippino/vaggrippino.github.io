@@ -10,6 +10,7 @@ permalink: /transitionend-promise/
 inline_featured_image:
     - '0'
 image: /wp-content/uploads/2018/04/20180424_041449_transitionend_Promise_demo.gif
+image_alt: 'Animation shows a red rectangle moved on the click of a button, taking advantage of transitionend'
 categories:
     - Programming
 tags:
