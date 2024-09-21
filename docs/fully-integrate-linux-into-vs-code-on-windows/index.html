@@ -56,39 +56,28 @@
 </nav>
     </header>
 
-    <main class="main"><p></p><figure class="post__image">
-<img src="/wp-content/uploads/2019/05/20190531_075440_VSCode_Integrated_WSL-min.png" alt="Fully Integrate Linux into VS Code on Windows">
-</figure><p></p>
-<h2 class="post__title"><a href="/fully-integrate-linux-into-vs-code-on-windows/">Fully Integrate Linux into VS Code on Windows</a></h2>
+    <main class="main"><h1 class="post__title"><a href="/fully-integrate-linux-into-vs-code-on-windows/">Fully Integrate Linux into VS Code on Windows</a></h1>
 <div class="post__date">13th June 2019 - Thursday</div>
+<figure class="post__image">
+    <img src="/wp-content/uploads/2019/05/20190531_075440_VSCode_Integrated_WSL-min.png" alt="Visual Studio Code and Windows Subsystem for Linux logos along with the Linux “Tux” and a laptop clipart on top of a slightly blurred screenshot of VS Code">
+    <figcaption>They work together nicely.</figcaption>
+</figure>
 <blockquote>
 <p>Linux is a cancer that attaches itself in an intellectual property sense to everything it touches.</p>
 <p><cite>Steve Ballmer, Microsoft CEO, June 2001</cite></p>
 </blockquote>
 <p>This ain’t yer Dad’s Microsoft…</p>
 <p>In the past few years, Microsoft has made <a href="https://code.visualstudio.com/">Visual Studio Code</a>, the <a href="https://directory.fsf.org/wiki/Visual_Studio_Code">free</a> code editor that runs everywhere, into <a href="https://insights.stackoverflow.com/survey/2019?utm_source=Iterable&amp;utm_medium=email&amp;utm_campaign=dev-survey-2019#technology-_-most-popular-development-environments">the preferred choice</a> of many developers. And, rather than relentlessly pushing their own alternative, they’ve built the Linux command line into Windows as the <a href="https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux">Windows Subsystem for Linux</a>.</p>
-<p>If you’re like me, you’ve already set up both your <abbr title="Windows Subsystem for Linux">WSL</abbr> Linux shell and your VS Code environment just how you like ’em. But when you open the integrated terminal, you’re disappointed to see a Powershell prompt …</p>
-<div class="wp-block-image"><figure class="aligncenter">[![VS Code integrated Powershell terminal](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2019/06/20190624_113508_VSCode_integrated_Powershell_terminal-min.jpg?resize=1024%2C268&amp;ssl=1)](https://www.aggrippino.com/fully-integrate-linux-into-vs-code-on-windows/20190624_113508_vscode_integrated_powershell_terminal-min/)<figcaption>VS Code’s default integrated terminal is Powershell</figcaption></figure></div>Let’s fix that …
-<div class="va-tldr">## tl;dr
+<p>If you’re like me, you’ve already set up both your WSL (Windows Subsystem for Linux) Linux shell and your VS Code environment just how you like ’em. But when you open the integrated terminal, you’re disappointed to see a Powershell prompt. Let’s fix that …</p>
+<h2>tl;dr</h2>
 <ol>
-<li>
-<p>Set your integrated shell:</p>
-<pre><code>&lt;pre class="wp-block-code"&gt;        ```
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe"
+<li>Set your integrated shell:<pre><code class="language-json">"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe"
 </code></pre>
-<pre><code></code></pre>
 </li>
-<li>
-<p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a></p>
-</li>
-<li>
-<p>Open your project from the Linux shell</p>
-</li>
-<li>
-<p>Install extensions in WSL</p>
-</li>
+<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a></li>
+<li>Open your project from the Linux shell</li>
+<li>Install extensions in WSL</li>
 </ol>
-</div>\[ez-toc\]
 <h2>Use the right shell</h2>
 <p><a href="https://code.visualstudio.com/docs/terminal/basics#_terminal-shells">By default</a>, VS Code uses Powershell on Windows 10, but it’s easy to change. Just set the path to your WSL executable as the integrated shell for Windows in your settings:</p>
 <ol>
@@ -105,69 +94,23 @@
 </ul>
 </li>
 </ol>
-<pre><code>&lt;pre class="wp-block-code"&gt;```
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe"
+<pre><code class="language-json">"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe"
 </code></pre>
-<pre><code>
-&lt;div class="wp-block-image"&gt;&lt;figure class="aligncenter"&gt;[![Add WSL as integrated terminal for Windows in settings.json](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2019/06/20190603_210624_Change_settings.json-GIMP-min.gif?resize=1200%2C628&amp;ssl=1)](https://www.aggrippino.com/fully-integrate-linux-into-vs-code-on-windows/20190603_210624_change_settings-json-gimp-min/)&lt;figcaption&gt;Changing the integrated shell in settings.json&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;&lt;style&gt;
-  .va-manual-accordion {
-    --border-radius: 0.25rem;
-    border-radius: var(--border-radius);
-    margin-bottom: 1rem;
-  }
-
-  .va-manual-accordion[open] .va-manual-accordion--title {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .va-manual-accordion--title {
-    background-color: whitesmoke;
-    padding: 0.75em 1em;
-    display: list-item;
-    cursor: pointer;
-    transition: background-color 100ms;
-    border-radius: var(--border-radius);
-    font-weight: bold;
-  }
-
-  .va-manual-accordion--content {
-    padding-top: 0.5em;
-    border-style: solid;
-    border-color: whitesmoke;
-    border-width: 0 1px 1px;
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    box-sizing: border-box;
-  }
-
-  summary:hover {
-    background-color: gainsboro;
-  }
-
-  summary:focus {
-    outline: none;
-  }
-&lt;/style&gt;&lt;details class="va-manual-accordion"&gt; &lt;summary class="va-manual-accordion--title"&gt;If you prefer to change settings in the GUI:&lt;/summary&gt;&lt;div class="va-manual-accordion--content"&gt;1. Click the gear icon near the lower left corner.
-2. Click Settings.
-3. Enter *integrated shell windows* into the Search Settings field.
-4. Enter the full path to wsl.exe as the value of the Terminal﹥Integrated﹥Shell: Windows
-
-&lt;div class="wp-block-image"&gt;&lt;figure class="aligncenter"&gt;[![Change your integrated shell using the GUI](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2019/06/20190605_184641_Change_integrated_shell_via_gui-GIMP-min.gif?resize=1200%2C628&amp;ssl=1)](https://www.aggrippino.com/fully-integrate-linux-into-vs-code-on-windows/20190605_184641_change_integrated_shell_via_gui-gimp-min/)&lt;figcaption&gt;Changing the integrated shell using the GUI&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt; &lt;/div&gt;&lt;/details&gt;Note that this has to go in the User settings. For “[enhanced security](https://code.visualstudio.com/docs/getstarted/settings#_settings-and-security)“, you can’t set a different shell for each workspace (project).
-
-## Make VS Code work *in* Linux
-
-We’ve configured VS Code to open the Linux shell in the integrated terminal, but it still runs itself in the Windows environment. This is a problem for extensions that work by processing the output of command line tools. You could install them in the Windows shell, but you you wouldn’t be here if you wanted to work in the Windows shell. Besides, most of these tools were written for a &lt;abbr title="Unix-like"&gt;\*NIX&lt;/abbr&gt; shell. Installation on Windows usually isn’t easy, well-documented, or frequently updated when compared to installation in a Linux shell.
-
-&lt;div class="wp-block-image"&gt;&lt;figure class="aligncenter"&gt;[![ESLint failed error message in VSCode](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2019/06/20190612_122001_VSCode_ESLint-failed-min.jpg?resize=1024%2C268&amp;ssl=1)](https://www.aggrippino.com/fully-integrate-linux-into-vs-code-on-windows/20190612_122001_vscode_eslint-failed-min/)&lt;figcaption&gt;The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) fails on Windows.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;As of the [May 2019 release](https://code.visualstudio.com/updates/v1_35) (or sooner if you’re using [VS Code Insiders](https://code.visualstudio.com/insiders/)), Microsoft has provided a solution for this problem in the [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). [Remote – WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (included in the pack) allows VS Code, running from Windows, to work with your code in the Linux shell.
-
-&lt;div class="wp-block-image"&gt;&lt;figure class="aligncenter"&gt;[![VSCode Remote Development Extension Pack](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2019/06/20190612_150822_VSCode_Remote-Development_extension.jpg?resize=1024%2C536&amp;ssl=1)](https://www.aggrippino.com/fully-integrate-linux-into-vs-code-on-windows/20190612_150822_vscode_remote-development_extension/)&lt;figcaption&gt;Install the Remote Development Extension Pack&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;The first time you run VS Code from the Linux shell after installing the extension pack, it’ll spend some time “Installing VS Code Server”.
-
-## Install Extensions in WSL
-
-Now that everything’s ready to go, you have to tell VS Code which of your extensions you want to work in WSL. Extensions that are already installed locally will have an “Install on WSL” button. Extensions that aren’t installed yet will install on WSL by default when you’re working in a WSL project.
-
-&lt;div class="wp-block-image"&gt;&lt;figure class="aligncenter"&gt;[![VS Code: Install on WSL](https://i0.wp.com/www.aggrippino.com/wp-content/uploads/2019/06/20190612_173437_VSCode_Install-on-WSL-min.jpg?resize=1024%2C536&amp;ssl=1)](https://www.aggrippino.com/fully-integrate-linux-into-vs-code-on-windows/20190612_173437_vscode_install-on-wsl-min/)&lt;figcaption&gt;Install your extensions on WSL&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;</code></pre>
+<details>
+    <summary>If you prefer to change settings in the GUI: </summary>  
+    <ol>
+       <li>Click the gear icon near the lower left corner.</li>
+       <li>Click Settings.</li>
+       <li>Enter *integrated shell windows* into the Search Settings field.</li>
+       <li>Enter the full path to wsl.exe as the value of the Terminal﹥Integrated﹥Shell: Windows</li>
+    </ol>
+</details>
+<p>Note that this has to go in the User settings. For “<a href="https://code.visualstudio.com/docs/getstarted/settings#_settings-and-security">enhanced security</a>“, you can’t set a different shell for each workspace (project).</p>
+<h2>Make VS Code work <em>in</em> Linux</h2>
+<p>We’ve configured VS Code to open the Linux shell in the integrated terminal, but it still runs itself in the Windows environment. This is a problem for extensions that work by processing the output of command line tools. You could install them in the Windows shell, but you you wouldn’t be here if you wanted to work in the Windows shell. Besides, most of these tools were written for a Unix-like shell. Installation on Windows usually isn’t easy, well-documented, or frequently updated when compared to installation in a Linux shell.</p>
+<p>As of the <a href="https://code.visualstudio.com/updates/v1_35">May 2019 release</a> (or sooner if you’re using <a href="https://code.visualstudio.com/insiders/">VS Code Insiders</a>), Microsoft has provided a solution for this problem in the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a>. <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">Remote – WSL</a> (included in the pack) allows VS Code, running from Windows, to work with your code in the Linux shell.</p>
+<h2>Install Extensions in WSL</h2>
+<p>Now that everything’s ready to go, you have to tell VS Code which of your extensions you want to work in WSL. Extensions that are already installed locally will have an “Install on WSL” button. Extensions that aren’t installed yet will install on WSL by default when you’re working in a WSL project.</p>
 </main>
     <footer class="footer"></footer>
 

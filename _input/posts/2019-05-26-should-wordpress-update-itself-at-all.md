@@ -9,6 +9,7 @@ permalink: /should-wordpress-update-itself-at-all/
 inline_featured_image:
     - '0'
 image: /wp-content/uploads/2019/05/WordPress_Security_header-min.jpg
+image_alt: &ldquo;WordPress Security&rdquo; printed below the WordPress logo with a padlock locked through it
 categories:
     - Security
     - WordPress
@@ -19,14 +20,12 @@ tags:
     - wordpress
 published: true
 ---
-{% if image %}
-    <figure class="post__image">
-        <img src="{{ image }}" alt="{{ image_alt }}">
-    </figure>
-{% endif %}
-
-<h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
+<h1 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h1>
 <div class="post__date">{% formatted_date page.date %}</div>
+
+<figure class="post__image">
+    <img src="{{ image }}" alt="{{ image_alt }}">
+</figure>
 
 Most of the time, when you need to update a plugin, a theme, or even WordPress core, you just click an update button and the rest is handled *automagically*. This works because web hosts usually set the web server to use the same user as the one that owns the files. This has some inherent security problems.
 

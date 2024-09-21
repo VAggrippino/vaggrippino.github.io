@@ -6,28 +6,23 @@ author: 'Vince Aggrippino'
 layout: post
 guid: 'https://www.aggrippino.com/?p=539'
 permalink: /easily-use-third-party-images-in-wordpress/
+image: /wp-content/uploads/2019/05/20190521_063318_WordPress_Insert_Image_from_URL_252x252-min.png
+image_alt: A clip from the WordPress user interface showing the insert image from U R L button and field
+image_caption: WordPress' Insert Image from URL
 categories:
     - WordPress
 tags:
     - learning
     - plugins
     - wordpress
-published: true
+published: false
 ---
-{% if image %}
-    <figure class="post__image">
-        <img src="{{ image }}" alt="{{ image_alt }}">
-    </figure>
-{% endif %}
-
-<h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
+<h1 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h1>
 <div class="post__date">{% formatted_date page.date %}</div>
 
-<figure class="alignleft">
-
-  ![](/wp-content/uploads/2019/05/20190521_063318_WordPress_Insert_Image_from_URL_252x252-min.png)
-
-  <figcaption>WordPress’ Insert Image from URL</figcaption>
+<figure class="post__image original-size">
+    <img src="{{ image }}" alt="{{ image_alt }}">
+    <figcaption>{{ image_caption }}</figcaption>
 </figure>
 
 Let’s say, for example, I have a *photo* on Facebook that I want to use in a WordPress post. It’s *Public* so anyone with the URL can view it without even logging in. It’s not very difficult. Just get the image URL, add a new image block, and use the URL instead of uploading or selecting from the existing Media Library.

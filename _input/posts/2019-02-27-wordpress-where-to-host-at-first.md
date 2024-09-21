@@ -9,7 +9,8 @@ permalink: /wordpress-where-to-host-at-first/
 inline_featured_image:
     - '0'
 image: /wp-content/uploads/2019/02/best-cheap-wordpress-hosting-comparison-1024x512.jpg
-imageAlt: 'hosting provider logos'
+image_alt: logos and wordmarks of many hosting providers
+image_caption: There are <em>a lot</em> of hosting options.
 categories:
     - WordPress
 tags:
@@ -17,24 +18,22 @@ tags:
     - wordpress
 published: true
 ---
-{% if image %}
-    <figure class="post__image">
-        <img src="{{ image }}" alt="{{ image_alt }}">
-    </figure>
-{% endif %}
-
-<h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>
+<h1 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h1>
 <div class="post__date">{% formatted_date page.date %}</div>
+
+<figure class="post__image">
+    <img src="{{ image }}" alt="{{ image_alt }}">
+    <figcaption>{{ image_caption }}</figcaption>
+</figure>
 
 I recently spent some time researching and testing free WordPress hosting services. My goal was to find information for people who have never had a website before. I’ve used [000webhost](https://www.000webhost.com/) before, but I hadn’t checked out any other options in many years. I figured it was time to do a little comparison shopping. From this experience, I drew some interesting conclusions.
 
-<div style="background-color: beige; padding: 1rem 1rem 1px 1rem; box-shadow: 0 0.25rem 0.25rem 1px rgba(0, 0, 0, 0.3);">## tl;dr
+
+## tl;dr
 
 - Day 1: [WordPress.com](https://wordpress.com/)
 - 2 weeks: [000webhost](https://www.000webhost.com/)
 - 3 months: Paid hosting with a well-researched, reliable privider that provides the right features for your
- 
-</div>
 
 ## I expected 000webhost to be worse…
 

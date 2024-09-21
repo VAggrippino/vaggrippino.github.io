@@ -40,6 +40,11 @@ dfn > abbr[title]::after {
     white-space: nowrap;
 }
 
+figure.original-size img {
+    width: auto;
+    height: auto;
+}
+
 .home {
     & :is(.intro__title, .intro__subtitle) {
         text-align: center;
