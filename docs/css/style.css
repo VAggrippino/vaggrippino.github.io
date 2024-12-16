@@ -320,9 +320,8 @@ figure.original-size img {
     margin-bottom: 0;
 
     & a {
-        display: flex;
         min-height: var(--finger-size);
-        align-items: center;
+        line-height: var(--finger-size);
     }
 }
 
