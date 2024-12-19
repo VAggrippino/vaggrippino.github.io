@@ -63,7 +63,7 @@ I dunno.
 
 In the past I've earned respect for being focused on work. I've even been the focus of some affectionate teasing about "talking shop" at social events. Now, though, socials are more important than ever before and only people who can balance social and technical skills will succeed.
 
-I also live in a foreign country where immigration laws prevent me from working locally. Maybe there was some nuance to working with me directly, when I worked in a traditional office, that prevented people from judging me so harshly, but that's nto an option any more.
+I also live in a foreign country where immigration laws prevent me from working locally. Maybe there was some nuance to working with me directly, when I worked in a traditional office, that prevented people from judging me so harshly, but that's not an option any more.
 
 
 ## Summary
