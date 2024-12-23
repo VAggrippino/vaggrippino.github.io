@@ -1,6 +1,6 @@
 ---
 title: "Can I Become a Software Engineer?"
-published: false
+published: true
 image: "/images/a_chimpanzee_programming_on_a_laptop.webp"
 image_alt: "A chimpanzee programming on a laptop"
 ---
