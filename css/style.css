@@ -308,11 +308,32 @@ figure.original-size img {
 }
 
 .post__image {
+    background-color: hsl(from currentColor h s 95%);
     margin: 0;
-    & img {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
+    display: inline-block;
+
+    & > a {
+        display: block;
+        font-size: 0;
+
+        & img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+    }
+
+    & figcaption {
+        margin-inline: 1rem;
+        line-height: 1.2;
+
+        & p:first-child {
+            margin-top: 0.25rem;
+        }
+
+        & p:last-child {
+            margin-bottom: 0.25rem;
+        }
     }
 }
 
