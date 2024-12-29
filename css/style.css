@@ -21,6 +21,49 @@
 body {
     margin: 0;
     line-height: 1.5;
+
+    /* Font: "Neo Grotesque" from Modern Font Stacks
+     * https://modernfontstacks.com/#neo-grotesque
+     */
+    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+}
+
+/* Inspired by "A Modern CSS Reset"
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 2rem;
+    margin-bottom: 0;
+
+    /* Inspired by "A Modern CSS Reset"
+    * https://www.joshwcomeau.com/css/custom-css-reset/
+    */
+    text-wrap: balance;
+
+    /* Font: "Slab Serif" from Modern Font Stacks
+     * https://modernfontstacks.com/#slab-serif
+     */
+    font-family: Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif; 
+    font-weight: bold;
+
+    & + * {
+        margin-top: 0;
+    }
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 1rem; }
+
+p {
+    text-wrap: pretty;
 }
 
 select, textarea, input, button {
@@ -348,7 +391,7 @@ figure.original-size img {
 
 .post__date {
     text-align: end;
-    margin-block: 0.5em;
+    margin: 0;
 }
 
 .blog-history-nav {
