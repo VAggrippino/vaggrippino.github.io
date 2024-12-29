@@ -26,5 +26,5 @@ eleventyNavigation:
 <collections-post @numposts="3"></collections-post>
 
 <div class="related-links">
-    <a :href="`history/${collections.post.length / 3}`">Older Posts</a>
+    <a :href="`history/${Math.ceil(collections.post.length / 3)}`">Older Posts</a>
 </div>
