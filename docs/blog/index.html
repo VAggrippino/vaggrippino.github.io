@@ -82,6 +82,27 @@
 
 
 <article class="collections-post">
+    <h1 class="post__title"><a href="/2024/12/absolutely-insane-unicorn/">Absolutely Insane Unicorn</a></h1>
+<div class="post__date">30th December 2024 - Monday</div>
+<figure class="post__image">
+    <a href="/2024/12/absolutely-insane-unicorn/"><img src="/images/absolutely-insane-unicorn.webp" alt="A cartoon depicting an insane unicorn head against a chaotic and colorful background"></a>
+</figure>
+<blockquote>
+<p>... unless you're some absolutely insane unicorn and can show it...</p>
+</blockquote>
+<p>This is paraphrased from a Reddit discussion about Software Engineering employment opportunities.</p>
+<p>I <em>love</em> that phrase! It ranks right up there with "10x developer" as someone who performs ten times better than an average developer.</p>
+<p>The point of saying "unicorn" in any modern context is <em>supposed to be</em> to describe something that doesn't exist. It's a mythological creature, like a developer with many years of experience with mutually exclusive technologies.</p>
+<p>Not any more... The term "unicorn" has a <a href="https://en.wikipedia.org/wiki/Unicorn_(finance)">distinct definition</a> in a financial context and I suspect the <em>redditor</em> could describe a <em>unicorn developer</em> to me if I asked them to. If I search for "10x developer" I can find courses that promise to teach me exactly how to become one. People don't use these terms to refer to something that doesn't exist.</p>
+<p>Well, it's still nonsense. Just like a "10x developer", it might be theoretically possible to become a "unicorn developer", but it's completely infeasible.</p>
+<p>Think about the best developer in the world. There's no wrong answer, just whoever <em>you</em> think is the best developer in the world...</p>
+<p>Now, whether you're thinking about some overpaid FAANG engineer, an innovator like DHH or Linus Torvalds, an educator like Uncle Bob Martin, or legends like Kernighan &amp; Ritchie I'll bet they don't have the diverse skills to be a <em>unicorn developer</em> and can't demonstrate the speed / quality to be a <em>10x developer</em>.</p>
+<p>There's nothing wrong with this. I just find it entertaining.</p>
+<p>May your reach always exceed your grasp.</p>
+<p>If you're curious about me, I'm a solid 0.9x developer in terms of speed, but I try to be a 1.1x developer in terms of quality.</p>
+
+</article>
+<article class="collections-post">
     <h1 class="post__title"><a href="/2024/12/can-i-become-a-software-engineer/">Can <em>I</em> Become a Software Engineer?</a></h1>
 <div class="post__date">23rd December 2024 - Monday</div>
 <figure class="post__image">
@@ -163,28 +184,6 @@
 <blockquote>
 <p>fatal: Unimplemented pathspec magic '_' in ':!_output'`</p>
 </blockquote>
-
-</article>
-<article class="collections-post">
-    <h2 class="post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
-<div class="post__date">21st December 2023 - Thursday</div>
-<figure class="post__image">
-    <img src="/images/VSCodeVim_Smashing_VSCode-min.jpg" alt="VSCodeVim Cartoon Character Breaking VSCode" title="VSCodeVim Cartoon Character Breaking VSCode">
-</figure>
-<p>VSCodeVim broke VSCode's file <em>Quick Open</em> keybinding. Now, <em>CTRL-P</em> just moves the cursor up a line instead of opening the file finder as expected.</p>
-<p>Based on the GitHub issue linked in <a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">the commit</a>, it was meant to enable MacOS's default cursor movement keys.</p>
-<p><a href="https://github.com/VSCodeVim/Vim/issues/8574">Issue #8574</a> shows some easy fixes. I chose to disable the plugin's handling of the keybinding:</p>
-<pre><code class="language-json">"vim.handleKeys": {
-    "&lt;C-p&gt;": false
-}
-</code></pre>
-<p>This is in <code>settings.json</code> and I got there by opening Settings, entering "handlekeys" into the search box, and clicking on the "Edit in settings.json" link.</p>
-<h3>References</h3>
-<ul>
-<li><a href="https://github.com/VSCodeVim/Vim/issues/8574">VSCodeVim #8574: CTRL+P not working properly</a></li>
-<li><a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">VSCodeVim commit cd9ebd5</a></li>
-<li><a href="https://github.com/VSCodeVim/Vim/issues/6363">VSCodeVim #6363: Visual mode + &lt;C-n&gt;/&lt;C-p&gt;/&lt;C-f&gt;/&lt;C-b&gt; doesn't work as expected</a></li>
-</ul>
 
 </article>
 
