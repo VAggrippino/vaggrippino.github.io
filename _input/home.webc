@@ -19,13 +19,13 @@ eleventyNavigation:
                 </a>
             </li>
             <li>
-                <a href="https://codepen.io/VAggrippino" class="intro__social-links__codepen">
+                <a rel="me" href="https://codepen.io/VAggrippino" class="intro__social-links__codepen">
                     <i class="intro__social-links__icon fa-brands fa-codepen" aria-hidden="true"></i>
                     <span class="intro__social-links__service">CodePen</span>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/VAggrippino" class="intro__social-links__github">
+                <a rel="me" href="https://github.com/VAggrippino" class="intro__social-links__github">
                     <i class="intro__social-links__icon fa-brands fa-github" aria-hidden="true"></i>
                     <span class="intro__social-links__service">GitHub</span>
                 </a>
