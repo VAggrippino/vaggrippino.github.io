@@ -63,7 +63,8 @@
 </nav>
     </header>
 
-    <main class="main"><article class="h-entry"><p>{% if image %}
+    <main class="main"><!-- <article class="h-entry" @html="content"></article> --><article class="h-entry">
+    <p>{% if image %}
 </p><figure class="post__image">
 <img src="{{ image }}" alt="{{ image_alt }}">
 </figure>
@@ -166,6 +167,8 @@ the documentation...</p>
 <hr>
 <h3>Summary</h3>
 <p>I thought the <code>for</code>/<code>endfor</code> lines didn't count. I thought that, like a JavaScript <code>for</code> loop, all that mattered was what was inside the block. In a Nunjucks template everything that's outside of the <code>{% %}</code> is rendered. And the documentation says that. So, a dash at the beginning of the tag eliminates the whitespace before the tag and a dash at the end of the tag eliminates the whitespace after the tag. Now that I understand it, I think the only thing I could do to improve the documentation is add some more examples.</p>
+
+    
 </article>
 </main>
     <footer class="footer"></footer>
