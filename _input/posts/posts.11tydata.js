@@ -8,7 +8,7 @@ const date_path = (data)  => {
 }
 
 module.exports = () => ({
-    layout: 'base.webc',
+    layout: 'post.webc',
     tags: 'post',
     page_class: 'post',
 

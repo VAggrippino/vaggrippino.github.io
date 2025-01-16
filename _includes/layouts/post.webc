@@ -1,0 +1,5 @@
+---
+layout: base.webc
+---
+
+<article class="h-entry" @html="content"></article>

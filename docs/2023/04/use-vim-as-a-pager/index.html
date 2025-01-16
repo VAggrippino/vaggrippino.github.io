@@ -63,7 +63,7 @@
 </nav>
     </header>
 
-    <main class="main"><h2 class="post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h2>
+    <main class="main"><article class="h-entry"><h2 class="post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h2>
 <div class="post__date">22nd April 2023 - Saturday</div>
 <p>I wanted to be able to scroll a <code>man</code> page in the terminal with my mouse wheel. While looking for a setting to change I learned that Vim can be used as a pager allowing mouse support and much more.
 Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix">this entry at the Vim Tips Wiki</a>, I decided to set it up for myself, but with a few minor changes. I did all this in WSL with Ubuntu 20.04.6 and Zsh on Windows 11, but it should work as well with any Unix or Linux variant:</p>
@@ -101,6 +101,7 @@ Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_
 <li><code>-c 'highlight Normal ctermbg=NONE guibg=NONE'</code>: This disables the background color that I use in the editor when editing code so that my terminal transparency is still in effect.</li>
 <li>The rest of the lines change some key mappings so that it works in a familiar way if you're used to <code>less</code> (the default pager for <code>man</code> pages)</li>
 </ul>
+</article>
 </main>
     <footer class="footer"></footer>
 
