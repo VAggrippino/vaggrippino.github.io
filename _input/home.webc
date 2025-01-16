@@ -47,3 +47,5 @@ eleventyNavigation:
 <h2>Newest blog post: </h2>
 
 <collections-post @numposts="1"></collections-post>
+
+<microformats-h-card></microformats-h-card>

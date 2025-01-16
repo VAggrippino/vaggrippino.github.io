@@ -144,6 +144,33 @@ figure.original-size img {
     }
 }
 
+.h-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "heading heading"
+        "photo table";
+    align-items: start;
+
+    & .heading {
+        grid-area: heading;
+    }
+
+    & .u-photo {
+        grid-area: photo;
+        width: 100%;
+    }
+
+    & table {
+        grid-area: table;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
 .post {
     & .song {
         display: flex;
