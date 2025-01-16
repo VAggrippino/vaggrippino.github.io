@@ -165,7 +165,9 @@ figure.original-size img {
     & table {
         grid-area: table;
     }
+}
 
+.h-card, .p-summary {
     &.hidden {
         display: none;
     }

@@ -8,6 +8,6 @@
     }
 </script>
 
-<article class="collections-post" webc:for="post of recent_posts(numposts)">
+<article class="collections-post h-entry" webc:for="post of recent_posts(numposts)">
     <template @html="post.content" webc:nokeep></template>
 </article>
