@@ -21,7 +21,7 @@ published: true
         ></a>
     </figure>
 
-    > ... unless you're some absolutely insane unicorn and can show it...
+> ... unless you're some absolutely insane unicorn and can show it...
 
     This is paraphrased from a Reddit discussion about Software Engineering employment opportunities.
 
