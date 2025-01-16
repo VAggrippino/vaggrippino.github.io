@@ -11,7 +11,7 @@ layout: base.webc
         In
         <ul class="post__tags__list">
             <li
-                class="post__tags__item"
+                class="p-category post__tags__item"
                 webc:for="tag of tags"
                 webc:if="tag !== 'main' && tag !== 'post'"
                 @text="tag"
