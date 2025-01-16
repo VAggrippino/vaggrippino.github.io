@@ -10,6 +10,7 @@ module.exports = (Config) => {
     Config.addPlugin(navigation)
 
     Config.addShortcode('formatted_date', (d) => dayjs(d).format('Do MMMM YYYY - dddd'))
+    Config.addShortcode('iso_date', (d) => dayjs(d).toISOString())
 
     Config.addLayoutAlias('post', 'base.webc')
 

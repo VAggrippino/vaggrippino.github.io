@@ -7,7 +7,7 @@ published: true
 
 <h1 class="post__title p-name"><a class="u-url" href="{{ page.url }}">Absolutely Insane Unicorn</a></h1>
 <div class="post__date">
-    <time class="dt-published" datetime="{{ page.date }}">{% formatted_date page.date %}</time>
+    <time class="dt-published" datetime="{% iso_date page.date %}">{% formatted_date page.date %}</time>
 </div>
 
 <p class="p-summary hidden">A random musing on the terminology we use to describe developers.</p>

@@ -8,7 +8,7 @@ image_alt: "A chimpanzee programming on a laptop"
 
 <h1 class="post__title p-name"><a class="u-url" href="{{ page.url }}">Can <em>I</em> Become a Software Engineer?</a></h1>
 <div class="post__date">
-    <time class="dt-published" datetime="{{ page.date }}">{% formatted_date page.date %}</time>
+    <time class="dt-published" datetime="{% iso_date page.date %}">{% formatted_date page.date %}</time>
 </div>
 
 <p class="p-summary hidden">
