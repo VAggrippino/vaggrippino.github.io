@@ -18,5 +18,5 @@ layout: base.webc
             ></li>
         </ul>
     </div>
-    <div class="post__byline">Written by <a class="p-author h-card" href="https://vaggrippino.github.io">Vince Aggrippino</a></div>
+    <div class="post__byline">Written by <a class="p-author h-card" href="https://aggrippino.com">Vince Aggrippino</a></div>
 </article>
