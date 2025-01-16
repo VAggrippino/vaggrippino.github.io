@@ -144,7 +144,7 @@ figure.original-size img {
     }
 }
 
-.h-card {
+.home .h-card {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto;
@@ -213,6 +213,10 @@ figure.original-size img {
     margin-inline: 0.25em;
     background-color: hsl(from currentColor h s 90%);
     border-radius: 0.25rem;
+}
+
+.post__byline {
+    text-align: right;
 }
 
 .main {
