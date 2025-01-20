@@ -18,6 +18,7 @@ module.exports = (Config) => {
     Config.addPassthroughCopy('images')
     Config.addPassthroughCopy('css')
     Config.addPassthroughCopy('js')
+    Config.addPassthroughCopy('CNAME')
 
     return {
         dir: {
