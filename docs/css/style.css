@@ -5,6 +5,11 @@
     --color-visited: purple;
     --color-accent: silver;
 
+    --color-webmentions-updated: green;
+    --color-bg-webmentions-updated: var(--color-bg);
+    --color-webmentions-error: red;
+    --color-bg-webmentions-error: var(--color-bg);
+
     --readable-width: 30rem;
     --finger-size: 64px;
     --spacing: 1rem;
@@ -546,4 +551,18 @@ figure.original-size img {
     border-radius: 5px;
     border: 1px outset gray;
     box-sizing: border-box;
+}
+
+footer {
+    text-align: center;
+}
+
+.footer__webmentions__count.updated {
+    background-color: var(--color-bg-webmentions-updated);
+    color: var(--color-webmentions-updated);
+}
+
+.footer__webmentions__count.error {
+    background-color: var(--color-bg-webmentions-error);
+    color: var(--color-webmentions-error);
 }

@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', async () => {
     // Font Awesome icons are always decorative
     const fa_icons = document.querySelectorAll('i:where(.fa-solid, .fa-regular, .fa-light, .fa-thin)')
     fa_icons.forEach(icon => icon.ariaHidden = true)
@@ -58,4 +58,33 @@ window.addEventListener('load', () => {
             go_link.setAttribute('href', url);
         })
     }
+
+    // Webmentions
+    const webmentions_data = await getWebmentionsCount()
+    const webmentions_count_field = document.querySelector('.footer__webmentions__count')
+    webmentions_count_field.innerHTML = webmentions_data.count
+    webmentions_count_field.classList.add('updated')
 })
+
+async function getWebmentionsCount() {
+    const current_url = window.location.href
+    const webmentions_url = `https://webmention.io/api/count?target=${current_url}`
+
+    console.log(`Retrieving Webmentions count from ${webmentions_url}`)
+
+    const response = await fetch(webmentions_url)
+    if (response.ok) {
+        const json = await response.json()
+
+        console.log(`${response.status} : ${response.statusText}`)
+        console.log(json)
+
+        console.log(`json.count: `)
+        console.log(json.count)
+
+        return json
+    } else {
+        console.error(`${response.status} : ${response.statusText}`)
+        return false
+    }
+}
