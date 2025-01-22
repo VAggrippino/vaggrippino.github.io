@@ -12,6 +12,15 @@
             </td>
         </tr>
         <tr>
+            <th>Bio</th>
+            <td>
+                <p class="p-note">
+                    Software Engineering enthusiast with an affinity for Web Development and Design.
+                </p>
+                <p class="p-note">
+                    NodeJS, Python, PHP, MySQL / MariaDB, Oracle, MongoDB, HTML, CSS, JavaScript, ReactJS, Vue
+                </p>
+        <tr>
             <th>Email</th>
             <td><a class="u-email" href="mailto:vinceaggrippino@gmail.com" rel="me">vinceaggrippino@gmail.com</a></td>
         </tr>
