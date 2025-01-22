@@ -2,6 +2,8 @@
 title: "Absolutely Insane Unicorn"
 image: "/images/absolutely-insane-unicorn.webp"
 image_alt: "A cartoon depicting an insane unicorn head against a chaotic and colorful background"
+tags:
+    - language
 published: true
 ---
 

@@ -1,9 +1,12 @@
 ---
 title: "Can I Become a Software Engineer?"
 updated: 2024-12-28
-published: true
 image: "/images/a_chimpanzee_programming_on_a_laptop.webp"
 image_alt: "A chimpanzee programming on a laptop"
+tags:
+    - health
+    - employment
+published: true
 ---
 
 <h1 class="post__title p-name"><a class="u-url" href="{{ page.url }}">Can <em>I</em> Become a Software Engineer?</a></h1>
