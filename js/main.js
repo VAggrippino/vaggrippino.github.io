@@ -59,18 +59,23 @@ window.addEventListener('DOMContentLoaded', async () => {
         })
     }
 
-    // Webmentions
+    /* Webmentions */
+    // Get the Webmention.io count data for this page and use it to update an on-page counter.
     const webmentions_data = await getWebmentionsCount()
     const webmentions_count_field = document.querySelector('.footer__webmentions__count')
     webmentions_count_field.innerHTML = webmentions_data.count
     webmentions_count_field.classList.add('updated')
+
+    // Get the full Webmention.io data for this page and output it to the console.
+    // TODO: Show webmentions data on the page.
+    getWebmentions()
 })
 
 async function getWebmentionsCount() {
     const current_url = window.location.href
     const webmentions_url = `https://webmention.io/api/count?target=${current_url}`
 
-    console.log(`Retrieving Webmentions count from ${webmentions_url}`)
+    console.log(`Retrieving Webmentions count from ${webmentions_url} ...`)
 
     const response = await fetch(webmentions_url)
     if (response.ok) {
@@ -79,10 +84,29 @@ async function getWebmentionsCount() {
         console.log(`${response.status} : ${response.statusText}`)
         console.log(json)
 
-        console.log(`json.count: `)
+        console.log(`Webmention.io count data: `)
         console.log(json.count)
 
         return json
+    } else {
+        console.error(`${response.status} : ${response.statusText}`)
+        return false
+    }
+}
+
+async function getWebmentions() {
+    const current_url = window.location.href
+    const webmentions_url = `https://webmention.io/api/mentions.jf2?target=${current_url}`
+
+    console.log(`Retrieving Webmentions data from ${webmentions_url} ...`)
+
+    const response = await fetch(webmentions_url)
+    if (response.ok) {
+        const json = await response.json()
+
+        console.log(`${response.status} : ${response.statusText}`)
+        console.log(`Webmention.io data for ${current_url}: `)
+        console.log(json)
     } else {
         console.error(`${response.status} : ${response.statusText}`)
         return false
