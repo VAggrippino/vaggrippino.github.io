@@ -62,13 +62,16 @@ window.addEventListener('DOMContentLoaded', async () => {
     /* Webmentions */
     // Get the Webmention.io count data for this page and use it to update an on-page counter.
     const webmentions_data = await getWebmentionsCount()
-    const webmentions_count_field = document.querySelector('.footer__webmentions__count')
+    const webmentions_count_field = document.querySelector('footer .webmentions__count__counter')
     webmentions_count_field.innerHTML = webmentions_data.count
     webmentions_count_field.classList.add('updated')
 
     // Get the full Webmention.io data for this page and output it to the console.
     // TODO: Show webmentions data on the page.
     getWebmentions()
+
+    // Show a command in the JavaScript console to send Webmentions for the current page
+    logSendWebmentionLink()
 })
 
 async function getWebmentionsCount() {
@@ -111,4 +114,13 @@ async function getWebmentions() {
         console.error(`${response.status} : ${response.statusText}`)
         return false
     }
+}
+
+function logSendWebmentionLink() {
+    // Based on "URL Decoder/Encoder" by Eric A. Meyer
+    const current_url_escaped = encodeURIComponent(window.location.href).replace(/'/g, '%27').replace(/"/g, '%22')
+    const webmentions_url = `https://webmention.app/check/url=${current_url_escaped}`
+    const command = `fetch("${webmentions_url}, {method: 'POST'}).then(r => r.json()).then(j => console.log(j))`
+    console.log('Send Webmentions for this page: ')
+    console.log(command)
 }

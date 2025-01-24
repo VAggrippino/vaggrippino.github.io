@@ -556,14 +556,14 @@ figure.original-size img {
 
 footer {
     text-align: center;
-}
 
-.footer__webmentions__count.updated {
-    background-color: var(--color-bg-webmentions-updated);
-    color: var(--color-webmentions-updated);
-}
+    & .webmentions__count__counter.updated {
+        background-color: var(--color-bg-webmentions-updated);
+        color: var(--color-webmentions-updated);
+    }
 
-.footer__webmentions__count.error {
-    background-color: var(--color-bg-webmentions-error);
-    color: var(--color-webmentions-error);
+    & .webmentions__counter.error {
+        background-color: var(--color-bg-webmentions-error);
+        color: var(--color-webmentions-error);
+    }
 }
