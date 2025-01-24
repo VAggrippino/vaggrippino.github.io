@@ -120,7 +120,7 @@ function logSendWebmentionLink() {
     // Based on "URL Decoder/Encoder" by Eric A. Meyer
     const current_url_escaped = encodeURIComponent(window.location.href).replace(/'/g, '%27').replace(/"/g, '%22')
     const webmentions_url = `https://webmention.app/check/url=${current_url_escaped}`
-    const command = `fetch("${webmentions_url}, {method: 'POST'}).then(r => r.json()).then(j => console.log(j))`
+    const command = `fetch("${webmentions_url}", {method: 'POST'}).then(r => r.json()).then(j => console.log(j))`
     console.log('Send Webmentions for this page: ')
     console.log(command)
 }
