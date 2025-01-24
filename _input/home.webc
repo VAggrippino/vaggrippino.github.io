@@ -46,6 +46,9 @@ eleventyNavigation:
 
 <h2>Newest blog post: </h2>
 
-<collections-post @numposts="1"></collections-post>
+<div class="h-feed">
+    <article class="collections-post h-entry" @html="collections.post[collections.post.length - 1].content">
+    </article>
+</div>
 
 <microformats-h-card></microformats-h-card>

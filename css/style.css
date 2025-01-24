@@ -446,7 +446,8 @@ figure.original-size img {
     }
 }
 
-.post__date {
+.post__date, .collections-post__date {
+    display: block;
     text-align: end;
     margin: 0;
 }

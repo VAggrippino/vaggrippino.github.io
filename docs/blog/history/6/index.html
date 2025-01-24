@@ -65,7 +65,9 @@
 </nav>
     </header>
 
-    <main class="main"><h1>Blog History Page 6</h1><article class="collections-post"><div class="collections-post__content"><h2 class="post__title"><a href="/2023/04/starting-your-terminal-with-tmux/">Starting Your Terminal with tmux</a></h2>
+    <main class="main"><h1>Blog History Page 6</h1>
+
+<div class="h-feed"><article class="collections-post h-entry"><div class="collections-post__content"><h2 class="post__title"><a href="/2023/04/starting-your-terminal-with-tmux/">Starting Your Terminal with tmux</a></h2>
 <div class="post__date">22nd April 2023 - Saturday</div>
 <p>I am getting more comfortable with <a href="https://github.com/tmux/tmux/wiki"><code>tmux</code></a> and I want to make sure I don't forget to use it when I'm at the command prompt. So, I made a simple Bash script to automatically connect to an existing session or start a new session when I start my terminal:</p>
 <p><code>tmux-start.sh</code>:</p>
@@ -77,7 +79,7 @@ tmux ls &gt; /dev/null ; [ $? == 0 ] &amp;&amp; tmux attach || tmux
 <li><code>$?</code> is the return value of the previous command</li>
 <li><code>&amp;&amp;</code> ... <code>||</code> is basically equivalent to a ternary operator in other programming languages</li>
 </ul>
-</div></article><article class="collections-post"><div class="collections-post__content"><h2 class="post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h2>
+</div></article><article class="collections-post h-entry"><div class="collections-post__content"><h2 class="post__title"><a href="/2023/04/use-vim-as-a-pager/">Use Vim as a Pager</a></h2>
 <div class="post__date">22nd April 2023 - Saturday</div>
 <p>I wanted to be able to scroll a <code>man</code> page in the terminal with my mouse wheel. While looking for a setting to change I learned that Vim can be used as a pager allowing mouse support and much more.
 Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix">this entry at the Vim Tips Wiki</a>, I decided to set it up for myself, but with a few minor changes. I did all this in WSL with Ubuntu 20.04.6 and Zsh on Windows 11, but it should work as well with any Unix or Linux variant:</p>
@@ -115,7 +117,7 @@ Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_
 <li><code>-c 'highlight Normal ctermbg=NONE guibg=NONE'</code>: This disables the background color that I use in the editor when editing code so that my terminal transparency is still in effect.</li>
 <li>The rest of the lines change some key mappings so that it works in a familiar way if you're used to <code>less</code> (the default pager for <code>man</code> pages)</li>
 </ul>
-</div></article><article class="collections-post"><div class="collections-post__content"><h2 class="post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
+</div></article><article class="collections-post h-entry"><div class="collections-post__content"><h2 class="post__title"><a href="/2023/12/vscodevim-broke-quick-open/">VSCodeVim Broke Quick Open</a></h2>
 <div class="post__date">21st December 2023 - Thursday</div>
 <figure class="post__image">
     <img src="/images/VSCodeVim_Smashing_VSCode-min.jpg" alt="VSCodeVim Cartoon Character Breaking VSCode" title="VSCodeVim Cartoon Character Breaking VSCode">
@@ -134,7 +136,8 @@ Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_
 <li><a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">VSCodeVim commit cd9ebd5</a></li>
 <li><a href="https://github.com/VSCodeVim/Vim/issues/6363">VSCodeVim #6363: Visual mode + &lt;C-n&gt;/&lt;C-p&gt;/&lt;C-f&gt;/&lt;C-b&gt; doesn't work as expected</a></li>
 </ul>
-</div></article><nav class="blog-history-nav">
+</div></article>
+</div><nav class="blog-history-nav">
     <h3 class="blog-history-nav__title">Blog History Pages</h3>
     <div class="blog-history-nav__caption">On page 6 of 7</div>
 

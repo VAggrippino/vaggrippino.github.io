@@ -2,17 +2,16 @@
 title: "Absolutely Insane Unicorn"
 image: "/images/absolutely-insane-unicorn.webp"
 image_alt: "A cartoon depicting an insane unicorn head against a chaotic and colorful background"
+excerpt: "A random musing on the terminology we use to describe developers."
 tags:
     - language
 published: true
 ---
 
 <h1 class="post__title p-name"><a class="u-url" href="{{ page.url }}">Absolutely Insane Unicorn</a></h1>
-<div class="post__date">
-    <time class="dt-published" datetime="{% iso_date page.date %}">{% formatted_date page.date %}</time>
-</div>
+<time class="post__date dt-published" datetime="{% iso_date page.date %}">{% formatted_date page.date %}</time>
 
-<p class="p-summary hidden">A random musing on the terminology we use to describe developers.</p>
+<p class="p-summary hidden">{{ excerpt }}</p>
 
 <div class="e-content">
     <figure class="post__image">

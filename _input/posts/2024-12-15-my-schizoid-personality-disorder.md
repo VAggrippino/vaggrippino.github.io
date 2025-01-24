@@ -1,33 +1,30 @@
 ---
 title: "My Schizoid Personality Disorder"
+image: "/images/A_man_sitting_alone_in_a_home_office_working_on_his_laptop.webp"
+image_alt: "A man sitting alone in a home office working on his laptop."
+excerpt: "I have a diagnosed personality disorder that makes it difficult to explain how I'm affected by my personality disorder. This is my best attempt at explaining it."
 tags:
     - employment
     - health
 published: false
-image: "/images/A_man_sitting_alone_in_a_home_office_working_on_his_laptop.webp"
-image_alt: "A man sitting alone in a home office working on his laptop."
 ---
 
 <h1 class="post__title p-name"><a class="u-url" href="{{ page.url }}"><em>My</em> Schizoid Personality Disorder</a></h1>
-<div class="post__date">
-    <time class="dt-published" datetime="{% iso_date page.date %}">{% formatted_date page.date %}</time>
-</div>
-<p class="p-summary hidden">
-    I have a diagnosed personality disorder that makes it difficult to explain how I'm affected by my personality disorder. This is my best attempt at explaining it.
-</p>
+<time class="post__date dt-published" datetime="{% iso_date page.date %}">{% formatted_date page.date %}</time>
+
+<p class="p-summary hidden">{{ excerpt }}</p>
 
 <div class="e-content">
-
-<figure class="post__image">
-    <a href="{{ page.url }}"
-    ><img
-        src="{{ image }}"
-        alt="{{ image_alt }}"
-    ></a>
-    <figcaption>
-        <p>Working alone in a home office suits me just fine.</p>
-    </figcaption>
-</figure>
+    <figure class="post__image">
+        <a href="{{ page.url }}"
+        ><img
+            src="{{ image }}"
+            alt="{{ image_alt }}"
+        ></a>
+        <figcaption>
+            <p>Working alone in a home office suits me just fine.</p>
+        </figcaption>
+    </figure>
 
 I am mentally ill. My condition is called Schizoid Personality Disorder, but this article isn't about that. It's about _my experience_.
 
@@ -35,7 +32,6 @@ If you want to know more about the condition, google it.
 
 
 ## Diagnosis
-
 I want to be very clear; **I did not diagnose myself.** I didn't type symptoms into a search engine and declare my own diagnosis after a few hours of googling. For this reason, I try to avoid the term _neurodivergent_. It's the correct word, but it's also the one used most often by people who were diagnosed by the world wide web.
 
 When I was having problems I didn't understand, I got professional help. After several months of consultation and treatment with a psychologist, a neurologist, and a guy who based his doctoral thesis on me, I was diagnosed with Schizoid Personality Disorder by a Clinical Psychologist specializing "in the clinical evaluation of individuals with brain injury/dementia/other neurological illness/or behavioral disturbance." (quoted from his LinkedIn)
@@ -46,7 +42,6 @@ That was some time in 2014. Since then, my problems have become worse and their 
 
 
 ## Humans are Social Creatures... ?
-
 I don't need or want human interaction. Contemporary research indicates that humans are social creatures with an inherant need for human interaction. Well, the phrase "exception that proves the rule" comes to mind.
 
 We all experience social awkwardness. And, for most people, this is offset by the benefits of human interaction. People enjoy getting feedback from their endeavors, commiserating, sharing jokes or stories, and occasionally even sharing their social, political, or religious views. I don't enjoy these things. It's all awkwardness for me.
@@ -57,7 +52,6 @@ I _do_ feel rejection. People reject me because I'm too odd and it hurts. It's t
 
 
 ## There's no other way to say it...
-
 I'm an asshole.
 
 What do you think of a person who's not interested in you, doesn't want to spend time with you, and won't fight for _any_ principles? There may be gentler, kinder, or more tactful words, but this is the one that people will invariably use.
@@ -66,7 +60,6 @@ Does it matter that it's because of mental illness? I don't think so. It may be 
 
 
 ## Why now?
-
 I've been around for more than a couple of decades. My career and my life have had ups and downs. Why is this so much of a problem _now_?
 
 I dunno.
@@ -77,7 +70,6 @@ I also live in a foreign country where immigration laws prevent me from working 
 
 
 ## Summary
-
 I ain't got one. Like I said... no recourse.
 
 I'm also realizing at this point that I only described the problem in the context of work. Well, I want to work. I don't want friends and I don't want to be better at socializing. That effort would only lead to more faking.
