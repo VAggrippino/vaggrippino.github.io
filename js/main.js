@@ -68,17 +68,14 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     // Get the full Webmention.io data for this page and output it to the console.
     // TODO: Show webmentions data on the page.
-    getWebmentions()
+    await getWebmentions()
 
-    // Show a command in the JavaScript console to send Webmentions for the current page
     logSendWebmentionLink()
 })
 
 async function getWebmentionsCount() {
     const current_url = window.location.href
     const webmentions_url = `https://webmention.io/api/count?target=${current_url}`
-
-    console.log(`Retrieving Webmentions count from ${webmentions_url} ...`)
 
     const response = await fetch(webmentions_url)
     if (response.ok) {
@@ -87,27 +84,22 @@ async function getWebmentionsCount() {
         console.log(`${response.status} : ${response.statusText}`)
         console.log(json)
 
-        console.log(`Webmention.io count data: `)
-        console.log(json.count)
-
         return json
     } else {
         console.error(`${response.status} : ${response.statusText}`)
         return false
     }
+
 }
 
 async function getWebmentions() {
     const current_url = window.location.href
     const webmentions_url = `https://webmention.io/api/mentions.jf2?target=${current_url}`
 
-    console.log(`Retrieving Webmentions data from ${webmentions_url} ...`)
-
     const response = await fetch(webmentions_url)
     if (response.ok) {
         const json = await response.json()
 
-        console.log(`${response.status} : ${response.statusText}`)
         console.log(`Webmention.io data for ${current_url}: `)
         console.log(json)
     } else {
@@ -117,10 +109,14 @@ async function getWebmentions() {
 }
 
 function logSendWebmentionLink() {
-    // Based on "URL Decoder/Encoder" by Eric A. Meyer
-    const current_url_escaped = encodeURIComponent(window.location.href).replace(/'/g, '%27').replace(/"/g, '%22')
-    const webmentions_url = `https://webmention.app/check?url=${current_url_escaped}`
-    const command = `fetch("${webmentions_url}", {method: 'POST'}).then(r => r.json()).then(j => console.log(j))`
-    console.log('Send Webmentions for this page: ')
-    console.log(command)
+    /* Based on "URL Decoder/Encoder": https://meyerweb.com/eric/tools/dencoder/
+     * created by Eric A. Meyer
+     * linked in webmention.app documentation */
+    // const current_url_escaped = encodeURIComponent(window.location.href).replace(/'/g, '%27').replace(/"/g, '%22')
+
+    const current_url_encoded = encodeURI(window.location.href)
+
+    const webmentions_url = `https://webmention.app/check?limit=0&url=${current_url_encoded}`
+    console.log(`Test and send webmentions for this page: `)
+    console.log(webmentions_url)
 }
