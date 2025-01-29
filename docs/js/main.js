@@ -116,7 +116,7 @@ function logSendWebmentionLink() {
 
     const current_url_encoded = encodeURI(window.location.href)
 
-    const webmentions_url = `https://webmention.app/check?limit=0&url=${current_url_encoded}`
+    const webmentions_url = `https://telegraph.p3k.io/dashboard/send?url=${current_url_encoded}`
     console.log(`Test and send webmentions for this page: `)
     console.log(webmentions_url)
 }
