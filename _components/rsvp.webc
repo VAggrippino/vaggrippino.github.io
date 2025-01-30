@@ -1,6 +1,0 @@
-<div class="post__rsvp">
-    <p>
-        RSVP <span class="p-rsvp" @text="answer"></span> to
-        <a class="u-in-reply-to" :href="url" @text="event"></a>
-    </p>
-</div>
