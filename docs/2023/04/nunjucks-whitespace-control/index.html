@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -84,14 +85,13 @@ documented but if I were given the task of documenting how this works, I'd
 struggle to get it right. Here are some examples based on the simple example in
 the documentation...</p>
 <p>No dashes:</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
   {% for i in [1,2,3,4,5] %}
     {{ i }}
   {% endfor %}
-&lt;/div&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>Result:</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
   
     1
   
@@ -103,70 +103,61 @@ the documentation...</p>
   
     5
   
-&lt;/div&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>Even the blank lines have a 2-space indent.</p>
 <hr>
 <p>Dashes at the end of the opening tag and the beginning of the closing tag. This is the documented example:</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
   {% for i in [1,2,3,4,5] -%}
     {{ i }}
   {%- endfor %}
-&lt;/div&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>Result:</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
   12345
-&lt;/div&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>I expected it to remove the 2-space indent from the output, but this is arguably the way it's documented. The 2-digit indent produced is the same two spaces before the <code>{% for</code> tag.</p>
 <hr>
 <p>Dashes at the beginnings of the opening and closing tags:</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
   {%- for i in [1,2,3,4,5] %}
     {{ i }}
   {%- endfor %}
-&lt;/div&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>Result:</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
     1
     2
     3
     4
     5
-&lt;/div&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>My first impression of this is that it didin't do anything. There are four spaces before the variable tag in the input and four spaces before the number in the output. However, I'm starting to understand how this works. It removed the whitespace before the first bracket of the <code>for</code> tag and between the last bracket of the variable tag and the first bracket of the <code>endfor</code> tag.</p>
 <hr>
 <p>Dashes at the ends of the loop tags:</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
   {% for i in [1,2,3,4,5] -%}
     {{ i }}
   {% endfor -%}
-&lt;/div&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>Result:</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
   1
   2
   3
   4
   5
-  &lt;/div&gt;
-</code></pre>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>Huh!? Those spaces don't make any sense at first glance. There aren't two spaces anywhere but in the output! Where did the spaces before the closing <code>&lt;/div&gt;</code> come from?!... Do you see what mistake I was making yet? I do. This removed the whitespace between the closing bracket of the <code>for</code> tag and the opening bracket of the variable tag as well as after the closing bracket of the <code>endfor</code> tag (there wasn't any there anyway). The spaces rendered in the output are from before the <code>{% endfor</code> tag.</p>
 <hr>
 <p>Dashes everywhere:</p>
-<pre><code class="language-html">&lt;div&gt;
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
   {%- for i in [1,2,3,4,5] -%}
     {{ i }}
   {%- endfor -%}
-&lt;/div&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>Result:</p>
-<pre><code class="language-html">&lt;div&gt;12345&lt;/div&gt;
-</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>12345<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
 <p>Finally! That's what I thought I was going to get in the first place. It removed all the leading and trailing whitespace.</p>
 <hr>
 <h3>Summary</h3>

@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -75,8 +76,7 @@
 <h2>tl;dr</h2>
 <p>When WordPress fails to do something automatically, it’s almost always a permissions problem. This is no exception.</p>
 <p>I haven’t found an easy and secure way to enable automatic WordPress updates. The only way I have found is to make all WordPress files and folders writable by the web server process...</p>
-<pre><code class="language-sh">chgrp -R web ...
-</code></pre>
+<pre class="language-sh"><code class="language-sh"><span class="token function">chgrp</span> <span class="token parameter variable">-R</span> web <span class="token punctuation">..</span>.</code></pre>
 <p>This isn’t a good solution, but it may be the only option for clients that can’t do updates any other way. It’s too insecure and it’s not suitable for a production website. I need to keep looking for a better way. I’ll be looking into other ways of <em>Hardening WordPress</em> as well.</p>
 <h2>Rejected “Solutions”:</h2>
 <h3>Change all the permissions</h3>
@@ -95,30 +95,29 @@ it’s a good idea to learn.</p>
 <p>I started looking into the code with <code>update-core.php</code>, which was mentioned in the error message. I’m not going to go into detail on the whole convoluted process, but the gist of it is that it checks a list of files for writability and if it finds any that can’t be overwritten, it appends their names to the end of the error message.</p>
 <p>In this case there’s only one file, but I want to try and make this future-proof if I can.</p>
 <p>Here’s a relevant block of the code from <code>wp-admin\includes\update-core.php</code>:</p>
-<pre><code class="language-php">// If we're using the direct method, we can predict write failures that are due to permissions.
-if ( $check_is_writable &amp;&amp; 'direct' === $wp_filesystem-&gt;method ) {
-    $files_writable = array_filter( $check_is_writable, array( $wp_filesystem, 'is_writable' ) );
+<pre class="language-php"><code class="language-php"><span class="token comment">// If we're using the direct method, we can predict write failures that are due to permissions.</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$check_is_writable</span> <span class="token operator">&amp;&amp;</span> <span class="token string single-quoted-string">'direct'</span> <span class="token operator">===</span> <span class="token variable">$wp_filesystem</span><span class="token operator">-&gt;</span><span class="token property">method</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$files_writable</span> <span class="token operator">=</span> <span class="token function">array_filter</span><span class="token punctuation">(</span> <span class="token variable">$check_is_writable</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span> <span class="token variable">$wp_filesystem</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_writable'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    if ( $files_writable !== $check_is_writable ) {
-        $files_not_writable = array_diff_key( $check_is_writable, $files_writable );
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$files_writable</span> <span class="token operator">!==</span> <span class="token variable">$check_is_writable</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$files_not_writable</span> <span class="token operator">=</span> <span class="token function">array_diff_key</span><span class="token punctuation">(</span> <span class="token variable">$check_is_writable</span><span class="token punctuation">,</span> <span class="token variable">$files_writable</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        foreach ( $files_not_writable as $relative_file_not_writable =&gt; $file_not_writable ) {
-            // If the writable check failed, chmod file to 0644 and try again, same as copy_dir().
-            $wp_filesystem-&gt;chmod( $file_not_writable, FS_CHMOD_FILE );
-            if ( $wp_filesystem-&gt;is_writable( $file_not_writable ) ) {
-                unset( $files_not_writable[ $relative_file_not_writable ] );
-            }
-        }
+        <span class="token keyword">foreach</span> <span class="token punctuation">(</span> <span class="token variable">$files_not_writable</span> <span class="token keyword">as</span> <span class="token variable">$relative_file_not_writable</span> <span class="token operator">=&gt;</span> <span class="token variable">$file_not_writable</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// If the writable check failed, chmod file to 0644 and try again, same as copy_dir().</span>
+            <span class="token variable">$wp_filesystem</span><span class="token operator">-&gt;</span><span class="token function">chmod</span><span class="token punctuation">(</span> <span class="token variable">$file_not_writable</span><span class="token punctuation">,</span> <span class="token constant">FS_CHMOD_FILE</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$wp_filesystem</span><span class="token operator">-&gt;</span><span class="token function">is_writable</span><span class="token punctuation">(</span> <span class="token variable">$file_not_writable</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">unset</span><span class="token punctuation">(</span> <span class="token variable">$files_not_writable</span><span class="token punctuation">[</span> <span class="token variable">$relative_file_not_writable</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
 
-        // Store package-relative paths (the key) of non-writable files in the WP_Error object.
-        $error_data = version_compare( $old_wp_version, '3.7-beta2', '&gt;' ) ? array_keys( $files_not_writable ) : '';
+        <span class="token comment">// Store package-relative paths (the key) of non-writable files in the WP_Error object.</span>
+        <span class="token variable">$error_data</span> <span class="token operator">=</span> <span class="token function">version_compare</span><span class="token punctuation">(</span> <span class="token variable">$old_wp_version</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'3.7-beta2'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'&gt;'</span> <span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">array_keys</span><span class="token punctuation">(</span> <span class="token variable">$files_not_writable</span> <span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span>
 
-        if ( $files_not_writable ) {
-            return new WP_Error( 'files_not_writable', __( 'The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions.' ), implode( ', ', $error_data ) );
-        }
-    }
-}
-</code></pre>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token variable">$files_not_writable</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">WP_Error</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'files_not_writable'</span><span class="token punctuation">,</span> <span class="token function">__</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'The update cannot be installed because we will be unable to copy some files. This is usually due to inconsistent file permissions.'</span> <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">implode</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">', '</span><span class="token punctuation">,</span> <span class="token variable">$error_data</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <h2>Conclusion:</h2>
 <p>A WordPress update might need to overwrite any of the files that are part of the installation. It might need to add new files, too. As far as I can tell, the only way is to make all of these files and directories writable by the (UNIX / Linux) user that runs the website. That’s not a solution.</p>
 </main>

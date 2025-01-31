@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -78,15 +79,14 @@ to make a page easier to navigate.</p>
 <p>When content is added for screen readers that would seem redundant to sighted
 users, or otherwise disrupt the design, it should be visually hidden.  These
 styles are recommended by WebAIM for hiding content off-screen:</p>
-<pre><code class="language-css">.sr-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">.sr-only</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> -10000px<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>In <a href="https://webaim.org/techniques/css/invisiblecontent/">CSS in Action</a>
 WebAIM covers this and several other techniques for visually hiding content.</p>
 

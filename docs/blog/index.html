@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -87,6 +88,24 @@
 
 <div class="h-feed">
     <article class="collections-post h-entry">
+        <h1 class="post__title p-name"><a href="/2025/02/the-menu-element/" class="u-url">The &lt;menu&gt; Element</a></h1>
+<time datetime="2025-02-01T00:00:00.000Z" class="post__date dt-published">1st February 2025 - Saturday</time>
+<p class="p-summary hidden">The <code>&lt;menu&gt;</code> HTML element is a semantic alternative to <code>&lt;ul&gt;</code> intended for interactive items.</p>
+<p>I just noticed the navigation menu on a friend's website:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>menu</span><span class="token punctuation">&gt;</span></span> 
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/home/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/about/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>About<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/blog/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Blog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/contact/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Contact<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>menu</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>... huh?... <code>&lt;menu&gt;</code>? Since when is that a thing. I always use <code>&lt;ul&gt;</code> for menus.</p>
+<p>Well, I looked it up, researched it, and even tested it with accessibility tools. The <code>&lt;menu&gt;</code> element has been around forever, is supported everywhere, and, in every case, it works just like a <code>&lt;ul&gt;</code>.</p>
+<p>I even searched for navigation menu tutorials and they're all using <code>&lt;ul&gt;</code>. So, why aren't people using <code>&lt;menu&gt;</code> for menus? I dunno. I'm gonna start.</p>
+
+    </article>
+<article class="collections-post h-entry">
         <h1 class="post__title p-name"><a href="/2024/12/absolutely-insane-unicorn/" class="u-url">Absolutely Insane Unicorn</a></h1>
 <time datetime="2024-12-30T00:00:00.000Z" class="post__date dt-published">30th December 2024 - Monday</time>
 <p class="p-summary hidden">A random musing on the terminology we use to describe developers.</p>
@@ -167,39 +186,10 @@
 <p>What's the answer? Can I get a job as a Software Engineer? Well, yeah! ... theoretically... I'm sure there are American companies with open fully remote Software Engineering jobs that I can do well. But, can I overcome my social ineptitude, bypass the ATS, and present myself as the best candidate among hundreds? ... I'm not so sure about that.</p>
 </div>
     </article>
-<article class="collections-post h-entry">
-        <h2 class="post__title"><a href="/2024/01/git-exclude-folder-explained/">Git Exclude Folder: Explained</a></h2>
-<div class="post__date">1st January 2024 - Monday</div>
-<figure class="post__image">
-    <a href="/2024/01/git-exclude-folder-explained/"><img src="/images/Octo-Cat_Explaining-min.jpg" alt="A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform." title="A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform."></a>
-</figure>
-<p>To exclude a directory from <code>git diff</code>, use the following command:</p>
-<pre><code class="language-bash">git diff -- . ':!directory_name'
-</code></pre>
-<p>You can find this exceptionally terse answer at at least a dozen search results, but not a single one offers an explanation. Well, that's not enough info for me...</p>
-<p>The "pathspec" is documented under <code>git help gitglossary</code> and is used for many git commands even if their syntax statement shows <code>&lt;path&gt;</code> instead of <code>&lt;pathspec&gt;</code> :</p>
-<p>https://git-scm.com/docs/gitglossary#def_pathspec</p>
-<p>Here are the important points:</p>
-<ul>
-<li>The double dashes (<code>--</code>) followed by a space means <em>end of command line flags</em>. Without this, git may try to interpret your <em>pathspec</em> as a command line flag.</li>
-<li>The dot (<code>.</code>) means the current directory. I don't think this is really necessary.</li>
-<li>The colon (<code>:</code>) indicates that the characters which follow it are a "magic signature".</li>
-<li>The exclamation mark means "exclude".</li>
-<li>The "magic signature" should be terminated by another colon, but that's optional if the pattern begins with a less magical symbol.</li>
-</ul>
-<p>I wanted to see what had changed in an <a href="https://www.11ty.dev/">Eleventy</a> site, excluding the generated output files. So, here's the command I used:</p>
-<pre><code class="language-bash">git status -- ':!:_output'
-</code></pre>
-<p>Note that I needed to terminate the magic signature with another colon because the path I wanted to exclude started with an underscore (<code>_</code>). Without that second colon, I got an error message:</p>
-<blockquote>
-<p>fatal: Unimplemented pathspec magic '_' in ':!_output'`</p>
-</blockquote>
-
-    </article>
 </div>
 
 <div class="related-links">
-    <a href="history/7">Older Posts</a>
+    <a href="history/8">Older Posts</a>
 </div></main>
     <footer class="footer">
     <div class="webmentions">

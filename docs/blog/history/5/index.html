@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -74,10 +75,9 @@
 <p>The permalink for all templates in a directory can be set in a template directory data file. This can be used along with data variables to generate the ideal URLs.</p>
 <p>For example, if you have pages in a <code>posts</code> subdirectory, but you want those pages to be at the root of the generated site, you might use something like this:</p>
 <p>File: <code>posts/posts.json</code></p>
-<pre><code class="language-json">{
-  "permalink": "/.html"
-}
-</code></pre>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"permalink"</span><span class="token operator">:</span> <span class="token string">"/.html"</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Source: <a href="https://github.com/11ty/eleventy/issues/1783#issuecomment-842669102">GitHub thread</a></p>
 </div></article><article class="collections-post h-entry"><div class="collections-post__content"><h2 class="post__title"><a href="/2023/04/hiding-content-for-accessibility/">Hiding Content for Accessibility</a></h2>
 <div class="post__date">15th April 2023 - Saturday</div>
@@ -89,15 +89,14 @@ to make a page easier to navigate.</p>
 <p>When content is added for screen readers that would seem redundant to sighted
 users, or otherwise disrupt the design, it should be visually hidden.  These
 styles are recommended by WebAIM for hiding content off-screen:</p>
-<pre><code class="language-css">.sr-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">.sr-only</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> -10000px<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>In <a href="https://webaim.org/techniques/css/invisiblecontent/">CSS in Action</a>
 WebAIM covers this and several other techniques for visually hiding content.</p>
 </div></article><article class="collections-post h-entry"><h1 class="collections-post__title p-name">
@@ -108,7 +107,7 @@ WebAIM covers this and several other techniques for visually hiding content.</p>
                 <a href="/2023/04/nunjucks-whitespace-control/" class="collections-post__readmore">Read more...</a></article>
 </div><nav class="blog-history-nav">
     <h3 class="blog-history-nav__title">Blog History Pages</h3>
-    <div class="blog-history-nav__caption">On page 5 of 7</div>
+    <div class="blog-history-nav__caption">On page 5 of 8</div>
 
     
     <ol role="list" class="blog-history-nav__list"><li class="blog-history-nav__item">
@@ -128,14 +127,15 @@ WebAIM covers this and several other techniques for visually hiding content.</p>
             <li class="blog-history-nav__item">
                     <a href="/blog/history/6/">6</a>
                 </li>
-            <li class="blog-history-nav__item">
-                <a href="/blog/history/7/">7</a>
+            
+            <li class="blog-history-nav__ellipsis">...</li><li class="blog-history-nav__item">
+                <a href="/blog/history/8/">8</a>
             </li></ol>
 
     <div class="blog-history-nav__jump">
         <label for="blog-history-nav__jump__page">Jump to </label>
         <select name="page" id="blog-history-nav__jump__page" class="blog-history-nav__jump__page">
-            <option value>Choose a Page</option><option value="1">Page 1</option><option value="2">Page 2</option><option value="3">Page 3</option><option value="4">Page 4</option><option value="5">Page 5</option><option value="6">Page 6</option><option value="7">Page 7</option></select>
+            <option value>Choose a Page</option><option value="1">Page 1</option><option value="2">Page 2</option><option value="3">Page 3</option><option value="4">Page 4</option><option value="5">Page 5</option><option value="6">Page 6</option><option value="7">Page 7</option><option value="8">Page 8</option></select>
         <a href="/blog/history/5" class="blog-history-nav__jump__go">Go</a>
     </div>
 </nav></main>

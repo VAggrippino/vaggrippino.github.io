@@ -1,0 +1,7 @@
+<h1 class="post__title p-name"
+    ><a class="u-url" href="{{ page.url }}"
+    >{{ display_title | default: title }}</a></h1>
+<time
+    class="post__date dt-published"
+    datetime="{% iso_date page.date %}"
+    >{% formatted_date page.date %}</time>

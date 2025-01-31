@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -73,9 +74,8 @@
 <div class="post__date">22nd April 2023 - Saturday</div>
 <p>I am getting more comfortable with <a href="https://github.com/tmux/tmux/wiki"><code>tmux</code></a> and I want to make sure I don't forget to use it when I'm at the command prompt. So, I made a simple Bash script to automatically connect to an existing session or start a new session when I start my terminal:</p>
 <p><code>tmux-start.sh</code>:</p>
-<pre><code class="language-bash">#!/bin/bash
-tmux ls &gt; /dev/null ; [ $? == 0 ] &amp;&amp; tmux attach || tmux
-</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+tmux <span class="token function">ls</span> <span class="token operator">&gt;</span> /dev/null <span class="token punctuation">;</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> tmux attach <span class="token operator">||</span> tmux</code></pre>
 <ul>
 <li><code>tmux ls</code> will list existing sessions, but I'm dumping that output and just using its return value which will be <code>0</code> if there are any existing sessions.</li>
 <li><code>$?</code> is the return value of the previous command</li>
@@ -86,14 +86,13 @@ tmux ls &gt; /dev/null ; [ $? == 0 ] &amp;&amp; tmux attach || tmux
 <p>I wanted to be able to scroll a <code>man</code> page in the terminal with my mouse wheel. While looking for a setting to change I learned that Vim can be used as a pager allowing mouse support and much more.
 Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix">this entry at the Vim Tips Wiki</a>, I decided to set it up for myself, but with a few minor changes. I did all this in WSL with Ubuntu 20.04.6 and Zsh on Windows 11, but it should work as well with any Unix or Linux variant:</p>
 <p><code>~/.zshrc</code>:</p>
-<pre><code class="language-bash">export PAGER="/bin/sh -c \"unset PAGER;col -b -x | vim -R \
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">PAGER</span><span class="token operator">=</span><span class="token string">"/bin/sh -c <span title="\&quot;" class="token entity">\"</span>unset PAGER;col -b -x | vim -R \
     -c 'set ft=man mouse=a nonumber t_te=' \
     -c 'highlight Normal ctermbg=NONE guibg=NONE' \
     -c 'map q :q&lt;CR&gt;' \
     -c 'map &lt;SPACE&gt; &lt;C-D&gt;' \
     -c 'map b &lt;C-U&gt;' \
-    -c 'nmap K :Man &lt;C-R&gt;=expand(\\\"&lt;cword&gt;\\\")&lt;CR&gt;&lt;CR&gt;' -\""
-</code></pre>
+    -c 'nmap K :Man &lt;C-R&gt;=expand(<span title="\\" class="token entity">\\</span><span title="\&quot;" class="token entity">\"</span>&lt;cword&gt;<span title="\\" class="token entity">\\</span><span title="\&quot;" class="token entity">\"</span>)&lt;CR&gt;&lt;CR&gt;' -<span title="\&quot;" class="token entity">\"</span>"</span></code></pre>
 <p>This is very similar to what was documented in the Vim Tips Wiki, but I've made a few changes to suit my needs...</p>
 <ul>
 <li><code>/bin/sh -c</code> executes a command with the most basic shell on the system (Bash on most modern systems)</li>
@@ -127,10 +126,9 @@ Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_
 <p>VSCodeVim broke VSCode's file <em>Quick Open</em> keybinding. Now, <em>CTRL-P</em> just moves the cursor up a line instead of opening the file finder as expected.</p>
 <p>Based on the GitHub issue linked in <a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">the commit</a>, it was meant to enable MacOS's default cursor movement keys.</p>
 <p><a href="https://github.com/VSCodeVim/Vim/issues/8574">Issue #8574</a> shows some easy fixes. I chose to disable the plugin's handling of the keybinding:</p>
-<pre><code class="language-json">"vim.handleKeys": {
-    "&lt;C-p&gt;": false
-}
-</code></pre>
+<pre class="language-json"><code class="language-json"><span class="token property">"vim.handleKeys"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"&lt;C-p&gt;"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span></code></pre>
 <p>This is in <code>settings.json</code> and I got there by opening Settings, entering "handlekeys" into the search box, and clicking on the "Edit in settings.json" link.</p>
 <h3>References</h3>
 <ul>
@@ -141,7 +139,7 @@ Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_
 </div></article>
 </div><nav class="blog-history-nav">
     <h3 class="blog-history-nav__title">Blog History Pages</h3>
-    <div class="blog-history-nav__caption">On page 6 of 7</div>
+    <div class="blog-history-nav__caption">On page 6 of 8</div>
 
     
     <ol role="list" class="blog-history-nav__list"><li class="blog-history-nav__item">
@@ -161,12 +159,15 @@ Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_
                 </li>
             <li class="blog-history-nav__item">
                     <a href="/blog/history/7/">7</a>
-                </li></ol>
+                </li>
+            <li class="blog-history-nav__item">
+                <a href="/blog/history/8/">8</a>
+            </li></ol>
 
     <div class="blog-history-nav__jump">
         <label for="blog-history-nav__jump__page">Jump to </label>
         <select name="page" id="blog-history-nav__jump__page" class="blog-history-nav__jump__page">
-            <option value>Choose a Page</option><option value="1">Page 1</option><option value="2">Page 2</option><option value="3">Page 3</option><option value="4">Page 4</option><option value="5">Page 5</option><option value="6">Page 6</option><option value="7">Page 7</option></select>
+            <option value>Choose a Page</option><option value="1">Page 1</option><option value="2">Page 2</option><option value="3">Page 3</option><option value="4">Page 4</option><option value="5">Page 5</option><option value="6">Page 6</option><option value="7">Page 7</option><option value="8">Page 8</option></select>
         <a href="/blog/history/6" class="blog-history-nav__jump__go">Go</a>
     </div>
 </nav></main>

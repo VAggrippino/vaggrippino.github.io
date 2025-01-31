@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -74,8 +75,7 @@
     <a href="/2024/01/git-exclude-folder-explained/"><img src="/images/Octo-Cat_Explaining-min.jpg" alt="A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform." title="A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform."></a>
 </figure>
 <p>To exclude a directory from <code>git diff</code>, use the following command:</p>
-<pre><code class="language-bash">git diff -- . ':!directory_name'
-</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> -- <span class="token builtin class-name">.</span> <span class="token string">':!directory_name'</span></code></pre>
 <p>You can find this exceptionally terse answer at at least a dozen search results, but not a single one offers an explanation. Well, that's not enough info for me...</p>
 <p>The "pathspec" is documented under <code>git help gitglossary</code> and is used for many git commands even if their syntax statement shows <code>&lt;path&gt;</code> instead of <code>&lt;pathspec&gt;</code> :</p>
 <p>https://git-scm.com/docs/gitglossary#def_pathspec</p>
@@ -88,8 +88,7 @@
 <li>The "magic signature" should be terminated by another colon, but that's optional if the pattern begins with a less magical symbol.</li>
 </ul>
 <p>I wanted to see what had changed in an <a href="https://www.11ty.dev/">Eleventy</a> site, excluding the generated output files. So, here's the command I used:</p>
-<pre><code class="language-bash">git status -- ':!:_output'
-</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> status -- <span class="token string">':!:_output'</span></code></pre>
 <p>Note that I needed to terminate the magic signature with another colon because the path I wanted to exclude started with an underscore (<code>_</code>). Without that second colon, I got an error message:</p>
 <blockquote>
 <p>fatal: Unimplemented pathspec magic '_' in ':!_output'`</p>

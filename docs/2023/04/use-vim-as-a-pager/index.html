@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -73,14 +74,13 @@
 <p>I wanted to be able to scroll a <code>man</code> page in the terminal with my mouse wheel. While looking for a setting to change I learned that Vim can be used as a pager allowing mouse support and much more.
 Inspired by <a href="https://vim.fandom.com/wiki/Using_vim_as_a_man-page_viewer_under_Unix">this entry at the Vim Tips Wiki</a>, I decided to set it up for myself, but with a few minor changes. I did all this in WSL with Ubuntu 20.04.6 and Zsh on Windows 11, but it should work as well with any Unix or Linux variant:</p>
 <p><code>~/.zshrc</code>:</p>
-<pre><code class="language-bash">export PAGER="/bin/sh -c \"unset PAGER;col -b -x | vim -R \
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">PAGER</span><span class="token operator">=</span><span class="token string">"/bin/sh -c <span title="\&quot;" class="token entity">\"</span>unset PAGER;col -b -x | vim -R \
     -c 'set ft=man mouse=a nonumber t_te=' \
     -c 'highlight Normal ctermbg=NONE guibg=NONE' \
     -c 'map q :q&lt;CR&gt;' \
     -c 'map &lt;SPACE&gt; &lt;C-D&gt;' \
     -c 'map b &lt;C-U&gt;' \
-    -c 'nmap K :Man &lt;C-R&gt;=expand(\\\"&lt;cword&gt;\\\")&lt;CR&gt;&lt;CR&gt;' -\""
-</code></pre>
+    -c 'nmap K :Man &lt;C-R&gt;=expand(<span title="\\" class="token entity">\\</span><span title="\&quot;" class="token entity">\"</span>&lt;cword&gt;<span title="\\" class="token entity">\\</span><span title="\&quot;" class="token entity">\"</span>)&lt;CR&gt;&lt;CR&gt;' -<span title="\&quot;" class="token entity">\"</span>"</span></code></pre>
 <p>This is very similar to what was documented in the Vim Tips Wiki, but I've made a few changes to suit my needs...</p>
 <ul>
 <li><code>/bin/sh -c</code> executes a command with the most basic shell on the system (Bash on most modern systems)</li>

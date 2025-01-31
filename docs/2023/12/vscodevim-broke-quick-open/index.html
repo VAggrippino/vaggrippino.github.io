@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -76,10 +77,9 @@
 <p>VSCodeVim broke VSCode's file <em>Quick Open</em> keybinding. Now, <em>CTRL-P</em> just moves the cursor up a line instead of opening the file finder as expected.</p>
 <p>Based on the GitHub issue linked in <a href="https://github.com/VSCodeVim/Vim/commit/cd9ebd581cf183e8c91966a21883f7022ec1dcc1">the commit</a>, it was meant to enable MacOS's default cursor movement keys.</p>
 <p><a href="https://github.com/VSCodeVim/Vim/issues/8574">Issue #8574</a> shows some easy fixes. I chose to disable the plugin's handling of the keybinding:</p>
-<pre><code class="language-json">"vim.handleKeys": {
-    "&lt;C-p&gt;": false
-}
-</code></pre>
+<pre class="language-json"><code class="language-json"><span class="token property">"vim.handleKeys"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"&lt;C-p&gt;"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span></code></pre>
 <p>This is in <code>settings.json</code> and I got there by opening Settings, entering "handlekeys" into the search box, and clicking on the "Edit in settings.json" link.</p>
 <h3>References</h3>
 <ul>

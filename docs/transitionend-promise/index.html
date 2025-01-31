@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -75,17 +76,16 @@
 </figure>
 <p>I’m working on a page that displays thumbnail images. When I click on a thumbnail I want it to show an info box containing more image details. I’m using a CSS transition on the info box and I want to populate the image details while the info box is hidden. If the info box is already visible from clicking on a different thumbnail, I need to hide it first and populate the image details after the transition completes.</p>
 <p>Here’s some pseudocode that shows what I want to happen…</p>
-<pre><code class="language-js">thumbnail.addEventListener('click', e =&gt; {
-  if (infoBox.isVisible()) {
-    // hide the info box (CSS transition)
-    // after the transition ends, populate the image details
-  } else {
-    // populate the image details immediately
-  }
+<pre class="language-js"><code class="language-js">thumbnail<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token parameter">e</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>infoBox<span class="token punctuation">.</span><span class="token function">isVisible</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// hide the info box (CSS transition)</span>
+    <span class="token comment">// after the transition ends, populate the image details</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// populate the image details immediately</span>
+  <span class="token punctuation">}</span>
 
-  // show the info box (CSS transition)
-})
-</code></pre>
+  <span class="token comment">// show the info box (CSS transition)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>The browser triggers a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/transitionend_event"><code>transitionend</code> event</a> when a transition finishes, but it’s not fired at all if the info box is already hidden. A function that hides the element and returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Promise</a> would be ideal. The Promise would be resolved after the transition completed or immediately if theinfo box was already hidden, but I don’t use JavaScript to hide or show an element. I typically just toggle a <code>hidden</code> class and let the CSS animation do the work, so we can’t determine when the animation has completed.</p>
 <p>I can’t just return a Promise from the event handler for <code>transitionend</code> because I don’t call the event handler. I just pass it as an argument to <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"><code>addEventListener()</code></a> and the browser calls it. But there’s always a way…</p>
 <p>I searched for <em>promises for CSS transition events</em>, but the higher ranking search result has a <strong>fatal flaw</strong>. In a <em>pen</em>1 entitled “CSS Transition End with a Promise”, a Promise <em>is</em> resolved when the transition completes, but <strong>the event handler is never removed from the element</strong>. The code attempts to remove the handler, but <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener"><code>removeEventListener()</code></a> is passed a function that wasn’t attached as the event handler. <strong>The actual event handler is an anonymous function</strong> that calls the function which the author tries to remove. If you use this code it could eventually cause a problem (What kind of problem? How soon? … this needs testing) as new event handlers are infinitely attached to the element.</p>

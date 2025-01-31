@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -82,8 +83,7 @@
 <p>If you’re like me, you’ve already set up both your WSL (Windows Subsystem for Linux) Linux shell and your VS Code environment just how you like ’em. But when you open the integrated terminal, you’re disappointed to see a Powershell prompt. Let’s fix that …</p>
 <h2>tl;dr</h2>
 <ol>
-<li>Set your integrated shell:<pre><code class="language-json">"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe"
-</code></pre>
+<li>Set your integrated shell:<pre class="language-json"><code class="language-json"><span class="token property">"terminal.integrated.shell.windows"</span><span class="token operator">:</span> <span class="token string">"C:\\WINDOWS\\System32\\wsl.exe"</span></code></pre>
 </li>
 <li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a></li>
 <li>Open your project from the Linux shell</li>
@@ -105,8 +105,7 @@
 </ul>
 </li>
 </ol>
-<pre><code class="language-json">"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe"
-</code></pre>
+<pre class="language-json"><code class="language-json"><span class="token property">"terminal.integrated.shell.windows"</span><span class="token operator">:</span> <span class="token string">"C:\\WINDOWS\\System32\\wsl.exe"</span></code></pre>
 <details>
     <summary>If you prefer to change settings in the GUI: </summary>  
     <ol>

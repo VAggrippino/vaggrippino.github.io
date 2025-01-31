@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Vince's Website">
     <link rel="manifest" href="/images/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -72,9 +73,8 @@
 <div class="post__date">22nd April 2023 - Saturday</div>
 <p>I am getting more comfortable with <a href="https://github.com/tmux/tmux/wiki"><code>tmux</code></a> and I want to make sure I don't forget to use it when I'm at the command prompt. So, I made a simple Bash script to automatically connect to an existing session or start a new session when I start my terminal:</p>
 <p><code>tmux-start.sh</code>:</p>
-<pre><code class="language-bash">#!/bin/bash
-tmux ls &gt; /dev/null ; [ $? == 0 ] &amp;&amp; tmux attach || tmux
-</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+tmux <span class="token function">ls</span> <span class="token operator">&gt;</span> /dev/null <span class="token punctuation">;</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> tmux attach <span class="token operator">||</span> tmux</code></pre>
 <ul>
 <li><code>tmux ls</code> will list existing sessions, but I'm dumping that output and just using its return value which will be <code>0</code> if there are any existing sessions.</li>
 <li><code>$?</code> is the return value of the previous command</li>
