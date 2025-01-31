@@ -1,7 +1,13 @@
 <article class="webmentions">
-    <h1>Webmentions</h1>
-    {% for webmention in webmentions | getWebmentionsForUrl page.url %}
+    {% assign filtered_webmentions = webmentions | webmentionsForUrl: page.url %}
+
+    {% if filtered_webmentions.size > 0 %}
+        <h1>Webmentions</h1>
+    {% endif %}
+
+    {% for webmention in filtered_webmentions %}
         <div class="webmention">
+            <div class="webmention__target">{{ webmention['wm-target'] }}</div>
             <div class="webmention__author">
                 <div class="webmention__author__photo">
                     {% if webmention.author.photo %}

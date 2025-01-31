@@ -13,7 +13,7 @@ module.exports = (Config) => {
     Config.addShortcode('iso_date', (d) => dayjs(d).toISOString())
 
     Config.addFilter('webmentionsForUrl', (wm, url) => {
-        return wm.filter(entry => entry['wm-target'] === url)
+        return wm.filter(entry => entry['wm-target'].endsWith(url))
     })
 
     Config.addLayoutAlias('post', 'base.webc')
@@ -34,8 +34,4 @@ module.exports = (Config) => {
             components: '_components',
         }
     }
-}
-
-function getWebmentionsForUrl(webmentions, url) {
-    return webmentions.filter(entry => entry['wm-target'] === url)
 }
