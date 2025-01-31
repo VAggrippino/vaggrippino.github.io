@@ -2,6 +2,9 @@
 title: "Eleventy's Cool URIs"
 subtitle: "Why did Eleventy create a subdirectory?"
 date: 2023-03-27
+webmention:
+    send: true
+    receive: true
 published: true
 tags: 
   - Web Development

@@ -7,6 +7,9 @@ excerpt: "Getting a job in the current market is already a daunting task. I'm fa
 tags:
     - health
     - employment
+webmention:
+    send: true
+    receive: true
 published: true
 ---
 

@@ -2,6 +2,9 @@
 title: "Git Exclude Folder: Explained"
 image: "/images/Octo-Cat_Explaining-min.jpg"
 image_alt: "A cartoon image depicting a bipedal octo-cat with pink skin, green eyes, and blue suckers on his tentacles. The octo-cat has white whiskers and bushy white mustache and eyebrows. He is wearing a suit vest with dress shirt, pants, and a tie teaching a complex topic using many charts, graphs and diagrams written on a chalkboard. There is a single student wearing a suit that is probably a school uniform."
+webmention:
+    send: true
+    receive: true
 published: true
 ---
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>

@@ -6,6 +6,9 @@ excerpt: "A random musing on the terminology we use to describe developers."
 tags:
     - language
 published: true
+webmention:
+    send: true
+    receive: true
 ---
 
 <h1 class="post__title p-name"><a class="u-url" href="{{ page.url }}">Absolutely Insane Unicorn</a></h1>

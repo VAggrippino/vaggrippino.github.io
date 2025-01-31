@@ -1,6 +1,9 @@
 ---
 title: "Eleventy: Setting the permalink in the directory data"
 date: 2023-03-29
+webmention:
+    send: true
+    receive: true
 published: true
 tags:
   - Eleventy

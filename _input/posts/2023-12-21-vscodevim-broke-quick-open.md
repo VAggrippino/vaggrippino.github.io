@@ -5,6 +5,9 @@ tags:
     - Vim
 image: /images/VSCodeVim_Smashing_VSCode-min.jpg
 image_alt: VSCodeVim Cartoon Character Breaking VSCode
+webmention:
+    send: true
+    receive: true
 published: true
 ---
 <h2 class="post__title"><a href="{{ page.url }}">{{ title }}</a></h2>

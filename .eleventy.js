@@ -1,4 +1,3 @@
-require('dotenv').config()
 const webc = require('@11ty/eleventy-plugin-webc')
 const navigation = require('@11ty/eleventy-navigation')
 

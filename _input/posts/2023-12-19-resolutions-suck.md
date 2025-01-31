@@ -2,6 +2,9 @@
 title: Resolutions Suck
 date: 2023-12-19
 image: /images/road-into-metropolitan-area-min.png
+webmention:
+    send: true
+    receive: true
 published: false
 ---
 {% if image %}

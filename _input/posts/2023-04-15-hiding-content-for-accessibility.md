@@ -2,6 +2,9 @@
 title: Hiding Content for Accessibility
 subtitle: Implementing <code>.sr-only</code> <em>The Right Way</em>™️
 date: 2023-04-15
+webmention:
+    send: true
+    receive: true
 published: true
 ---
 {% if image %}

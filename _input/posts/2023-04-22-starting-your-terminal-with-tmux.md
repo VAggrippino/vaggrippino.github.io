@@ -2,6 +2,9 @@
 title: Starting Your Terminal with tmux
 HTMLTitle: "Starting Your Terminal with <code>tmux</code>"
 date: 2023-04-22
+webmention:
+    send: true
+    receive: true
 published: true
 ---
 {% if image %}

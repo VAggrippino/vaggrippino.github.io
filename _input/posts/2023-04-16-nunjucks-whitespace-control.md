@@ -2,6 +2,9 @@
 title: Nunjucks Whitespace Control
 subtitle: "Doesn't work as expected... or does it?"
 date: 2023-04-16
+webmention:
+    send: true
+    receive: true
 published: true
 templateEngineOverride: md
 excerpt: "

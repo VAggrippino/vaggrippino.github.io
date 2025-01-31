@@ -15,7 +15,7 @@
     <link webc:keep rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link webc:keep rel="stylesheet" href="/css/style.css">
 
-    <link rel="webmention" href="https://webmention.io/aggrippino.com/webmention" />
+    <link webc:if="$data?.webmention?.receive" rel="webmention" href="https://webmention.io/aggrippino.com/webmention" />
 
     <template webc:nokeep webc:if="permalink === '/'">
         <link rel="authorization_endpoint" href="https://indieauth.com/auth">

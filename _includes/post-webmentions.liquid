@@ -1,0 +1,20 @@
+<article class="webmentions">
+    <h1>Webmentions</h1>
+    {% for webmention in webmentions | getWebmentionsForUrl page.url %}
+        <div class="webmention">
+            <div class="webmention__author">
+                <div class="webmention__author__photo">
+                    {% if webmention.author.photo %}
+                        <img alt="{{ webmention.author.name }}" src="{{ webmention.author.photo }}">
+                    {% endif %}
+                </div>
+                <div class="webmention__author__name">{{ webmention.author.name }}</div>
+            </div>
+            <div class="webmention__property">{{ webmention['wm-property'] }}</div>
+            <a class="webmention__link" href="{{ webmention.url }}">{{ webmention.url }}</a>
+            {% if webmention.content.text %}
+                <div class="webmention__content">{{ webmention.content.text }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</article>

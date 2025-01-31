@@ -1,6 +1,9 @@
 ---
 title: Use Vim as a Pager
 date: 2023-04-22
+webmention:
+    send: true
+    receive: true
 published: true
 ---
 {% if image %}
