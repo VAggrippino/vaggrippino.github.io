@@ -2,7 +2,7 @@
     {% assign filtered_webmentions = webmentions | webmentionsForUrl: page.url %}
 
     {% if filtered_webmentions.size > 0 %}
-        <h1 class="webmentions__heading">Webmentions</h1>
+        <h1 class="webmentions__heading" id="webmentions">Webmentions</h1>
     {% endif %}
 
     {% for webmention in filtered_webmentions %}
