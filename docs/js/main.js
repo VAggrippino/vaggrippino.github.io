@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', async () => {
     // Font Awesome icons are always decorative
-    const fa_icons = document.querySelectorAll('i:where(.fa-solid, .fa-regular, .fa-light, .fa-thin)')
+    const fa_icons = document.querySelectorAll('i:where(.fa-solid, .fa-regular, .fa-light, .fa-thin, fa-webmention)')
     fa_icons.forEach(icon => icon.ariaHidden = true)
 
     // Set the max height of the nav based on the actual number of items it contains

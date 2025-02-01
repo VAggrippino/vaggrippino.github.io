@@ -12,6 +12,7 @@ module.exports = (Config) => {
     Config.addPlugin(syntax_highlight)
 
     Config.addShortcode('formatted_date', (d) => dayjs(d).format('Do MMMM YYYY - dddd'))
+    Config.addShortcode('formatted_datetime', (d) => dayjs(d).format('D MMM YYYY, h:mma'))
     Config.addShortcode('iso_date', (d) => dayjs(d).toISOString())
 
     Config.addFilter('webmentionsForUrl', (wm, url) => {

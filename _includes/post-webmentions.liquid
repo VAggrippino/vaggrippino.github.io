@@ -2,25 +2,108 @@
     {% assign filtered_webmentions = webmentions | webmentionsForUrl: page.url %}
 
     {% if filtered_webmentions.size > 0 %}
-        <h1>Webmentions</h1>
+        <h1 class="webmentions__heading">Webmentions</h1>
     {% endif %}
 
     {% for webmention in filtered_webmentions %}
+        {%- assign webmention_id = webmention['wm-id'] -%}
         <div class="webmention">
-            <div class="webmention__target">{{ webmention['wm-target'] }}</div>
             <div class="webmention__author">
                 <div class="webmention__author__photo">
-                    {% if webmention.author.photo %}
-                        <img alt="{{ webmention.author.name }}" src="{{ webmention.author.photo }}">
-                    {% endif %}
+                    {%- if webmention.author.photo -%}
+                        <a href="{{ webmention.author.photo }}"
+                        ><img alt="{{ webmention.author.name }}" src="{{ webmention.author.photo }}"></a>
+                    {%- endif -%}
                 </div>
-                <div class="webmention__author__name">{{ webmention.author.name }}</div>
+
+                <div class="webmention__author__name">
+                    {{ webmention.author.name }}
+                </div>
+
+                <div class="webmention__author__link">
+                    <a href="{{ webmention.author.url }}">{{ webmention.author.url }}</a>
+                </div>
             </div>
-            <div class="webmention__property">{{ webmention['wm-property'] }}</div>
-            <a class="webmention__link" href="{{ webmention.url }}">{{ webmention.url }}</a>
+
+            {% if webmention.published %}
+                <time class="webmention__date published" datetime="{{ webmention.published }}"
+                >{% formatted_datetime webmention.published %}</time>
+            {% else %}
+                {%- assign date_received = webmention['wm-received'] -%}
+                <time class="webmention__date received" datetime="{{ date_received }}"
+                >{% formatted_datetime date_received %}</time>
+            {% endif %}
+
             {% if webmention.content.text %}
                 <div class="webmention__content">{{ webmention.content.text }}</div>
             {% endif %}
+
+            {%- assign webmention_url_parts = webmention.url | split: '/' -%}
+            {%- assign webmention_url_domain = webmention_url_parts[2] %}
+            <a class="webmention__link" href="{{ webmention.url }}">Link to Webmention ({{ webmention_url_domain }})</a>
+
+            <div class="webmention__meta">
+                <div class="webmention__source">
+                    {%- assign wm_source_parts = webmention['wm-source'] | split: '/' -%}
+                    {%- assign wm_source_domain = wm_source_parts[2] -%}
+
+                    {%- if wm_source_domain == 'brid.gy' -%}
+                        {%- assign wm_source_action = wm_source_parts[4] -%}
+
+                        {%- case wm_source_action -%}
+                            {%- when 'facebook' -%}
+                                {%- assign icon_class = "fa-brands fa-square-facebook" -%}
+                            {%- when 'flickr' -%}
+                                {%- assign icon_class = "fa-brands fa-flickr" -%}
+                            {%- when 'github' -%}
+                                {%- assign icon_class = "fa-brands fa-square-github" -%}
+                            {%- when 'instagram' -%}
+                                {%- assign icon_class = "fa-brands fa-square-instagram" -%}
+                            {%- when 'mastodon' -%}
+                                {%- assign icon_class = "fa-brands fa-mastodon" -%}
+                            {%- when 'bluesky' -%}
+                                {%- assign icon_class = "fa-brands fa-square-bluesky" -%}
+                        {%- endcase -%}
+
+                        <i class="{{ icon_class }}" aria-describedby="webmention-source-{{ webmention_id }}" tabindex="0"></i>
+
+                        <div id="webmention-source-{{ webmention_id }}" role="tooltip">{{ wm_source_action | capitalize }}</div>
+                    {%- else -%}
+                        <!--
+                        FontAwesome does not currently have a Webmention icon, but
+                        I've used the FontAwesome syntax for the tag and classes so
+                        I don't need to make as many changes to the CSS.
+                        See https://indieweb.org/Webmention#Webmention_Font_Awesome_Icon
+                        for more info.
+                        -->
+                        <i class="fa-webmention"><img alt="Webmention icon" src="/images/webmention-logo.svg"></i>
+                        
+                        <div id="webmention-source-{{ webmention_id }}" aria-role="tooltip">Webmention</div>
+                    {%- endif -%}
+                </div>
+
+                <div class="webmention__property {{ webmention['wm-property'] }}">
+                    {%- assign wm_property = webmention['wm-property'] -%}
+                    {%- case wm_property -%}
+                        {%- when "in-reply-to" -%}
+                            {%- assign icon_class = "fa-brands fa-replyd" -%}
+                        {%- when "like-of" -%}
+                            {%- assign icon_class = "fa-solid fa-thumbs-up" -%}
+                        {%- when "repost-of" -%}
+                            {%- assign icon_class = "fa-solid fa-clone" -%}
+                        {%- when "bookmark-of" -%}
+                            {%- assign icon_class = "fa-solid fa-bookmark" -%}
+                        {%- when "mention-of" -%}
+                            {%- assign icon_class = "fa-solid fa-comment-dots" -%}
+                        {%- when "rsvp" -%}
+                            {%- assign icon_class = "fa-solid fa-calendar-check" -%}
+                    {%- endcase -%}
+
+                    <i class="{{ icon_class }}" aria-describedby="webmention-property-{{ webmention_id }}" tabindex="0"></i>
+
+                    <div id="webmention-property-{{ webmention_id }}" role="tooltip">{{ webmention['wm-property'] }}</div>
+                </div>
+            </div>
         </div>
     {% endfor %}
 </article>

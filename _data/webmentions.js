@@ -9,7 +9,7 @@ module.exports = async function () {
 
     try {
         const json = await eleventyFetch(url, {
-            duration: '1d',
+            duration: '60m',
             type: 'json',
             verbose: true,
         })

@@ -1,3 +1,14 @@
+@layer accessibility {
+    .visually-hidden:not(:focus):not(:active) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+}
+
 :root {
     --color: black;
     --color-bg: white;
@@ -79,14 +90,6 @@ dfn > abbr[title]::after {
     content: ' (' attr(title) ')';
 }
 
-.visually-hidden:not(:focus):not(:active) {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-}
 
 figure.original-size img {
     width: auto;
@@ -568,20 +571,123 @@ footer {
     }
 }
 
-.webmention__author {
+.webmentions {
     display: flex;
-    gap: 0.5rem;
-    align-items: center;
+    flex-direction: column;
+}
 
-    & .webmention__author__photo {
-        width: 3em;
-        aspect-ratio: 1 / 1;
+.webmention {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
 
-        & img {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3.5rem 1.5rem minmax(0, min-content) 1.5rem 1.5rem;
+
+    grid-template-areas:
+        "header"
+        "date"
+        "content"
+        "link"
+        "meta";
+
+    box-shadow: 1px 1px 3px hsl(from currentColor h s 50%);
+}
+
+.webmention__author {
+    grid-area: header;
+
+    display: grid;
+    grid-template-columns: 3.5rem auto;
+    grid-template-rows: 2rem 1.5rem;
+    grid-template-areas:
+        "photo name"
+        "photo link";
+}
+
+.webmention__author__photo {
+    grid-area: photo;
+
+    & img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.webmention__author__name {
+    grid-area: name;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-inline-start: 0.5rem;
+}
+
+.webmention__author__link {
+    grid-area: link;
+
+    padding-inline-start: 0.5rem;
+}
+
+.webmention__date {
+    grid-area: date;
+}
+
+.webmention__content {
+    grid-area: content;
+}
+
+.webmention__link {
+    grid-area: link;
+}
+
+.webmention__meta {
+    grid-area: meta;
+    display: flex;
+}
+
+.webmention__property, .webmention__source {
+    position: relative;
+    width: 2rem;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-content: center;
+
+    &:focus-within {
+        outline: 2px solid orange;
+    }
+
+    & [role="tooltip"] {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-wrap: nowrap;
+        opacity: 0;
+        transition: opacity 300ms;
+
+        background-color: #fff;
+        padding: 0.1rem;
+        border: 2px outset gray;
+
+        &::before {
+            content: '';
             display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 0.5em;
+            height: 0.5em;
+            position: absolute;
+            top: calc(-0.25em - 2px);
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            background-color: inherit;
+            border-style: solid none none solid;
+            border-width: 1px;
+            border-color: gray;
         }
+    }
+
+    &:is(:hover, :focus-within) [role="tooltip"] {
+        opacity: 1;
     }
 }
