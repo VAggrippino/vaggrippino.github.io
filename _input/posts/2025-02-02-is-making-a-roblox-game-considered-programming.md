@@ -7,7 +7,7 @@ tags:
 webmention:
     send: true
     receive: true
-published: false
+published: true
 ---
 
 {%- include 'post-heading' -%}
