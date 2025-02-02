@@ -1,0 +1,12 @@
+<figure class="post__image">
+    <a href="{{ url | default: page.url }}"
+    ><img
+        src="{{ image }}"
+        alt="{{ image_alt | default: title }}"
+    ></a>
+    {%- if caption -%}
+        <figcaption>
+            <p>{{ caption }}</p>
+        </figcaption>
+    {%- endif -%}
+</figure>
