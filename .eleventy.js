@@ -19,6 +19,12 @@ module.exports = (Config) => {
         return wm.filter(entry => entry['wm-target'].endsWith(url))
     })
 
+    Config.addFilter('escapeHtml', (html) => {
+        return html
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+    })
+
     Config.addLayoutAlias('post', 'base.webc')
 
     Config.addPassthroughCopy('wp-content')
