@@ -1,28 +1,12 @@
 const parseWebmentions = async function(webmentions) {
-    // const endpoint = 'https://webmention.io/api/mentions.jf2'
-    // let url = endpoint
-
-    // // Retrieve webmentions for a specific target
-    // if (target !== null) {
-    //     url += `?target=${target}` + (since ? `&since=${since}` : '')
-
-    // // Retrieve webmentions for a domain
-    // } else if (domain !== null && token !== null) {
-    //     url += `?domain=${domain}&token=${token}`
-    // } else {
-    //     return false
-    // }
-
-    // const response = await fetch(url)
-    // const json = await response.json()
-
     if (webmentions.children.length < 1) return []
 
     return webmentions.children.map((webmention) => {
-        const source_url_parts = webmention.url.split('/')
+        const source_url = webmention['wm-source']
+        const source_url_parts = source_url.split('/')
         const source_domain = source_url_parts[2]
-        const source_action = (source_domain === 'brid.gy' ? source_url_parts[3] : 'webmention')
-        const source_site = (source_domain === 'brid.gy' ? source_url_parts[4] : source_domain)
+        const source_action = (source_domain === 'brid.gy') ? source_url_parts[3] : 'webmention'
+        const source_site = (source_domain === 'brid.gy') ? source_url_parts[4] : source_domain
 
         const source_icon_class = (() => {
             if (source_domain !== 'brid.gy') return 'fa-webmention'
@@ -45,6 +29,9 @@ const parseWebmentions = async function(webmentions) {
                     break
                 case 'bluesky':
                     classes.push('fa-square-bluesky')
+                    break
+                case 'reddit':
+                    classes.push('fa-brands fa-square-reddit')
                     break
             }
             return classes.join(' ')
@@ -88,10 +75,12 @@ const parseWebmentions = async function(webmentions) {
             author_photo: webmention.author?.photo ?? '',
             author_name: webmention.author.name,
             author_url: webmention.author.url,
+            url: webmention.url,
+            domain: webmention.url.split('/')[2],
             published: webmention?.published ?? webmention['wm-received'],
             received: webmention['wm-received'],
             content: webmention?.content?.text ?? '',
-            source_url: webmention.url,
+            source_url: source_url,
             source_domain: source_domain,
             source_action: source_action,
             source_site: source_site,

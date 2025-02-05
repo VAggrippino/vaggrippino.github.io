@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="webmention__author__link">
-                    <a href="{{ webmention.author_url }}">{{ webmention.author.url }}</a>
+                    <a href="{{ webmention.author_url }}">{{ webmention.author_url }}</a>
                 </div>
             </div>
 
@@ -57,11 +57,11 @@
                 {{ webmention.content }}
             </div>
 
-            <a class="webmention__link" href="{{ webmention.source_url }}"
-            >Link to Webmention ({{ webmention.source_domain }})</a>
+            <a class="webmention__link" href="{{ webmention.url }}"
+            >Link to Webmention ({{ webmention.domain }})</a>
 
             <div class="webmention__meta">
-                <div class="webmention__source">
+                <div class="webmention__source {{ webmention.source_site }} {{ webmention.source_action }}">
                     <i class="{{ webmention.source_icon_class }}"
                         aria-describedby="webmention-source-{{ webmention.id }}"
                         tabindex="0"
@@ -70,18 +70,18 @@
                             <img alt="Webmention icon" src="/images/webmention-logo.svg">
                         {%- endif -%}
                     </i>
-                    <div id="webmention-source-{{ webmention_id }}" aria-role="tooltip">
+                    <div id="webmention-source-{{ webmention_id }}" role="tooltip">
                         {{ webmention.source_site | capitalize }}
                     </div>
                 </div>
 
                 <div class="webmention__type {{ webmention.type }}">
                     <i class="{{ webmention.type_icon_class }}"
-                        aria-describedby="webmention-property-{{ webmention.id }}"
+                        aria-describedby="webmention-type-{{ webmention.id }}"
                         tabindex="0"
                     ></i>
 
-                    <div id="webmention-property-{{ webmention.id }}" role="tooltip">
+                    <div id="webmention-type-{{ webmention.id }}" role="tooltip">
                         {{ webmention.type }}
                     </div>
                 </div>

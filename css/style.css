@@ -576,7 +576,7 @@ footer {
     flex-direction: column;
 }
 
-.webmention {
+.webmentions > .webmention {
     margin-bottom: 1rem;
     padding: 0.5rem;
 
@@ -647,7 +647,7 @@ footer {
     display: flex;
 }
 
-.webmention__property, .webmention__source {
+.webmention__type, .webmention__source {
     position: relative;
     width: 2rem;
     aspect-ratio: 1 / 1;
@@ -656,6 +656,16 @@ footer {
 
     &:focus-within {
         outline: 2px solid orange;
+    }
+
+    & i {
+        display: inline-grid;
+        place-content: center;
+
+        & img {
+            width: 1em;
+            aspect-ratio: 1 / 1;
+        }
     }
 
     & [role="tooltip"] {
