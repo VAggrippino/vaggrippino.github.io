@@ -66,25 +66,21 @@ window.addEventListener('DOMContentLoaded', async () => {
     webmentions_count_field.innerHTML = webmentions_data.count
     webmentions_count_field.classList.add('updated')
 
-    // Get the full Webmention.io data for this page and output it to the console.
-    //await getWebmentions()
-
     logSendWebmentionLink()
 
     const since = getLastWebmentionDate()
+    addNewWebmentions(since)
 })
 
 function getLastWebmentionDate() {
     const webmentions = Array.from(document.querySelectorAll('.webmention[data-id]'))
-    console.log(`Webmentions in page:`)
-    console.log(webmentions)
     const dates = webmentions
         .map(w => w.querySelector('.webmention__date').dataset.received)
         .toSorted((a, b) => (new Date(a) > new Date(b)) ? -1 : 1)
     return dates[0]
 }
 
-async function getNewWebmentions(since) {
+async function addNewWebmentions(since) {
     const current_url = window.location.href
     const webmention_url = `https://webmention.io/api/mentions.jf2?target=${current_url}&since=${since}`
 
@@ -93,13 +89,90 @@ async function getNewWebmentions(since) {
 
     if (json.children.length < 1) return
 
-    const wm_template = document.querySelector('#webmention_template')
-    const webmentions = Array.from(document.querySelectorAll('.webmention'))
+    const new_webmentions_data = parseWebmentions(json)
 
-    const new_webmentions = json.children.map((wmd) => {
-        const wm_obj = tm_template.content.cloneNode(true)
+    const wm_template = document.querySelector('#webmention_template')
+
+    const new_webmentions = new_webmentions_data.map((webmention) => {
+        const wm_obj = wm_template.content.cloneNode(true)
         
+        // Author Photo
+        if (webmention.author_photo) {
+            const photo = wm_obj.querySelector('.webmention__author__photo')
+            const anchor = document.createElement('a')
+            const image = document.createElement('img')
+
+            anchor.setAttribute('href', webmention.author_photo)
+            image.setAttribute('alt', `${webmention.author_name} profile photo`)
+            image.setAttribute('src', webmention.author_photo)
+
+            anchor.appendChild(image)
+            photo.appendChild(anchor)
+        }
+
+
+        // Author Name
+        const author_name = wm_obj.querySelector('.webmention__author__name')
+        author_name.appendChild(document.createTextNode(webmention.author_name))
+
+
+        // Author Link
+        const author_link = wm_obj.querySelector('.webmention__author__link')
+        const anchor = document.createElement('a')
+
+        anchor.setAttribute('href', webmention.author_url)
+        anchor.appendChild(document.createTextNode(webmention.author_url))
+
+        author_link.appendChild(anchor)
+
+
+        // Webmention Date
+        const date = wm_obj.querySelector('.webmention__date')
+        const formatted_date = dayjs(webmention.published).format('D MMM YYYY, h:mma')
+
+        date.setAttribute('datetime', webmention.published)
+        date.setAttribute('data-received', webmention.received)
+
+        webmention.appendChild(document.createTextNode(formatted_date))
+
+
+        // Webmention Content
+        const webmention_content = wm_obj.querySelector('.webmention__content')
+        webmention_content.appendChild(document.createTextNode(webmention.content.text))
+
+
+        // Webmention Source
+        const source = wm_obj.querySelector('.webmention__source')
+        const source_icon = source.querySelector('i')
+        const source_tooltip = source.querySelector('[role="tooltip"')
+        const source_tooltip_id = `webmention-source-${webmention.id}`
+
+        source_icon.setAttribute('class', webmention.source_icon_class)
+        source_icon.setAttribute('aria-describedby', source_tooltip_id)
+        source_tooltip.setAttribute('id', source_tooltip_id)
+
+        if (webmention.source_domain === 'brid.gy') {
+            const image = document.createElement('image')
+            image.setAttribute('alt', 'Webmention icon')
+            image.setAttribute('src', '/images/webmention-logo.svg')
+            source_icon.appendChild(image)
+        }
+
+
+        // Webmention Type
+        const type = wm_obj.querySelector('.webmention__type')
+        const type_icon = type.querySelector('i')
+        const type_tooltip = type.querySelector('[role=tooltip]')
+        const type_tooltip_id = `webmention-type-${webmention.id}`
+
+        type_icon.setAttribute('class', webmention.type_icon_class)
+        type_icon.setAttribute('aria-describedby', type_tooltip_id)
+        type_tooltip.setAttribute('id', type_tooltip_id)
     })
+
+
+    const webmentions = document.querySelector('.webmentions')
+    webmentions.prepend(...new_webmentions)
 }
 
 async function getWebmentionsCount() {
@@ -114,22 +187,6 @@ async function getWebmentionsCount() {
         return false
     }
 
-}
-
-async function getWebmentions() {
-    const current_url = window.location.href
-    const webmentions_url = `https://webmention.io/api/mentions.jf2?target=${current_url}`
-
-    const response = await fetch(webmentions_url)
-    if (response.ok) {
-        const json = await response.json()
-
-        console.log(`Webmention.io data for ${current_url}: `)
-        console.log(json)
-    } else {
-        console.error(`${response.status} : ${response.statusText}`)
-        return false
-    }
 }
 
 function logSendWebmentionLink() {

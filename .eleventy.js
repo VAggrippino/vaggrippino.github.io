@@ -1,7 +1,7 @@
 const webc = require('@11ty/eleventy-plugin-webc')
 const navigation = require('@11ty/eleventy-navigation')
 const syntax_highlight = require('@11ty/eleventy-plugin-syntaxhighlight')
-const webmentions = require('js/getWebmentions')
+const webmentions = require('./js/parseWebmentions')
 
 const dayjs = require('dayjs')
 const advancedFormat = require('dayjs/plugin/advancedFormat')
