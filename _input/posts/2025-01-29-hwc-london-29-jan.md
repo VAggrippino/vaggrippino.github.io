@@ -13,11 +13,15 @@ published: false
 <h1 class="post__title p-name"><a class="u-url" href="{{ page.url }}">{{ title }}</a></h1>
 <time class="post__date dt-published" datetime="{% iso_date page.date %}">{% formatted_date page.date %}</time>
 
-I'll be attending the Homebrew Website Club meeting for the Europe/London time zone on January 29th.
+<div class="e-content">
 
-I'm looking forward to talking about my progress with Webmention implementation on my own site as well as some mistakes I've made.
+    I'll be attending the Homebrew Website Club meeting for the Europe/London time zone on January 29th.
 
-If there's time and interest, I might also ask for feedback and opinions about employment opportunities in Web Development.
+    I'm looking forward to talking about my progress with Webmention implementation on my own site as well as some mistakes I've made.
+
+    If there's time and interest, I might also ask for feedback and opinions about employment opportunities in Web Development.
+
+</div>
 
 <div class="post__rsvp">
     <p>
