@@ -1,4 +1,4 @@
-<article class="webmentions">
+<section class="webmentions" aria-labelledby="webmentions__heading">
     {%- assign filtered_webmentions = webmentions | webmentionsForUrl: page.url -%}
 
     <template id="webmention_template">
@@ -24,9 +24,7 @@
         </div>
     </template>
 
-    {%- if filtered_webmentions.size > 0 %}
-        <h1 class="webmentions__heading" id="webmentions">Webmentions</h1>
-    {% endif -%}
+    <h2 class="webmentions__heading" id="webmentions__heading">Webmentions</h1>
 
     {% for webmention in filtered_webmentions %}
         <div class="webmention" data-id="{{ webmention.id }}">
@@ -88,4 +86,4 @@
             </div>
         </div>
     {% endfor %}
-</article>
+</section>

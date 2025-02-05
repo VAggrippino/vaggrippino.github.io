@@ -68,12 +68,17 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     logSendWebmentionLink()
 
-    const since = getLastWebmentionDate()
-    addNewWebmentions(since)
+    if (document.querySelector('.webmentions')) {
+        const since = getLastWebmentionDate()
+        addNewWebmentions(since)
+    }
 })
 
 function getLastWebmentionDate() {
-    const webmentions = Array.from(document.querySelectorAll('.webmention[data-id]'))
+    const webmentions = Array.from(document.querySelectorAll('.webmentions > .webmention[data-id]'))
+
+    if (webmentions.length < 1) return null
+
     const dates = webmentions
         .map(w => w.querySelector('.webmention__date').dataset.received)
         .toSorted((a, b) => (new Date(a) > new Date(b)) ? -1 : 1)
@@ -82,7 +87,15 @@ function getLastWebmentionDate() {
 
 async function addNewWebmentions(since) {
     const current_url = window.location.href
-    const webmention_url = `https://webmention.io/api/mentions.jf2?target=${current_url}&since=${since}`
+    const webmention_endpoint = `https://webmention.io/api/mentions.jf2`
+
+    const webmention_url = (() => {
+        if (since !== null) {
+            return `${webmention_endpoint}?target=${current_url}&since=${since}`
+        } else {
+            return `${webmention_endpoint}?target=${current_url}`
+        }
+    })()
 
     const response = await fetch(webmention_url)
     const json = await response.json()
