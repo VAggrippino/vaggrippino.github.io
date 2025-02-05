@@ -66,12 +66,114 @@ window.addEventListener('DOMContentLoaded', async () => {
     webmentions_count_field.innerHTML = webmentions_data.count
     webmentions_count_field.classList.add('updated')
 
-    // Get the full Webmention.io data for this page and output it to the console.
-    // TODO: Show webmentions data on the page.
-    await getWebmentions()
-
     logSendWebmentionLink()
+
+    const since = getLastWebmentionDate()
+    addNewWebmentions(since)
 })
+
+function getLastWebmentionDate() {
+    const webmentions = Array.from(document.querySelectorAll('.webmention[data-id]'))
+    const dates = webmentions
+        .map(w => w.querySelector('.webmention__date').dataset.received)
+        .toSorted((a, b) => (new Date(a) > new Date(b)) ? -1 : 1)
+    return dates[0]
+}
+
+async function addNewWebmentions(since) {
+    const current_url = window.location.href
+    const webmention_url = `https://webmention.io/api/mentions.jf2?target=${current_url}&since=${since}`
+
+    const response = await fetch(webmention_url)
+    const json = await response.json()
+
+    if (json.children.length < 1) return
+
+    const new_webmentions_data = parseWebmentions(json)
+
+    const wm_template = document.querySelector('#webmention_template')
+
+    const new_webmentions = new_webmentions_data.map((webmention) => {
+        const wm_obj = wm_template.content.cloneNode(true)
+        
+        // Author Photo
+        if (webmention.author_photo) {
+            const photo = wm_obj.querySelector('.webmention__author__photo')
+            const anchor = document.createElement('a')
+            const image = document.createElement('img')
+
+            anchor.setAttribute('href', webmention.author_photo)
+            image.setAttribute('alt', `${webmention.author_name} profile photo`)
+            image.setAttribute('src', webmention.author_photo)
+
+            anchor.appendChild(image)
+            photo.appendChild(anchor)
+        }
+
+
+        // Author Name
+        const author_name = wm_obj.querySelector('.webmention__author__name')
+        author_name.appendChild(document.createTextNode(webmention.author_name))
+
+
+        // Author Link
+        const author_link = wm_obj.querySelector('.webmention__author__link')
+        const anchor = document.createElement('a')
+
+        anchor.setAttribute('href', webmention.author_url)
+        anchor.appendChild(document.createTextNode(webmention.author_url))
+
+        author_link.appendChild(anchor)
+
+
+        // Webmention Date
+        const date = wm_obj.querySelector('.webmention__date')
+        const formatted_date = dayjs(webmention.published).format('D MMM YYYY, h:mma')
+
+        date.setAttribute('datetime', webmention.published)
+        date.setAttribute('data-received', webmention.received)
+
+        webmention.appendChild(document.createTextNode(formatted_date))
+
+
+        // Webmention Content
+        const webmention_content = wm_obj.querySelector('.webmention__content')
+        webmention_content.appendChild(document.createTextNode(webmention.content.text))
+
+
+        // Webmention Source
+        const source = wm_obj.querySelector('.webmention__source')
+        const source_icon = source.querySelector('i')
+        const source_tooltip = source.querySelector('[role="tooltip"')
+        const source_tooltip_id = `webmention-source-${webmention.id}`
+
+        source_icon.setAttribute('class', webmention.source_icon_class)
+        source_icon.setAttribute('aria-describedby', source_tooltip_id)
+        source_tooltip.setAttribute('id', source_tooltip_id)
+
+        if (webmention.source_domain === 'brid.gy') {
+            const image = document.createElement('image')
+            image.setAttribute('alt', 'Webmention icon')
+            image.setAttribute('src', '/images/webmention-logo.svg')
+            source_icon.appendChild(image)
+        }
+
+
+        // Webmention Type
+        const type = wm_obj.querySelector('.webmention__type')
+        const type_icon = type.querySelector('i')
+        const type_tooltip = type.querySelector('[role=tooltip]')
+        const type_tooltip_id = `webmention-type-${webmention.id}`
+
+        type_icon.setAttribute('class', webmention.type_icon_class)
+        type_icon.setAttribute('aria-describedby', type_tooltip_id)
+        type_tooltip.setAttribute('id', type_tooltip_id)
+    })
+
+
+    const webmentions = document.querySelector('.webmentions')
+    webmentions.prepend(...new_webmentions)
+}
 
 async function getWebmentionsCount() {
     const current_url = window.location.href
@@ -79,44 +181,16 @@ async function getWebmentionsCount() {
 
     const response = await fetch(webmentions_url)
     if (response.ok) {
-        const json = await response.json()
-
-        console.log(`${response.status} : ${response.statusText}`)
-        console.log(json)
-
-        return json
+        return await response.json()
     } else {
         console.error(`${response.status} : ${response.statusText}`)
         return false
     }
 
-}
-
-async function getWebmentions() {
-    const current_url = window.location.href
-    const webmentions_url = `https://webmention.io/api/mentions.jf2?target=${current_url}`
-
-    const response = await fetch(webmentions_url)
-    if (response.ok) {
-        const json = await response.json()
-
-        console.log(`Webmention.io data for ${current_url}: `)
-        console.log(json)
-    } else {
-        console.error(`${response.status} : ${response.statusText}`)
-        return false
-    }
 }
 
 function logSendWebmentionLink() {
-    /* Based on "URL Decoder/Encoder": https://meyerweb.com/eric/tools/dencoder/
-     * created by Eric A. Meyer
-     * linked in webmention.app documentation */
-    // const current_url_escaped = encodeURIComponent(window.location.href).replace(/'/g, '%27').replace(/"/g, '%22')
-
     const current_url_encoded = encodeURI(window.location.href)
-
     const webmentions_url = `https://telegraph.p3k.io/dashboard/send?url=${current_url_encoded}`
-    console.log(`Test and send webmentions for this page: `)
-    console.log(webmentions_url)
+    console.log(`Test and send webmentions for this page at ${webmentions_url} `)
 }

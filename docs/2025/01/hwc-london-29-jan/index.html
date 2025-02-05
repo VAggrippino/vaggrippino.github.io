@@ -71,9 +71,11 @@
     <main class="main"><!-- <article class="h-entry" @html="content"></article> --><article class="h-entry">
     <h1 class="post__title p-name"><a href="/2025/01/hwc-london-29-jan/" class="u-url">RSVP: Homebrew Website Club - Europe/London - 29th January</a></h1>
 <time datetime="2025-01-29T00:00:00.000Z" class="post__date dt-published">29th January 2025 - Wednesday</time>
+<div class="e-content">
 <p>I'll be attending the Homebrew Website Club meeting for the Europe/London time zone on January 29th.</p>
 <p>I'm looking forward to talking about my progress with Webmention implementation on my own site as well as some mistakes I've made.</p>
 <p>If there's time and interest, I might also ask for feedback and opinions about employment opportunities in Web Development.</p>
+</div>
 <div class="post__rsvp">
     <p>
         RSVP <span class="p-rsvp">yes</span> to
@@ -91,12 +93,28 @@
     <div class="post__byline">Written by <a href="https://aggrippino.com" class="p-author h-card">Vince Aggrippino</a></div>
 </article>
 
-<article class="webmentions">
-    
-
-    
-
-    
+<article class="webmentions"><template id="webmention_template">
+        <div data-id="0" class="webmention webmention-new">
+            <div class="webmention__author">
+                <div class="webmention__author__photo"></div>
+                <div class="webmention__author__name"></div>
+                <div class="webmention__author__link"></div>
+            </div>
+            <time data-received="0" datetime="0" class="webmention__date"></time>
+            <div class="webmention__content"></div>
+            <a class="webmention__link">Link to Webmention ()</a>
+            <div class="webmention__meta">
+                <div class="webmention__source">
+                    <i aria-describedby="webmention-source-0" tabindex="0" class="fa-brands"></i>
+                    <div id="webmention-source-0" role="tooltip">Action</div>
+                </div>
+                <div class="webmention__property">
+                    <i aria-describedby="webmention-property-0" tabindex="0" class="fa-solid"></i>
+                    <div id="webmention-property-0" role="tooltip">wm-property</div>
+                </div>
+            </div>
+        </div>
+    </template>
 </article>
 </main>
     <footer class="footer">

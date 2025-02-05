@@ -1,11 +1,12 @@
 require('dotenv').config()
+const parseWebmentions = require('../js/parseWebmentions')
 const eleventyFetch = require('@11ty/eleventy-fetch')
 
 module.exports = async function () {
     const api = 'https://webmention.io/api/mentions.jf2'
-    const target = 'aggrippino.com'
+    const domain = 'aggrippino.com'
     const token = process.env.WEBMENTION_IO_TOKEN
-    const url = `${api}?domain=${target}&token=${token}`
+    const url = `${api}?domain=${domain}&token=${token}`
 
     try {
         const json = await eleventyFetch(url, {
@@ -14,7 +15,7 @@ module.exports = async function () {
             verbose: true,
         })
 
-        return json.children
+        return parseWebmentions(json)
     } catch (error) {
         console.error('Fetch failed to get data from webmention.io', error)
     }

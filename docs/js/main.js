@@ -67,11 +67,40 @@ window.addEventListener('DOMContentLoaded', async () => {
     webmentions_count_field.classList.add('updated')
 
     // Get the full Webmention.io data for this page and output it to the console.
-    // TODO: Show webmentions data on the page.
-    await getWebmentions()
+    //await getWebmentions()
 
     logSendWebmentionLink()
+
+    const since = getLastWebmentionDate()
 })
+
+function getLastWebmentionDate() {
+    const webmentions = Array.from(document.querySelectorAll('.webmention[data-id]'))
+    console.log(`Webmentions in page:`)
+    console.log(webmentions)
+    const dates = webmentions
+        .map(w => w.querySelector('.webmention__date').dataset.received)
+        .toSorted((a, b) => (new Date(a) > new Date(b)) ? -1 : 1)
+    return dates[0]
+}
+
+async function getNewWebmentions(since) {
+    const current_url = window.location.href
+    const webmention_url = `https://webmention.io/api/mentions.jf2?target=${current_url}&since=${since}`
+
+    const response = await fetch(webmention_url)
+    const json = await response.json()
+
+    if (json.children.length < 1) return
+
+    const wm_template = document.querySelector('#webmention_template')
+    const webmentions = Array.from(document.querySelectorAll('.webmention'))
+
+    const new_webmentions = json.children.map((wmd) => {
+        const wm_obj = tm_template.content.cloneNode(true)
+        
+    })
+}
 
 async function getWebmentionsCount() {
     const current_url = window.location.href
@@ -79,12 +108,7 @@ async function getWebmentionsCount() {
 
     const response = await fetch(webmentions_url)
     if (response.ok) {
-        const json = await response.json()
-
-        console.log(`${response.status} : ${response.statusText}`)
-        console.log(json)
-
-        return json
+        return await response.json()
     } else {
         console.error(`${response.status} : ${response.statusText}`)
         return false
@@ -109,14 +133,7 @@ async function getWebmentions() {
 }
 
 function logSendWebmentionLink() {
-    /* Based on "URL Decoder/Encoder": https://meyerweb.com/eric/tools/dencoder/
-     * created by Eric A. Meyer
-     * linked in webmention.app documentation */
-    // const current_url_escaped = encodeURIComponent(window.location.href).replace(/'/g, '%27').replace(/"/g, '%22')
-
     const current_url_encoded = encodeURI(window.location.href)
-
     const webmentions_url = `https://telegraph.p3k.io/dashboard/send?url=${current_url_encoded}`
-    console.log(`Test and send webmentions for this page: `)
-    console.log(webmentions_url)
+    console.log(`Test and send webmentions for this page at ${webmentions_url} `)
 }
