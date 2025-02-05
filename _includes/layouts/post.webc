@@ -2,7 +2,6 @@
 layout: base.webc
 ---
 
-<!-- <article class="h-entry" @html="content"></article> -->
 <article class="h-entry">
     <template @html="content" webc:nokeep></template>
     <div class="post__tags"

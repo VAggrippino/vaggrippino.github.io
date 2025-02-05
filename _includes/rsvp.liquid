@@ -1,6 +1,6 @@
 <div class="post__rsvp">
     <p>
-        RSVP <span class="p-rsvp">{{ answer }}</span> to
+        RSVP <span class="p-rsvp">{{ answer | default: 'yes' }}</span> to
         <a class="u-in-reply-to" href="{{ url }}">{{ event }}</a>
     </p>
 </div>
