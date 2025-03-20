@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webmentions | Vince's Website</title>
+
+    <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg">
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Vince's Website">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="webmention" href="https://webmention.io/aggrippino.com/webmention">
+
+    
+</head>
+<body class="post">
+    <header class="header">
+        <nav class="main-nav">
+    <button type="button" aria-expanded="false" aria-controls="main-nav__list" class="main-nav__control">
+        <i aria-hidden="true" class="fa-solid fa-burger"></i>
+        <span class="main-nav__title">Main Menu</span>
+    </button>
+    <ul id="main-nav__list" role="list" class="main-nav__list">
+        <li class="main-nav__item">
+            <a href="/">
+                <i aria-hidden="true" class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+        </li>
+<li class="main-nav__item">
+            <a href="/blog/">
+                <i aria-hidden="true" class="fa-solid fa-newspaper"></i>
+                <span>Blog</span>
+            </a>
+        </li>
+<li class="main-nav__item">
+            <a href="/projects/">
+                <i aria-hidden="true" class="fa-solid fa-sitemap"></i>
+                <span>Projects</span>
+            </a>
+        </li>
+<li class="main-nav__item">
+            <a href="/wiki/">
+                <i aria-hidden="true" class="fa-solid fa-book-bookmark"></i>
+                <span>Wiki</span>
+            </a>
+        </li>
+<li class="main-nav__item">
+            <a href="/about/">
+                <i aria-hidden="true" class="fa-solid fa-id-card"></i>
+                <span>About</span>
+            </a>
+        </li>
+<li class="main-nav__item">
+            <a href="/contact/">
+                <i aria-hidden="true" class="fa-solid fa-comment"></i>
+                <span>Contact</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+    </header>
+
+    <main class="main"><article class="h-entry">
+    <h1 class="post__title p-name"><a href="/2025/03/Webmentions/" class="u-url">Webmentions</a></h1>
+<time datetime="2025-03-06T00:00:00.000Z" class="post__date dt-published">6th March 2025 - Thursday</time><div class="e-content">
+<figure class="post__image">
+    <a href="/2025/03/Webmentions/"><img src="/images/Webmentions-header-image.webp" alt="The word “Webmentions” with the “W” replaced by the Webmention logo"></a></figure>
+<p>Webmentions are a way for content creators on the web to notify each other when they comment on or otherwise react to each others' work. This means that when you write a blog post on your site then someone writes a response on their site, you can automatically show and link to the response below your post. Most importantly, Webmention is an open standard and <a href="https://www.w3.org/TR/webmention/">W3C Recommendation</a> that doesn't depend on any proprietary technology or service.</p>
+<p>The basic implementation is pretty simple.  To <em>receive</em> webmentions, you need to specify a Webmention endpoint in your page <code>head</code> or your HTTP headers.</p>
+<p>Here's my Webmention endpoint:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>webmention<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://webmention.io/aggrippino.com/webmention<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></code></pre>
+<p>To <em>send</em> webmentions, find the target site's Webmention endpoint and send a <em>post</em> request to that URL with <code>source</code> and <code>target</code> parameters.</p>
+<p>What you do when you receive a webmention isn't defined by the specification, but you're going to want to parse the source page using <a href="https://microformats.org/">Microformats</a>, a related technology, to get the content as well as some information about the author and the type of reaction. A more practical implementation might be a little more complicated, but <a href="https://webmention.io/">Webmention.io</a> and <a href="https://webmention.app/">Webmention.app</a> are free services that make everything easier.</p>
+<p>, and <a href="https://brid.gy/">Bridgy</a>.</p>
+<p>I'll get into the details of a more practical implementation in different posts.</p>
+</div>
+<aside class="related">
+    <div id="related__title" class="related__title">My Webmention Series</div>
+<ol>
+<li><a href="/2025/03/Webmentions/">Webmentions</a> (this page)</li>
+<li>Receiving Webmentions</li>
+<li>Sending Webmentions</li>
+<li>Threads (a.k.a.: Salmentions)</li>
+</ol>
+</aside>
+    <div class="post__tags">
+        In
+        <ul class="post__tags__list">
+            <li class="p-category post__tags__item">social</li>
+<li class="p-category post__tags__item">WebDev</li>
+<li class="p-category post__tags__item">IndieWeb</li>
+        </ul>
+    </div>
+    <div class="post__byline">Written by <a href="https://aggrippino.com" class="p-author h-card">Vince Aggrippino</a></div>
+</article>
+
+<section aria-labelledby="webmentions__heading" class="webmentions"><template id="webmention_template">
+        <div data-id="0" class="webmention webmention-new">
+            <div class="webmention__author">
+                <div class="webmention__author__photo"></div>
+                <div class="webmention__author__name"></div>
+                <div class="webmention__author__link"></div>
+            </div>
+            <time data-received="0" datetime="0" class="webmention__date"></time>
+            <div class="webmention__content"></div>
+            <a class="webmention__link">Link to Webmention ()</a>
+            <div class="webmention__meta">
+                <div class="webmention__source">
+                    <i aria-describedby="webmention-source-0" tabindex="0" class="fa-brands"></i>
+                    <div id="webmention-source-0" role="tooltip">Action</div>
+                </div>
+                <div class="webmention__type">
+                    <i aria-describedby="webmention-type-0" tabindex="0" class="fa-solid"></i>
+                    <div id="webmention-type-0" role="tooltip">wm-property</div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <h2 id="webmentions__heading" class="webmentions__heading">Webmentions</h2>
+
+    
+</section>
+</main>
+    <footer class="footer">
+    <div class="footer__webmentions">
+        <p>
+            This page uses <a href="https://indieweb.org/Webmention">Webmention</a>:
+        </p>
+        <p>
+            This site uses <a href="https://webmention.io">Webmention.io</a> to
+            receive webmentions.
+            If you'd like to see all Webmentions for aggrippino.com,
+            <a href="https://webmention.io/api/mentions.html?token=Y_KpI9--Xwxe4RZbVSCaeg">click here</a>.
+        </p>
+        <p class="footer__webmentions__count">
+            Webmentions for this page: <span class="webmentions__count__counter">0</span>
+        </p>
+    </div>
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/dayjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/plugin/advancedFormat.min.js"></script>
+    
+    <script src="/js/parseWebmentions.js"></script>
+    <script src="/js/main.js"></script>
+
+</body>
+</html>
