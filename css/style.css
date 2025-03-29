@@ -414,6 +414,7 @@ figure.original-size img {
     background-color: hsl(from currentColor h s 95%);
     margin: 0;
     display: inline-block;
+    width: 100%;
 
     & > a {
         display: block;

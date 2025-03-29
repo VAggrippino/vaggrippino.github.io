@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Vince's Website</title>
+    <title>Accessible Animated Star Rating | Vince's Website</title>
 
     <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg">
@@ -20,7 +20,7 @@
 
     
 </head>
-<body class="blog">
+<body class="post">
     <header class="header">
         <nav class="main-nav">
     <button type="button" aria-expanded="false" aria-controls="main-nav__list" class="main-nav__control">
@@ -35,7 +35,7 @@
             </a>
         </li>
 <li class="main-nav__item">
-            <a href="/blog/" aria-current="page">
+            <a href="/blog/">
                 <i aria-hidden="true" class="fa-solid fa-newspaper"></i>
                 <span>Blog</span>
             </a>
@@ -68,27 +68,8 @@
 </nav>
     </header>
 
-    <main class="main"><h1>Blog</h1>
-
-<div class="accent-text">
-    <blockquote class="accent-text__quote">
-        I heard all things in the heaven and in the earth. I heard many things
-        in hell. How, then, am I mad? Hearken! and observe how healthily — how
-        calmly I can tell you the whole story.
-    </blockquote>
-    <div class="accent-text__attribution">
-        - From <cite><a href="https://poemuseum.org/the-tell-tale-heart/">The Tell-Tale Heart</a></cite>
-        <span class="byline">by Edgar Allan Poe</span>.
-    </div>
-</div>
-
-<h2>Latest Posts:</h2>
-
-
-
-<div class="h-feed">
-    <article class="collections-post h-entry">
-        <h1 class="post__title p-name"><a href="/2025/03/animated-rating-stars/" class="u-url">Accessible Animated Star Rating</a></h1>
+    <main class="main"><article class="h-entry">
+    <h1 class="post__title p-name"><a href="/2025/03/animated-rating-stars/" class="u-url">Accessible Animated Star Rating</a></h1>
 <time datetime="2025-03-22T00:00:00.000Z" class="post__date dt-published">22nd March 2025 - Saturday</time><div class="e-content">
 <figure class="post__image">
     <a href="/2025/03/animated-rating-stars/"><img src="/images/Animated_Star_Rating_demo.gif" alt="Showing the animation of selecting 5 stars"></a></figure>
@@ -122,46 +103,20 @@
 <p>If you're a professional, though, there's no choice. Accessibility is legally mandated and that requires JavaScript. An inaccessible website could subject you or your employer to fines or lawsuits. Again, don't take my word for it. Just do a web search for "accessibility lawsuits".</p>
 <p>If you do use JavaScript, you may as well take advantage of the additional capabilities; like I did with the offset <code>transition-delay</code>. Just don't go overboard. Poorly implemented JavaScript can really ruin both the performance and accessibility of an otherwise excellent website. The key concepts are <a href="https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement">progressive enhancement</a> and <a href="https://developer.mozilla.org/en-US/docs/Glossary/Graceful_degradation">graceful degradation</a>.</p>
 </div>
-    </article>
-<article class="collections-post h-entry">
-        <h1 class="post__title p-name"><a href="/2025/02/is-making-a-roblox-game-considered-programming/" class="u-url">Is Making a Roblox Game Considered Programming?</a></h1>
-<time datetime="2025-02-02T00:00:00.000Z" class="post__date dt-published">2nd February 2025 - Sunday</time><p class="p-summary hidden">
-    Millions of people are creating Roblox games. Is this the start of a programming career?
-</p>
-<div class="e-content">
-    <figure class="post__image">
-    <a href="/2025/02/is-making-a-roblox-game-considered-programming/"><img src="/images/teenage-boy-making-roblox-game.webp" alt="A teenage boy making a Roblox game"></a><figcaption>
-            <p>A teenage boy works on his new Roblox game... Is this the beginning of a programming career?</p>
-        </figcaption></figure>
-<p>I recently overheard a conversation between a Roblox Game Developer and some of his testers. As he demonstrated his game, he identified bugs, things that weren't actually bugs (features 😅), and characteristics of the environment.</p>
-<p>What got my attention was his concern when he found a bug, relief when it wasn't a bug, and excitement about not only what he had already done, but also what he plans to do in the future... Just like me when I discover a new programming language, API, or framework.</p>
-<p>Over the years, I've had the good fortune to participate in conversations with people working in every facet of the Software Engineering industry. Some of them would laugh me outta the room for even posing the question. They might say that you need logic, control flow, a well-documented API, or some other arbitrary and highly-opinionated features in order to be considered <em>programming</em>. I won't debate the point, but Roblox Game Development (along with <a href="https://create.roblox.com/docs/luau">Luau</a>) <em>might</em> still qualify.</p>
-<p>Programming gives me the opportunity to continuously learn, take what I've learned and make something new with it, break it, fix it, and share it with others before learning the next new thing. That's what I love about it. There's much less <em>rinse &amp; repeat</em> than in other professions. That's what makes it awesome it seems to me that Roblox has this quality in spades.</p>
-</div>
-    </article>
-<article class="collections-post h-entry">
-        <h1 class="post__title p-name"><a href="/2025/02/the-menu-element/" class="u-url">The <code>&lt;menu&gt;</code> Element</a></h1>
-<time datetime="2025-02-01T00:00:00.000Z" class="post__date dt-published">1st February 2025 - Saturday</time>
-<p class="p-summary hidden">The <code>&lt;menu&gt;</code> HTML element is a semantic alternative to <code>&lt;ul&gt;</code> intended for interactive items.</p>
-<p>I just noticed the navigation menu on a friend's website:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>menu</span><span class="token punctuation">&gt;</span></span> 
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/home/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/about/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>About<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/blog/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Blog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/contact/<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Contact<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>menu</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">&gt;</span></span></code></pre>
-<p>... huh?... <code>&lt;menu&gt;</code>? Since when is that a thing. I always use <code>&lt;ul&gt;</code> for menus.</p>
-<p>Well, I looked it up, researched it, and even tested it with accessibility tools. The <code>&lt;menu&gt;</code> element has been around forever, is supported everywhere, and, in every case, it works just like a <code>&lt;ul&gt;</code>.</p>
-<p>I even searched for navigation menu tutorials and they're all using <code>&lt;ul&gt;</code>. So, why aren't people using <code>&lt;menu&gt;</code> for menus? I dunno. I'm gonna start.</p>
+    <div class="post__tags">
+        In
+        <ul class="post__tags__list">
+            <li class="p-category post__tags__item">accessibility</li>
+<li class="p-category post__tags__item">a11y</li>
+<li class="p-category post__tags__item">HTML</li>
+<li class="p-category post__tags__item">CSS</li>
+<li class="p-category post__tags__item">JavaScript</li>
+        </ul>
+    </div>
+    <div class="post__byline">Written by <a href="https://aggrippino.com" class="p-author h-card">Vince Aggrippino</a></div>
+</article>
 
-    </article>
-</div>
-
-<div class="related-links">
-    <a href="history/8">Older Posts</a>
-</div></main>
+</main>
     <footer class="footer">
     <div class="footer__webmentions">
         <p>
