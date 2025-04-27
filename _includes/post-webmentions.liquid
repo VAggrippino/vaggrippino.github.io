@@ -1,5 +1,5 @@
 <section class="webmentions" aria-labelledby="webmentions__heading">
-    {%- assign filtered_webmentions = webmentions | webmentionsForUrl: page.url -%}
+    {%- assign filtered_webmentions = webmentions_data | webmentionsForUrl: page.url -%}
 
     <template id="webmention_template">
         <div class="webmention webmention-new" data-id="0">

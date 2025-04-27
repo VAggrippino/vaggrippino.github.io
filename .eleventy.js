@@ -18,9 +18,7 @@ module.exports = (Config) => {
     Config.addShortcode('formatted_datetime', (d) => dayjs(d).format('D MMM YYYY, h:mma'))
     Config.addShortcode('iso_date', (d) => dayjs(d).toISOString())
 
-    Config.addFilter('webmentionsForUrl', (wm, url) => {
-        return wm.filter(item => item.target_url.endsWith(url))
-    })
+    Config.addFilter('webmentionsForUrl', (wm, url) => wm.filter(item => item.target_url.endsWith(url)))
 
     Config.addFilter('escapeHtml', (html) => {
         return html
@@ -70,7 +68,7 @@ async function getWebmentions() {
         const parsed = await parseWebmentions(json)
         const parsed_string = JSON.stringify(parsed, null, 2)
 
-        fs.writeFile('_data/webmentions.json', parsed_string, (err) => {
+        fs.writeFile('_data/webmentions_data.json', parsed_string, (err) => {
             if (err) {
                 console.error('Error writing Webmentions data to file', err)
             } else {
