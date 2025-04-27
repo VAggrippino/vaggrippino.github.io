@@ -20,6 +20,6 @@ layout: base.webc
     <div class="post__byline">Written by <a class="p-author h-card" href="https://aggrippino.com">Vince Aggrippino</a></div>
 </article>
 
-<template webc:if="$data?.webmention?.receive" webc:type="11ty" 11ty:type="liquid">
+<template webc:if="$data?.webmention?.receive || $data?.webmentions?.receive" webc:type="11ty" 11ty:type="liquid">
     {% include 'post-webmentions' %}
 </template>
