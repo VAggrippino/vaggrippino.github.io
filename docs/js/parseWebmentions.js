@@ -8,6 +8,7 @@ const parseWebmentions = async function(webmentions) {
         const source_action = (source_domain === 'brid.gy') ? source_url_parts[3] : 'webmention'
         const source_site = (source_domain === 'brid.gy') ? source_url_parts[4] : source_domain
 
+        // Set a FontAwesome icon class based on the source
         const source_icon_class = (() => {
             if (source_domain !== 'brid.gy') return 'fa-webmention'
             const classes = ['fa-brands']
@@ -37,6 +38,7 @@ const parseWebmentions = async function(webmentions) {
             return classes.join(' ')
         })()
 
+        // Set a FontAwesome icon class based on the webmention type
         const property_type = {
             'in-reply-to': 'reply',
             'like-of': 'like',
