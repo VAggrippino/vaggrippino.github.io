@@ -146,12 +146,12 @@ async function addNewWebmentions(since) {
         date.setAttribute('datetime', webmention.published)
         date.setAttribute('data-received', webmention.received)
 
-        webmention.appendChild(document.createTextNode(formatted_date))
+        date.appendChild(document.createTextNode(formatted_date))
 
 
         // Webmention Content
         const webmention_content = wm_obj.querySelector('.webmention__content')
-        webmention_content.appendChild(document.createTextNode(webmention.content.text))
+        webmention_content.appendChild(document.createTextNode(webmention.content))
 
 
         // Webmention Source
@@ -164,8 +164,8 @@ async function addNewWebmentions(since) {
         source_icon.setAttribute('aria-describedby', source_tooltip_id)
         source_tooltip.setAttribute('id', source_tooltip_id)
 
-        if (webmention.source_domain === 'brid.gy') {
-            const image = document.createElement('image')
+        if (webmention.source_domain !== 'brid.gy') {
+            const image = document.createElement('img')
             image.setAttribute('alt', 'Webmention icon')
             image.setAttribute('src', '/images/webmention-logo.svg')
             source_icon.appendChild(image)
@@ -181,6 +181,15 @@ async function addNewWebmentions(since) {
         type_icon.setAttribute('class', webmention.type_icon_class)
         type_icon.setAttribute('aria-describedby', type_tooltip_id)
         type_tooltip.setAttribute('id', type_tooltip_id)
+
+
+        // Webmention Link
+        const link = wm_obj.querySelector('.webmention__link')
+        const domain = link.querySelector('.webmention__link__domain')
+        link.setAttribute('href', webmention.url)
+        domain.innerHTML = webmention.domain
+
+        return wm_obj
     })
 
 
