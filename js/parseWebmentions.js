@@ -1,4 +1,4 @@
-const parseWebmentions = async function(webmentions) {
+const parseWebmentions = function(webmentions) {
     if (webmentions.children.length < 1) return []
 
     return webmentions.children.map((webmention) => {
