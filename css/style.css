@@ -21,6 +21,8 @@
     --color-webmentions-error: red;
     --color-bg-webmentions-error: var(--color-bg);
 
+    --color-webmention-new-indicator: gold;
+
     --readable-width: 30rem;
     --finger-size: 64px;
     --spacing: 1rem;
@@ -593,6 +595,10 @@ footer {
         "meta";
 
     box-shadow: 1px 1px 3px hsl(from currentColor h s 50%);
+}
+
+.webmention-new {
+    background-image: linear-gradient(45deg, transparent 0 calc(100% - 2rem), var(--color-webmention-new-indicator) calc(100% - 2rem));
 }
 
 .webmention__author {
